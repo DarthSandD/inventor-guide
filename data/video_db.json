@@ -1,0 +1,1347 @@
+{
+ "RECTANGLE": {
+  "videoId": "hffYmwkmxI0",
+  "title": "Tutorial Inventor - Rectangle",
+  "channel": "Andi CAD",
+  "duration": 144
+ },
+ "ARC": {
+  "videoId": "Pzfao3k4-bo",
+  "title": "Autodesk Inventor  Sketch part1- Line, Circle and Arc",
+  "channel": "Yantrak Dal",
+  "duration": 794
+ },
+ "CIRCLE": {
+  "videoId": "CjTqq9GPHbg",
+  "title": "Inventor Tutorial: Howto use the Circle Tool | Video 10",
+  "channel": "Nathan Nagele",
+  "duration": 156
+ },
+ "LINE": {
+  "videoId": "0FtQid5qDxE",
+  "title": "Autodesk Inventor 2021 | How to use Line & Circle Tools | Tutorial",
+  "channel": "Design Forge",
+  "duration": 276
+ },
+ "SPLINE": {
+  "videoId": "qj6V2aJJ0FM",
+  "title": "Inventor 02-36 Drawing a Spline by Using the Spline Interpolation Tool",
+  "channel": "John Bordeau",
+  "duration": 162
+ },
+ "ELLIPSE": {
+  "videoId": "BeakAM5LMl0",
+  "title": "Generation of Conic Section || Ellipse || Autodesk Inventor Tutorial",
+  "channel": "3D Parametric Solid Model Drawing",
+  "duration": 1045
+ },
+ "EXTEND": {
+  "videoId": "qnldoGA_-5s",
+  "title": "Inventor 8 - Using the Trim and Extend Tool",
+  "channel": "MrLustyEDU",
+  "duration": 150
+ },
+ "TRIM": {
+  "videoId": "ODBUG6SKNSw",
+  "title": "Inventor 101: Sketch, Dimension, Trim and Extrude",
+  "channel": "Autodesk Inventor",
+  "duration": 148
+ },
+ "CHAMFER2D": {
+  "videoId": "VgkDOUUKeTg",
+  "title": "Inventor - Sketch: Create Chamfer",
+  "channel": "Kjell Eivind Helgesen",
+  "duration": 66
+ },
+ "FILLET2D": {
+  "videoId": "JLtq4uZ6QhM",
+  "title": "Inventor 02-34 Creating Fillets",
+  "channel": "John Bordeau",
+  "duration": 172
+ },
+ "POLYGON": {
+  "videoId": "yzvHBnLMYiI",
+  "title": "AUTODESK INVENTOR | #13 BASIC INTRODUCTION TO SKETCH POLYGON - USING THE FEATURE OF POLYGON",
+  "channel": "RikiYuni Family",
+  "duration": 311
+ },
+ "SKETCHPOINT": {
+  "videoId": "JnoCwPOacp8",
+  "title": "Why the Center Point is Important in a Sketch - Autodesk Inventor",
+  "channel": "Jeff Hung",
+  "duration": 186
+ },
+ "CONSTRUCTION": {
+  "videoId": "Henuk4I-elE",
+  "title": "Using Construction Geometry in Autodesk Inventor",
+  "channel": "KETIV Technologies",
+  "duration": 164
+ },
+ "SKETCHTEXT": {
+  "videoId": "XirTfeNyrLo",
+  "title": "Inventor sketch text tool",
+  "channel": "Modena OneSolve – The Future of Digitalisation",
+  "duration": 162
+ },
+ "PROJECTGEOM": {
+  "videoId": "LOH5VylQOTI",
+  "title": "Inventor 101: Revolve, Project Geometry and Visual Style",
+  "channel": "Autodesk Inventor",
+  "duration": 168
+ },
+ "INCLUDEGEOM": {
+  "videoId": "2WKQMHv57lU",
+  "title": "Full Project Geometry Tutorial, all Options Explained and Demonstrated!",
+  "channel": "Neil Cross",
+  "duration": 816
+ },
+ "3DSKETCH": {
+  "videoId": "TLWCfaV9EMw",
+  "title": "Quick Tip: 3D Sketching, Sweep and Mirror",
+  "channel": "Autodesk Inventor",
+  "duration": 147
+ },
+ "DYNAMICINPUT": {
+  "videoId": "vWfZ5lw5uv8",
+  "title": "Inventor's Dynamic Input",
+  "channel": "Design & Motion.net",
+  "duration": 138
+ },
+ "CONSTRAINT_PARALLEL": {
+  "videoId": "XZqz8m93iJE",
+  "title": "The Parallel Constraint | Design Drafting with S.Henderson",
+  "channel": "Shelby Henderson",
+  "duration": 159
+ },
+ "CONSTRAINT_COLLINEAR": {
+  "videoId": "tQifHcMuKPg",
+  "title": "Collinear Sketch Constraint - Autodesk Inventor 2025",
+  "channel": "Fully Constrained",
+  "duration": 761
+ },
+ "CONSTRAINT_PERPENDICULAR": {
+  "videoId": "y698hdJj7ng",
+  "title": "The Perpendicular Constraint | Design Drafting with S.Henderson",
+  "channel": "Shelby Henderson",
+  "duration": 122
+ },
+ "CONSTRAINT_COINCIDENT": {
+  "videoId": "APAasiZK6mk",
+  "title": "The Coincident Constraint | Design Drafting with S.Henderson",
+  "channel": "Shelby Henderson",
+  "duration": 248
+ },
+ "CONSTRAINT_TANGENT": {
+  "videoId": "NpGaP55a9Z0",
+  "title": "Quick Tip - Tangent Constraint",
+  "channel": "Autodesk Inventor",
+  "duration": 127
+ },
+ "CONSTRAINT_HORIZONTAL": {
+  "videoId": "D-7DrKDjfyM",
+  "title": "CAD Tutorial 02.8 Horizontal Vertical Constraint",
+  "channel": "Makers Bench",
+  "duration": 178
+ },
+ "CONSTRAINT_EQUAL": {
+  "videoId": "xF-E4y22vEI",
+  "title": "Inventor Equal Constraint Tutorial",
+  "channel": "Mufasu CAD",
+  "duration": 230
+ },
+ "CONSTRAINT_VERTICAL": {
+  "videoId": "D-7DrKDjfyM",
+  "title": "CAD Tutorial 02.8 Horizontal Vertical Constraint",
+  "channel": "Makers Bench",
+  "duration": 178
+ },
+ "CONSTRAINT_SYMMETRIC": {
+  "videoId": "9yJfyXxm_5k",
+  "title": "Quick Tip - Symmetry Constraint",
+  "channel": "Autodesk Inventor",
+  "duration": 123
+ },
+ "DIMENSION": {
+  "videoId": "Qy-2lEZsd4s",
+  "title": "Creating General Dimensions in Autodesk Inventor",
+  "channel": "Between CAD Classes",
+  "duration": 135
+ },
+ "CONSTRAINT_FIX": {
+  "videoId": "Oeh9Bua8pDo",
+  "title": "Inventor 03-10  Fix Constraint",
+  "channel": "John Bordeau",
+  "duration": 97
+ },
+ "AUTODIMENSION": {
+  "videoId": "lIVUB5lfbA8",
+  "title": "Creating Fully Constrained Sketch || Dimension Tool || Autodesk Inventor Tutorial",
+  "channel": "3D Parametric Solid Model Drawing",
+  "duration": 197
+ },
+ "SHOWCONSTRAINTS": {
+  "videoId": "JaI0LI70sUw",
+  "title": "Autodesk Inventor - Viewing Constraints in the Sketch Environment",
+  "channel": "CAD Video Tutorials",
+  "duration": 66
+ },
+ "EXTRUDE": {
+  "videoId": "UKsTL-268RM",
+  "title": "Inventor 101: Cut Extrude, Fillet and Hole Commands",
+  "channel": "Autodesk Inventor",
+  "duration": 115
+ },
+ "REVOLVE": {
+  "videoId": "LOH5VylQOTI",
+  "title": "Inventor 101: Revolve, Project Geometry and Visual Style",
+  "channel": "Autodesk Inventor",
+  "duration": 168
+ },
+ "HIDECONSTRAINTS": {
+  "videoId": "Cpq0JQ-4RbQ",
+  "title": "How to View, Hide or Delete Geometric Constraints | Design Drafting with S.Henderson",
+  "channel": "Shelby Henderson",
+  "duration": 325
+ },
+ "CONSTRAINTS": {
+  "videoId": "BbBmHQQlsJI",
+  "title": "How to Use Sketch Constraints - Autodesk Inventor",
+  "channel": "Fully Constrained",
+  "duration": 715
+ },
+ "HOLE": {
+  "videoId": "UKsTL-268RM",
+  "title": "Inventor 101: Cut Extrude, Fillet and Hole Commands",
+  "channel": "Autodesk Inventor",
+  "duration": 115
+ },
+ "FILLET": {
+  "videoId": "5kf9BtLsiqI",
+  "title": "Fillet Tool and Options - Autodesk Inventor Part Tutorial | Autodesk Inventor 2021 IN DEPTH",
+  "channel": "Engineering Applied",
+  "duration": 846
+ },
+ "THREAD": {
+  "videoId": "EgA0Lj4_3N8",
+  "title": "Modelling Threads in Autodesk Inventor",
+  "channel": "Amar Joseph",
+  "duration": 158
+ },
+ "FACEOFFSET": {
+  "videoId": "JAsDC1p2mB4",
+  "title": "Direct Edit, Split, Offset Face & Thread Tools - Inventor",
+  "channel": "EDUnextLeap",
+  "duration": 500
+ },
+ "DRAFT": {
+  "videoId": "hVD4XPPN1IM",
+  "title": "Quick Tip - Mastering the 3 Types of Draft in Inventor",
+  "channel": "Autodesk Inventor",
+  "duration": 134
+ },
+ "CHAMFER": {
+  "videoId": "_P38nvfK3Vo",
+  "title": "How to use the Chamfer Tool in Autodesk Inventor",
+  "channel": "CAD with Jordan",
+  "duration": 237
+ },
+ "SHELL": {
+  "videoId": "bLih99xFDyg",
+  "title": "Inventor 101: Shell Command and Model Tree Planes",
+  "channel": "Autodesk Inventor",
+  "duration": 129
+ },
+ "COMBINE": {
+  "videoId": "-iF2VD5Kuyk",
+  "title": "Inventor How To Combine Solid Bodies Tutorial",
+  "channel": "Learning Autodesk Inventor",
+  "duration": 113
+ },
+ "PATTERN_RECT": {
+  "videoId": "uBrUl6-KOG4",
+  "title": "Inventor 101: Rectangular Pattern",
+  "channel": "Autodesk Inventor",
+  "duration": 104
+ },
+ "REST": {
+  "videoId": "LxvzhRnXM3Y",
+  "title": "Autodesk Inventor - Rest (Boss) Feature, Part 1",
+  "channel": "Francisco A de A",
+  "duration": 422
+ },
+ "SPLIT": {
+  "videoId": "-aBmNXTHB38",
+  "title": "How To Use Split Command In Autodesk Inventor 2027",
+  "channel": "Learning Autodesk Inventor",
+  "duration": 104
+ },
+ "MIRROR": {
+  "videoId": "KK57vFgPXWs",
+  "title": "Autodesk Inventor How To Mirror A Part Tutorial",
+  "channel": "Learning Autodesk Inventor",
+  "duration": 106
+ },
+ "PATTERN_CIRCULAR": {
+  "videoId": "ZbpiMBEPGU0",
+  "title": "Inventor 101: Circular Pattern",
+  "channel": "Autodesk Inventor",
+  "duration": 98
+ },
+ "LOFT": {
+  "videoId": "7WZ4W-BjTwQ",
+  "title": "Inventor 101: Loft Command",
+  "channel": "Autodesk Inventor",
+  "duration": 92
+ },
+ "MEASURE": {
+  "videoId": "CY0vkzpJWu8",
+  "title": "Inventor Tutorial - Measure tool",
+  "channel": "LinkedIn Learning",
+  "duration": 137
+ },
+ "SWEEP": {
+  "videoId": "J0OZx7k0LhM",
+  "title": "Inventor How To Use Sweep",
+  "channel": "Learning Autodesk Inventor",
+  "duration": 96
+ },
+ "PARAMETERS_FEAT": {
+  "videoId": "kglPAJjVyq8",
+  "title": "Quick Tip - Using Parameters for Multiple Design Configurations",
+  "channel": "Autodesk Inventor",
+  "duration": 198
+ },
+ "IPROPERTIES": {
+  "videoId": "FgHwQFD0t6I",
+  "title": "Autodesk Inventor - Automatically update iProperties when model changes",
+  "channel": "Autodesk Inventor: Solutions and Tips",
+  "duration": 554
+ },
+ "MOVEBODIES": {
+  "videoId": "dAF8z7rH-8Q",
+  "title": "Autodesk Inventor - How to Reposition Solids with Move Bodies Command",
+  "channel": "Team D3",
+  "duration": 135
+ },
+ "THICKEN": {
+  "videoId": "xUf6C8lyq1A",
+  "title": "Inventor Basic: Thicken Offset",
+  "channel": "Autodesk Inventor Tips and Tutorials",
+  "duration": 100
+ },
+ "COIL": {
+  "videoId": "4Hs1UL8FHjo",
+  "title": "Inventor 101: Coil Command",
+  "channel": "Autodesk Inventor",
+  "duration": 88
+ },
+ "BOUNDARYPATCH": {
+  "videoId": "YeSQTgsh9wk",
+  "title": "Inventor Surface Modelling 6: Create Sheet Surfaces Using the Boundary Patch Tool",
+  "channel": "EDUnextLeap",
+  "duration": 233
+ },
+ "EMBOSS": {
+  "videoId": "bpE17vTJkLY",
+  "title": "Embossing Text on a Part",
+  "channel": "Autodesk Inventor",
+  "duration": 135
+ },
+ "RIB": {
+  "videoId": "W67LNE5eNGA",
+  "title": "Quick Tip: Rib Command",
+  "channel": "Autodesk Inventor",
+  "duration": 119
+ },
+ "SCULPT": {
+  "videoId": "LP4ArppuXno",
+  "title": "How to subtract solids, using sculpt | Autodesk Inventor",
+  "channel": "Neil Cross",
+  "duration": 466
+ },
+ "IFEATURE": {
+  "videoId": "ji7GdbzigNA",
+  "title": "Tutorial Inventor - 144 iFeature",
+  "channel": "Constantin Stancescu",
+  "duration": 1620
+ },
+ "COPYOBJECT": {
+  "videoId": "vTcquPApc54",
+  "title": "61 AutoDesk Inventor Tutorial: Copy Object, surface",
+  "channel": "Tutorials Engineer ҂",
+  "duration": 148
+ },
+ "FACEFILLETVAR": {
+  "videoId": "0T0rg__dYgc",
+  "title": "Autodesk Inventor 2012 - Variable Radius Fillet",
+  "channel": "manufacturingarea",
+  "duration": 133
+ },
+ "DERIVED": {
+  "videoId": "NIqrXXOudMQ",
+  "title": "Quick Tip - Component Derive",
+  "channel": "Autodesk Inventor",
+  "duration": 68
+ },
+ "IPART": {
+  "videoId": "Lm0DYRpQzzQ",
+  "title": "Create an Inventor iPart",
+  "channel": "Micrographics",
+  "duration": 241
+ },
+ "MULTISOLID": {
+  "videoId": "_KHIM4MY6aw",
+  "title": "How to use Multi-Body Parts, Parts to Assemblies | Autodesk Inventor",
+  "channel": "Neil Cross",
+  "duration": 997
+ },
+ "DIRECTEDIT": {
+  "videoId": "_Vz-OSEi29o",
+  "title": "Autodesk Inventor direct edit modeling",
+  "channel": "Autodesk Inventor",
+  "duration": 352
+ },
+ "REPLACEFACE": {
+  "videoId": "Ld9stL8A_1M",
+  "title": "Inventor - Replace Face",
+  "channel": "Sergio Schuartz",
+  "duration": 93
+ },
+ "ASSEMBLE": {
+  "videoId": "zPti2GO44Oo",
+  "title": "Inventor: Joints 101",
+  "channel": "Cory Allen",
+  "duration": 999
+ },
+ "CONSTRAIN": {
+  "videoId": "i0r7q0B2OSA",
+  "title": "Inventor 101: Applying Assembly Constraints",
+  "channel": "Autodesk Inventor",
+  "duration": 128
+ },
+ "CREATECOMPONENT": {
+  "videoId": "gBTHodMz4xE",
+  "title": "Autodesk Inventor Tutorial 32: Assembly intro + Component Tools",
+  "channel": "Inventor Tutor",
+  "duration": 350
+ },
+ "PLACE": {
+  "videoId": "MIS8yRL1qV4",
+  "title": "Inventor 101: Placing and Orienting Parts in an Assembly",
+  "channel": "Autodesk Inventor",
+  "duration": 116
+ },
+ "ANGLE": {
+  "videoId": "CscwF7X--xQ",
+  "title": "Angle Constraint Resting Position & Limits | Autodesk Inventor",
+  "channel": "Neil Cross",
+  "duration": 306
+ },
+ "TANGENT_ASSY": {
+  "videoId": "NpGaP55a9Z0",
+  "title": "Quick Tip - Tangent Constraint",
+  "channel": "Autodesk Inventor",
+  "duration": 127
+ },
+ "INSERT": {
+  "videoId": "Zr-XBflSr2I",
+  "title": "Insert Constraint|| Autodesk Inventor CAD Tutorial #12",
+  "channel": "Cache Money 8096",
+  "duration": 272
+ },
+ "MATE": {
+  "videoId": "4EnZwE490JY",
+  "title": "Autodesk Inventor Assembly Constraints: Mate and Flush",
+  "channel": "Between CAD Classes",
+  "duration": 620
+ },
+ "FLUSH": {
+  "videoId": "UY4mEV3Lihs",
+  "title": "43 - Mate and Flush Constraint | Assembly Mode | Autodesk Inventor Tutorial",
+  "channel": "Starry Industries",
+  "duration": 1218
+ },
+ "ROTATIONAL": {
+  "videoId": "DauAkuUCm60",
+  "title": "Quick Tip - Rotational Joint",
+  "channel": "Autodesk Inventor",
+  "duration": 263
+ },
+ "GROUND": {
+  "videoId": "TlgS1NpgJ9w",
+  "title": "6. Grounding Parts - Autodesk Inventor",
+  "channel": "AutoDesk Inventor with Demch",
+  "duration": 96
+ },
+ "PLANARJOINT": {
+  "videoId": "2xv7EjmgOpk",
+  "title": "Planar Joint",
+  "channel": "Autodesk Inventor",
+  "duration": 138
+ },
+ "RIGIDJOINT": {
+  "videoId": "nBTm7TukMRw",
+  "title": "Quick Tip - Rigid Joint",
+  "channel": "Autodesk Inventor",
+  "duration": 165
+ },
+ "CYLINDRICAL": {
+  "videoId": "J7ykV88v6PM",
+  "title": "Quick Tip - Cylindrical Joint",
+  "channel": "Autodesk Inventor",
+  "duration": 196
+ },
+ "SLIDER": {
+  "videoId": "xTnLR2SJInY",
+  "title": "Quick Tip - Slider Joint",
+  "channel": "Autodesk Inventor",
+  "duration": 211
+ },
+ "BALLJOINT": {
+  "videoId": "CKb92-YaDzI",
+  "title": "Quick Tip - Ball Joint",
+  "channel": "Autodesk Inventor",
+  "duration": 132
+ },
+ "FREEMOVE": {
+  "videoId": "kuwLA-AH_sY",
+  "title": "Inventor How To Move Part In Assembly",
+  "channel": "Learning Autodesk Inventor",
+  "duration": 92
+ },
+ "IMATE": {
+  "videoId": "YkwmmnncZmE",
+  "title": "Inventor iMate (Basic iMate for the Furniture Industry)",
+  "channel": "Dan Hiney",
+  "duration": 546
+ },
+ "BOM": {
+  "videoId": "VBSRMcjZI68",
+  "title": "Autodesk Inventor Bill of Materials",
+  "channel": "Graitec UK",
+  "duration": 124
+ },
+ "PATTERN_COMP": {
+  "videoId": "ix6hUK_vP6U",
+  "title": "Pattern Component in Autodesk Inventor Assembly 2023",
+  "channel": "CAD CAM TUTORIAL BY MAHTAB",
+  "duration": 247
+ },
+ "MIRROR_COMP": {
+  "videoId": "qOHYF84dNk8",
+  "title": "Mirroring Components in an Assembly - A Better Way",
+  "channel": "John Hackney",
+  "duration": 289
+ },
+ "COPY_COMP": {
+  "videoId": "WO4k-g9zjlo",
+  "title": "Using Copy Component to Create a Similar Component in Autodesk Inventor",
+  "channel": "KETIV Technologies",
+  "duration": 146
+ },
+ "INTERFERENCE": {
+  "videoId": "G6encKlJICo",
+  "title": "Analyzing Interference between Autodesk Inventor Assembly Components",
+  "channel": "Between CAD Classes",
+  "duration": 194
+ },
+ "BOLTEDCONN": {
+  "videoId": "g7W0PiXSmUA",
+  "title": "Autodesk Inventor - Bolted Connection",
+  "channel": "Inventor Tutorials",
+  "duration": 320
+ },
+ "DRIVECONSTRAINT": {
+  "videoId": "HGKdGQNtVVY",
+  "title": "Inventor 101: Driving Motion with Assembly Constraints",
+  "channel": "Autodesk Inventor",
+  "duration": 142
+ },
+ "CONTACTSET": {
+  "videoId": "2WWW6iOHSX4",
+  "title": "How to Use Contact Sets in Autodesk Inventor Professional",
+  "channel": "Redcage",
+  "duration": 187
+ },
+ "SELECTOTHER": {
+  "videoId": "hDSLZzpQLpQ",
+  "title": "Inventor - Options for Controlling the Select Other Cycling",
+  "channel": "Team D3",
+  "duration": 300
+ },
+ "CONSTRAINTLIMIT": {
+  "videoId": "sO-Iw9Gl1oU",
+  "title": "New for Autodesk Inventor 2011 - Constraint Limits",
+  "channel": "KETIV Technologies",
+  "duration": 152
+ },
+ "POSREP": {
+  "videoId": "7sk8gY3JiKI",
+  "title": "Assembly Positional Representation Tutorial | Autodesk Inventor",
+  "channel": "Neil Cross",
+  "duration": 1257
+ },
+ "SUBSTITUTE": {
+  "videoId": "VwYR20ICgKE",
+  "title": "Autodesk Inventor Substitute Shrinkwrap Level Of Detail",
+  "channel": "InventorMasters",
+  "duration": 131
+ },
+ "ADAPTIVE": {
+  "videoId": "rAHKdsjGdNA",
+  "title": "Adaptivity as fast and as simple as possible | Autodesk Inventor",
+  "channel": "Neil Cross",
+  "duration": 538
+ },
+ "VIEWREP": {
+  "videoId": "8tM7CEt_RW4",
+  "title": "Inventor 2017 | View Representation Feature",
+  "channel": "Daniel Severino",
+  "duration": 836
+ },
+ "WELDMENT": {
+  "videoId": "luGYZzCWHn4",
+  "title": "Autodesk Inventor Weldment Tutorial | Welding Tools",
+  "channel": "vvk tutorials",
+  "duration": 350
+ },
+ "LOD": {
+  "videoId": "knnqxVH55tM",
+  "title": "Assembly representations (Level of detail & View Reps) | Autodesk Inventor",
+  "channel": "Neil Cross",
+  "duration": 1393
+ },
+ "FRAMEGEN": {
+  "videoId": "89PX745HTfU",
+  "title": "Frame Generator Tutorial (Beginner) | Autodesk Inventor",
+  "channel": "Neil Cross",
+  "duration": 718
+ },
+ "PROMOTE": {
+  "videoId": "d315wJDVjUU",
+  "title": "[Inventor 2013 Tips] Promote và demote",
+  "channel": "InventorTipsVN",
+  "duration": 145
+ },
+ "SKELETON": {
+  "videoId": "JaiVSNIDMSM",
+  "title": "Using Autodesk Inventor for Skeletal Modeling",
+  "channel": "IMAGINiT Technologies",
+  "duration": 2578
+ },
+ "TOPDOWN": {
+  "videoId": "I5szU_6h2FY",
+  "title": "08 Top Down Assembly Design   02 In Place Editing",
+  "channel": "Learning Autodesk Inventor Advance",
+  "duration": 294
+ },
+ "DEMOTE": {
+  "videoId": "lhvpWMHgxeU",
+  "title": "How to Demote Components to Create an Assembly",
+  "channel": "KETIV Technologies",
+  "duration": 133
+ },
+ "REPLACE": {
+  "videoId": "nzhZl-gScPs",
+  "title": "Replacing a component or subassembly in an assembly - Autodesk Inventor 2011",
+  "channel": "CADLearning (Now Eagle Point Software)",
+  "duration": 121
+ },
+ "CLASH": {
+  "videoId": "G6encKlJICo",
+  "title": "Analyzing Interference between Autodesk Inventor Assembly Components",
+  "channel": "Between CAD Classes: AutoCAD",
+  "duration": 194
+ },
+ "SM_FLANGE": {
+  "videoId": "GFWEnBM5efc",
+  "title": "03 Autodesk Inventor 2020 Sheet Metal - Flange Tool",
+  "channel": "MakCham Cad",
+  "duration": 1204
+ },
+ "PARAMETRIC_ASSY": {
+  "videoId": "SkVav0ZhOXU",
+  "title": "Basics of Assembly Configuration in Autodesk Inventor - Copying Assets and Pushing Parameters",
+  "channel": "KETIV Technologies",
+  "duration": 1699
+ },
+ "SM_FACE": {
+  "videoId": "utwExHHTcg8",
+  "title": "Face in Inventor 2015 (Base Flange)",
+  "channel": "SolidProfessor",
+  "duration": 385
+ },
+ "SIMPLIFY": {
+  "videoId": "CVNK1WzALhE",
+  "title": "Autodesk Inventor 2022: Simplify Command",
+  "channel": "Autodesk Inventor",
+  "duration": 374
+ },
+ "SM_CONTOUR": {
+  "videoId": "y1C6oFxSaGM",
+  "title": "Autodesk Inventor | Lesson 35 | Contour Flange",
+  "channel": "DAWUD ALFAJRI",
+  "duration": 242
+ },
+ "SM_FOLD": {
+  "videoId": "24ETHgdcf5Y",
+  "title": "07 Autodesk Inventor 2020 Sheet Metal - Fold Tool",
+  "channel": "MakCham Cad",
+  "duration": 278
+ },
+ "SM_HEM": {
+  "videoId": "nnXnRdU7-kE",
+  "title": "Autodesk Inventor 2023 Sheet metal Hem Types",
+  "channel": "CAD CAM TUTORIAL BY MAHTABALAM",
+  "duration": 510
+ },
+ "SM_BEND": {
+  "videoId": "osNimiH2ZCI",
+  "title": "Inventor How To Bend Sheet Metal",
+  "channel": "Learning Autodesk Inventor",
+  "duration": 138
+ },
+ "SM_PUNCH": {
+  "videoId": "sWZs2iiV4b4",
+  "title": "Punch Tool Sheet Metal",
+  "channel": "Autodesk Inventor",
+  "duration": 183
+ },
+ "SM_CUT": {
+  "videoId": "Vwt8yJvd-1E",
+  "title": "09 Autodesk Inventor 2020 Sheet Metal - Cut Tool",
+  "channel": "MakCham Cad",
+  "duration": 771
+ },
+ "SM_CORNERSEAM": {
+  "videoId": "DsefUWxGafM",
+  "title": "Sheet Metal Corner Seam",
+  "channel": "Autodesk Inventor Tips and Tutorials",
+  "duration": 162
+ },
+ "SM_CORNROUND": {
+  "videoId": "9DJdoQ-2lbY",
+  "title": "Autodesk Inventor sheet metal 2023 Exercise 21,Contour flange, Cut, Corner round",
+  "channel": "CAD CAM TUTORIAL BY MAHTABALAM",
+  "duration": 597
+ },
+ "SM_UNFOLD": {
+  "videoId": "7UO2gixSkgU",
+  "title": "Inventor - Create Flat Pattern",
+  "channel": "ARKANCE UK",
+  "duration": 73
+ },
+ "SM_BENDTABLE": {
+  "videoId": "HSzEJi386Ik",
+  "title": "Autodesk Inventor Bend table",
+  "channel": "Autodesk Inventor Professional",
+  "duration": 898
+ },
+ "SM_DEFAULTS": {
+  "videoId": "ciR3gHVbh6s",
+  "title": "Sheet Metal Defaults in Inventor 2015",
+  "channel": "SolidProfessor",
+  "duration": 443
+ },
+ "BASEVIEW": {
+  "videoId": "fTLEv1inzvk",
+  "title": "Base View Command - Autodesk Inventor Drawing Tutorial | Autodesk Inventor 2021 IN DEPTH",
+  "channel": "Engineering Applied",
+  "duration": 2255
+ },
+ "PROJVIEW": {
+  "videoId": "07tOrk2UZ0U",
+  "title": "Projected View Command - Autodesk Inventor Drawing Tutorial | Autodesk Inventor 2021 IN DEPTH",
+  "channel": "Engineering Applied",
+  "duration": 564
+ },
+ "SECTIONVIEW": {
+  "videoId": "aBzpVeI641c",
+  "title": "Inventor 101: Auxiliary & Section View, Drawing Dimensions & Annotations",
+  "channel": "Autodesk Inventor",
+  "duration": 151
+ },
+ "DETAILVIEW": {
+  "videoId": "KEYb1iCVXvY",
+  "title": "How to create a Detail View on your drawing in Autodesk Inventor",
+  "channel": "CAD with Jordan",
+  "duration": 296
+ },
+ "AUXVIEW": {
+  "videoId": "aBzpVeI641c",
+  "title": "Inventor 101: Auxiliary & Section View, Drawing Dimensions & Annotations",
+  "channel": "Autodesk Inventor",
+  "duration": 151
+ },
+ "OVERLAYVIEW": {
+  "videoId": "eAMUFdONo8g",
+  "title": "Activate Contact Solver & Overlay View Drawing [AutoDesk Inventor 2026]",
+  "channel": "Ts. ARIFIN BIN ABDUL RAUF",
+  "duration": 428
+ },
+ "BREAKVIEW": {
+  "videoId": "_CzC5aGujrE",
+  "title": "Membuat Break View Autodesk Inventor 2023 Drawing Tutorial",
+  "channel": "Febrianto Amri Ristadi",
+  "duration": 145
+ },
+ "BROKENOUT": {
+  "videoId": "ZwXVFbKR2ko",
+  "title": "Create a Breakout Section view.",
+  "channel": "Mr. Licharowicz",
+  "duration": 140
+ },
+ "DIM_BASELINE": {
+  "videoId": "bW4eXOHK0F8",
+  "title": "Autodesk Inventor Indonesia | Baseline Dimension",
+  "channel": "DAWUD ALFAJRI",
+  "duration": 234
+ },
+ "DIM_GENERAL": {
+  "videoId": "OWKb6cvbCwM",
+  "title": "Dimension and Draw Inventor Drawing Sheet",
+  "channel": "Seth Ponder",
+  "duration": 373
+ },
+ "DIM_CHAIN": {
+  "videoId": "BpcpdPPrPx8",
+  "title": "Creating Baseline and Chain Dimensions in Autodesk Inventor",
+  "channel": "Between CAD Classes",
+  "duration": 138
+ },
+ "DIM_ORDINATE": {
+  "videoId": "hn9FwnygQW0",
+  "title": "Ordinate Set Dimension - Autodesk Inventor",
+  "channel": "Nine Murti",
+  "duration": 156
+ },
+ "BALLOON": {
+  "videoId": "3VcW2lzC1Ws",
+  "title": "Inventor How To Create Balloon Tutorial",
+  "channel": "Learning Autodesk Inventor",
+  "duration": 129
+ },
+ "PARTSLIST": {
+  "videoId": "aJzAv70e3EA",
+  "title": "Autodesk Inventor Frame Generator | Creating a Part List (BOM) and Detailed Drawing - PART 1",
+  "channel": " CAD BY NANA",
+  "duration": 1211
+ },
+ "HOLETABLE": {
+  "videoId": "oFXbA9yqXAM",
+  "title": "Autodesk Inventor - hole table in 30sec",
+  "channel": "สอน Autodesk Inventor",
+  "duration": 148
+ },
+ "REVISIONTABLE": {
+  "videoId": "J7Fnnctmvz8",
+  "title": "Revision Table Style - Inventor",
+  "channel": "Chris Benner",
+  "duration": 368
+ },
+ "LEADERTEXT": {
+  "videoId": "b53qzODefeY",
+  "title": "Inventor - Default Center Justified Leader Text in Drawings",
+  "channel": "Team D3",
+  "duration": 356
+ },
+ "REVCLOUD": {
+  "videoId": "SN7GmWRDoa8",
+  "title": "How to add Revision Cloud in Autodesk Inventor2020",
+  "channel": "Doing the things I love",
+  "duration": 121
+ },
+ "CENTERLINE": {
+  "videoId": "tEUUqZCBtYU",
+  "title": "Autodesk Inventor | IDW | Automated centerlines | Centered pattern | Center mark",
+  "channel": "DAWUD ALFAJRI",
+  "duration": 271
+ },
+ "HATCH": {
+  "videoId": "xu7IxMkF39U",
+  "title": "Inventor - Part - Hatch in Sketch",
+  "channel": "Sergio Schuartz",
+  "duration": 117
+ },
+ "SYMBOLS": {
+  "videoId": "g9PS7ee8uZo",
+  "title": "Surface Texture Symbols in Inventor",
+  "channel": "Chatt-Tech Drafting",
+  "duration": 202
+ },
+ "DRAWINGSTYLES": {
+  "videoId": "ZNUEyzpCSqI",
+  "title": "Drawing styles & standards editor explained | Autodesk Inventor",
+  "channel": "Neil Cross",
+  "duration": 1368
+ },
+ "PRES_VIEW": {
+  "videoId": "Bx_Jkr9zoQ0",
+  "title": "Inventor How To Create Exploded View Tutorial",
+  "channel": "Mufasu CAD",
+  "duration": 131
+ },
+ "TWEAK": {
+  "videoId": "I8tBgpRRWpc",
+  "title": "TUTORIAL Tweak components |  Membuat Presentasi | inventor 2017",
+  "channel": "Predi Hartono",
+  "duration": 383
+ },
+ "ANIMATE": {
+  "videoId": "jpl5S5RKnvs",
+  "title": "Animate assembly or service instruction in Autodesk Inventor",
+  "channel": "Autodesk Inventor",
+  "duration": 905
+ },
+ "STUDIO": {
+  "videoId": "CtXZNDr1jos",
+  "title": "Quick Tip: Creating Animations with Inventor Studio",
+  "channel": "Autodesk Inventor",
+  "duration": 212
+ },
+ "RENDERANIM": {
+  "videoId": "aukeu2Ahcpw",
+  "title": "3A. Autodesk Inventor Tutorial : Render Animation",
+  "channel": "Mech Lab",
+  "duration": 324
+ },
+ "RENDERIMAGE": {
+  "videoId": "im2WRVfWlXQ",
+  "title": "Product visualization in Autodesk Inventor: image rendering",
+  "channel": "Autodesk Inventor",
+  "duration": 452
+ },
+ "LIGHTING": {
+  "videoId": "5lu7aUB1K5s",
+  "title": "Autodesk INVENTOR Studio 15 ( Apply Lighting Style )",
+  "channel": "Video-Tutorials.Net",
+  "duration": 151
+ },
+ "CAMERA": {
+  "videoId": "snIEsbLO9yg",
+  "title": "Autodesk Inventor Tips & Tricks - Animate Camera In Inventor Studio",
+  "channel": "Symetri UK",
+  "duration": 150
+ },
+ "LOCALLIGHT": {
+  "videoId": "z0yQyBB10_8",
+  "title": "4  Adding Lights in Inventor Studio",
+  "channel": "Mr D Downie",
+  "duration": 355
+ },
+ "ENVIRONMENT": {
+  "videoId": "xcp_7flmNPs",
+  "title": "3dsMaxDesign- Rendering an Indoor scene with daylight source",
+  "channel": "Marion Landry",
+  "duration": 391
+ },
+ "SURF_REVOLVE": {
+  "videoId": "PFryaexeuEc",
+  "title": "74 AutoDesk Inventor Surface Tutorial: Revolve Surface",
+  "channel": "Tutorials Engineer ҂",
+  "duration": 120
+ },
+ "SURF_EXTRUDE": {
+  "videoId": "x5J6prnbgZc",
+  "title": "Inventor How To Extrude Surface",
+  "channel": "Learning Autodesk Inventor",
+  "duration": 86
+ },
+ "SURF_SWEEP": {
+  "videoId": "Z5lf4sGAQfc",
+  "title": "Inventor Sweep (On a Guide Rail and on a Guide Surface)",
+  "channel": "MrDustinClark",
+  "duration": 71
+ },
+ "SURF_LOFT": {
+  "videoId": "c32Al_FRUek",
+  "title": "75 AutoDesk Inventor Surface Tutorial: Loft Surface",
+  "channel": "Tutorials Engineer ҂",
+  "duration": 168
+ },
+ "SURF_EXTEND": {
+  "videoId": "QDAYYrNGGww",
+  "title": "82 AutoDesk Inventor Surface Tutorial: Extend Surface",
+  "channel": "Tutorials Engineer ҂",
+  "duration": 186
+ },
+ "SURF_TRIM": {
+  "videoId": "fVrXJsL-Vrg",
+  "title": "79 AutoDesk Inventor Surface Tutorial: Trim Surface",
+  "channel": "Tutorials Engineer ҂",
+  "duration": 176
+ },
+ "SURF_STITCH": {
+  "videoId": "sk-ubIiON_0",
+  "title": "Inventor Surface: Stitch",
+  "channel": "Autodesk Inventor Tips and Tutorials",
+  "duration": 126
+ },
+ "SURF_RULED": {
+  "videoId": "770lMHtWJJA",
+  "title": "QUICK TIP: Ruled Surface",
+  "channel": "Autodesk Fusion",
+  "duration": 52
+ },
+ "STRESS": {
+  "videoId": "jqSjF-WqMTA",
+  "title": "Inventor 101: Linear Stress Analysis",
+  "channel": "Autodesk Inventor",
+  "duration": 111
+ },
+ "DYNSIM": {
+  "videoId": "gu4hfJ2Lan8",
+  "title": "Autodesk Inventor dynamic simulation",
+  "channel": "Autodesk Inventor",
+  "duration": 521
+ },
+ "FRAMEANALYSIS": {
+  "videoId": "GCde_1yJQgM",
+  "title": "Frame Analysis",
+  "channel": "Autodesk Inventor",
+  "duration": 502
+ },
+ "MODELSTATES": {
+  "videoId": "FSQ-KX4P9IA",
+  "title": "Autodesk Inventor 2022 What’s New: Model States for Parts",
+  "channel": "Autodesk Inventor",
+  "duration": 135
+ },
+ "PARAMETERS": {
+  "videoId": "kglPAJjVyq8",
+  "title": "Quick Tip - Using Parameters for Multiple Design Configurations",
+  "channel": "Autodesk Inventor",
+  "duration": 198
+ },
+ "ILOGIC": {
+  "videoId": "0ZR4QNxEkBo",
+  "title": "Inventor iLogic Basic Course - Part 01: Your First iLogic Rule.",
+  "channel": "Lance Skelly",
+  "duration": 284
+ },
+ "ILOGICFORM": {
+  "videoId": "9GWq-MQWPcc",
+  "title": "Inventor iLogic Video Tutorial (48) - How to create a user form",
+  "channel": "SolidWorksTutoriels",
+  "duration": 672
+ },
+ "VBA": {
+  "videoId": "SYkMXr5jv3Y",
+  "title": "Autodesk Inventor VBA Macro – Update Descriptions in All Open Part Files Automatically",
+  "channel": "CAD_Automation_by_Ashish",
+  "duration": 107
+ },
+ "MACROS": {
+  "videoId": "g2qhRMyI9gs",
+  "title": "Autodesk Inventor training Macro",
+  "channel": "solidcad10",
+  "duration": 251
+ },
+ "IASSEMBLY": {
+  "videoId": "P2OgZwyA0vY",
+  "title": "Create an Inventor iAssembly",
+  "channel": "Micrographics",
+  "duration": 298
+ },
+ "CONTENTCENTER": {
+  "videoId": "dQFGoNGG2Hk",
+  "title": "Content center enhancement",
+  "channel": "Autodesk Inventor",
+  "duration": 130
+ },
+ "CC_PLACE": {
+  "videoId": "84YQUBzeltM",
+  "title": "Inventor - Tips to More Efficiently Place Components from the Content Center",
+  "channel": "Team D3",
+  "duration": 163
+ },
+ "CC_PUBLISH": {
+  "videoId": "VZSEnc1uMbU",
+  "title": "How to Publish a Valve to Autodesk Inventor's Content Center",
+  "channel": "KETIV Technologies",
+  "duration": 198
+ },
+ "GEAR_GEN": {
+  "videoId": "yxgfghYZci4",
+  "title": "How to Design a Planetary Gear System in Autodesk Inventor Using Spur Gear Generator",
+  "channel": " CAD BY NANA",
+  "duration": 1385
+ },
+ "BEARING_GEN": {
+  "videoId": "Kx7aFO599fw",
+  "title": "Autodesk Inventor Bearing Generator Tutorial | Master Standard Bearing Selection & Placement",
+  "channel": " CAD BY NANA",
+  "duration": 992
+ },
+ "SPRING_GEN": {
+  "videoId": "xAEDd6eDt4s",
+  "title": "Spring with Compression Spring Component Generator - Autodesk Inventor",
+  "channel": "Indar Luh Sepdyanuri",
+  "duration": 156
+ },
+ "SHAFT_GEN": {
+  "videoId": "bBrGdL7iN24",
+  "title": "Shaft Generator",
+  "channel": "Павел Пишняк",
+  "duration": 432
+ },
+ "WORKPLANE": {
+  "videoId": "pq_RiVw0Fbc",
+  "title": "Inventor 101: Creating a Work Plane between 3 Points",
+  "channel": "Autodesk Inventor",
+  "duration": 130
+ },
+ "WORKAXIS": {
+  "videoId": "NYeRTlav1fE",
+  "title": "How and why to create a work axis for an Inventor CAD part",
+  "channel": "Chris Hinkley",
+  "duration": 221
+ },
+ "WORKPOINT": {
+  "videoId": "f5bJ0i7QS9Q",
+  "title": "22 - Work Plane - Work Axis - Work Point | Work Features | Autodesk Inventor Professional Tutorial",
+  "channel": "Starry Industries",
+  "duration": 675
+ },
+ "GROUNDEDWORKPOINT": {
+  "videoId": "Y0dY-GUs_Qw",
+  "title": "Inventor 05-34 Creating a Grounded Point",
+  "channel": "John Bordeau",
+  "duration": 120
+ },
+ "UCS": {
+  "videoId": "vGtalruaF1c",
+  "title": "GTM_UCS (User Coordinate System) Autodesk Inventor",
+  "channel": "KHOIRUL ANWAR_CAD",
+  "duration": 573
+ },
+ "PAN": {
+  "videoId": "V_0np0uwuAE",
+  "title": "Autodesk Inventor 2027 How To Pan",
+  "channel": "Learning Autodesk Inventor",
+  "duration": 95
+ },
+ "ZOOM": {
+  "videoId": "1vo3i02QJM8",
+  "title": "Cara Mengatur Zoom In/Zoom Out Pada Autodesk Inventor",
+  "channel": "My Design",
+  "duration": 122
+ },
+ "ZOOMWINDOW": {
+  "videoId": "4DSwa3letmQ",
+  "title": "Inventor 02-45 Zoom Window",
+  "channel": "John Bordeau",
+  "duration": 55
+ },
+ "ZOOMALL": {
+  "videoId": "L0woWcqus4o",
+  "title": "Inventor 02-43 Zoom All",
+  "channel": "John Bordeau",
+  "duration": 69
+ },
+ "ROTATE": {
+  "videoId": "3d6UKYJb8F4",
+  "title": "Inventor How To Rotate Section View",
+  "channel": "Learning Autodesk Inventor",
+  "duration": 92
+ },
+ "ZOOMSELECT": {
+  "videoId": "qETm2v4PgyE",
+  "title": "Inventor 02-46 Zoom Selected",
+  "channel": "John Bordeau",
+  "duration": 45
+ },
+ "PREVVIEW": {
+  "videoId": "aBzpVeI641c",
+  "title": "Inventor 101: Auxiliary & Section View, Drawing Dimensions & Annotations",
+  "channel": "Autodesk Inventor",
+  "duration": 151
+ },
+ "ORBIT": {
+  "videoId": "vUX8-AqZJKc",
+  "title": "Free Orbit 3D in AutoCAD",
+  "channel": "SbrindastiProd",
+  "duration": 61
+ },
+ "NEXTVIEW": {
+  "videoId": "2_E4byvyLlE",
+  "title": "Inventor Function Key Navigation Shortcuts",
+  "channel": "Symetri Ireland",
+  "duration": 79
+ },
+ "VIEWCUBE": {
+  "videoId": "UlUssM353Rw",
+  "title": "ViewCube: A 3D Orientation Indicator and Controller",
+  "channel": "Autodesk Research",
+  "duration": 197
+ },
+ "LOOKAT": {
+  "videoId": "kqYGj-kdMWw",
+  "title": "Autodesk Inventor 2021 | Navigation Tools & Shortcuts | Tutorial",
+  "channel": "Design Forge",
+  "duration": 201
+ },
+ "HOMEVIEW": {
+  "videoId": "YhhA6Wi1YY0",
+  "title": "10. Adding an Isometric View",
+  "channel": "AutoDesk Inventor with Demetrius Rice",
+  "duration": 184
+ },
+ "SECTIONVIEW_NAV": {
+  "videoId": "jRuY3fwUdBc",
+  "title": "7.2 Drill Block: Create Section View on IDW",
+  "channel": "Megan Messina",
+  "duration": 874
+ },
+ "STEERINGWHEELS": {
+  "videoId": "DMF1sJw0W88",
+  "title": "Understanding the Steering Wheels - Autodesk Inventor",
+  "channel": "Ekramy Abdelghany",
+  "duration": 402
+ },
+ "HALFSECTION": {
+  "videoId": "buKrBdxjR6s",
+  "title": "Half Section View Feature in Autodesk Inventor",
+  "channel": "DAWUD ALFAJRI",
+  "duration": 271
+ },
+ "VISUALSTYLE": {
+  "videoId": "1Y7yiHpAQgE",
+  "title": "Inventor How To Change Default Visual Style",
+  "channel": "Learning Autodesk Inventor",
+  "duration": 111
+ },
+ "SLICEGRAPHICS": {
+  "videoId": "aSv16cWJJRU",
+  "title": "Using Slice Graphics & Project Geometry in Autodesk Inventor",
+  "channel": "KETIV Technologies",
+  "duration": 142
+ },
+ "SKETCHVIS": {
+  "videoId": "OG4J2t3RIH8",
+  "title": "Autodesk Inventor 2018 - iLogic - Make Drawing Sketch Visibility Match Model Sketches",
+  "channel": "Symetri UK",
+  "duration": 642
+ },
+ "SHORTCUTEDITOR": {
+  "videoId": "P7iIrqMIfDk",
+  "title": "Autodesk Inventor Keyboard Shortcuts",
+  "channel": "Between CAD Classes: AutoCAD",
+  "duration": 355
+ },
+ "NEW": {
+  "videoId": "NeZ5aNLpBbg",
+  "title": "Setting Application Options and Creating a Template File (Autodesk Inventor)",
+  "channel": "3D Solid Modelling Videos",
+  "duration": 243
+ },
+ "OPEN": {
+  "videoId": "qGDJx76JCZw",
+  "title": "Open step file and make components in Inventor 2021",
+  "channel": "Cadpoint UK",
+  "duration": 148
+ },
+ "SAVE": {
+  "videoId": "rqSLrgTUV_o",
+  "title": "Autodesk Inventor 2027 How To Save Assembly As Part",
+  "channel": "Learning Autodesk Inventor",
+  "duration": 113
+ },
+ "PROJECTS": {
+  "videoId": "844Q61hs9iU",
+  "title": "Working with Autodesk Inventor Project Files",
+  "channel": "Between CAD Classes",
+  "duration": 282
+ },
+ "PACKANDGO": {
+  "videoId": "1pdKz2PG6Hc",
+  "title": "Inventor: How To Pack & Go",
+  "channel": "Cory Allen",
+  "duration": 438
+ },
+ "EXPORT": {
+  "videoId": "iwyx993R250",
+  "title": "Autodesk Inventor Export: Save as STEP, STL, PDF, and More",
+  "channel": "Tc G",
+  "duration": 91
+ },
+ "IMPORT": {
+  "videoId": "TUpHQLRgoyA",
+  "title": "How to import and work with STEP files | Autodesk Inventor Tutorial",
+  "channel": "Tick Cad ApS",
+  "duration": 283
+ },
+ "UNDO": {
+  "videoId": "f_qWPZqLTIo",
+  "title": "5  Inventor Command, customizing short cuts and Undo and Redo tool",
+  "channel": "Vân Long",
+  "duration": 500
+ },
+ "REDO": {
+  "videoId": "f_qWPZqLTIo",
+  "title": "5  Inventor Command, customizing short cuts and Undo and Redo tool",
+  "channel": "Vân Long",
+  "duration": 500
+ },
+ "DELETE": {
+  "videoId": "_vfbGR7-ljM",
+  "title": "Autodesk Inventor - Delete face Command",
+  "channel": "Inventor Tutorials",
+  "duration": 408
+ },
+ "ESC": null,
+ "REORDER": {
+  "videoId": "-xfJYkZqgtc",
+  "title": "Reordering and Suppressing Features in Autodesk Inventor",
+  "channel": "Between CAD Classes: AutoCAD",
+  "duration": 294
+ },
+ "SUPPRESS": {
+  "videoId": "vha4pg-_bcg",
+  "title": "Intelligent 3D Part Feature Suppression | Autodesk Inventor",
+  "channel": "Neil Cross",
+  "duration": 208
+ },
+ "BROWSER": {
+  "videoId": "LFIkKWXiv6I",
+  "title": "Using the Model Browser and Work Features in Autodesk Inventor 2012",
+  "channel": "iDESIGNsol",
+  "duration": 446
+ },
+ "MOLD": {
+  "videoId": "o698-zZLho8",
+  "title": "Autodesk Inventor Mold Design Tutorial: Core & Cavity Using Copy Object and Sculpt",
+  "channel": " CAD BY NANA",
+  "duration": 1296
+ },
+ "TUBEPIPE": {
+  "videoId": "C0ueLl6HHNs",
+  "title": "Autodesk inventor 2022 tutorial l Piping l Tube & Pipe Design l Content center",
+  "channel": "Machine Design",
+  "duration": 728
+ },
+ "CABLEHARNESS": {
+  "videoId": "fNhOV98b008",
+  "title": "Autodesk Inventor Cable & Harness - Save Time Wiring an Assembly by Only Using Segments",
+  "channel": "Team D3",
+  "duration": 227
+ },
+ "WELDBEAD": {
+  "videoId": "XU3tlz6sJB4",
+  "title": "Solidworks Weldments tutorial Exercise 147 Weld Symbol | Weld Bead",
+  "channel": "CAD CAM TUTORIAL BY MAHTABALAM",
+  "duration": 1599
+ },
+ "FRAMEGEN2": {
+  "videoId": "IJfqP7u_XcU",
+  "title": "Inventor Tutorial - Placing frame members",
+  "channel": "LinkedIn Learning",
+  "duration": 363
+ },
+ "IASSEMBLY2": {
+  "videoId": "F6bv_fcT-dI",
+  "title": "Creating a Sub Assembly - Autodesk Inventor",
+  "channel": "Jimmy Yurko",
+  "duration": 219
+ }
+}

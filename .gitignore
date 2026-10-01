@@ -1,0 +1,4 @@
+__pycache__/
+*.pyc
+dead_videos.json
+video_db.json.tmp

@@ -1,0 +1,4185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Autodesk Inventor Guide — Complete Tutorial &amp; Command Reference</title>
+<meta name="description" content="A complete Autodesk Inventor guide: sketching, part modelling, advanced features, assembly, sheet metal, drawings, surfaces, iLogic and more — every topic with its own curated tutorial video.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+
+:root {
+  --bg: #0a0c10;
+  --surface: #12151a;
+  --surface-2: #181d24;
+  --surface-hover: #1e242c;
+  --border: #1f2730;
+  --border-subtle: #1a2028;
+  --text: #e8ecf1;
+  --text-secondary: #8892a0;
+  --text-muted: #5a6470;
+  --accent: #19d3c5;
+  --accent-dim: #12b3a8;
+  --accent-glow: rgba(25, 211, 197, 0.15);
+  --orange: #ff8a3d;
+  --orange-dim: #cc7f16;
+  --orange-glow: rgba(255, 159, 28, 0.12);
+  --radius: 12px;
+  --radius-sm: 8px;
+  --radius-lg: 16px;
+  --shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 8px 40px rgba(0, 0, 0, 0.5);
+  --font-mono: 'JetBrains Mono', monospace;
+  --font-sans: 'Inter', -apple-system, sans-serif;
+  --transition: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-sans);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }
+
+/* Header */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(10, 12, 16, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border-subtle);
+  padding: 0 2rem;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.header-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+  color: var(--text);
+  font-weight: 600;
+  font-size: 1.05rem;
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+}
+
+.header-brand svg {
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+}
+
+.header-brand .accent { color: var(--accent); }
+
+.header-search {
+  flex: 1;
+  max-width: 520px;
+  position: relative;
+}
+
+.header-search input {
+  width: 100%;
+  padding: 0.6rem 1rem 0.6rem 2.75rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--text);
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  outline: none;
+  transition: border-color 0.2s var(--transition), box-shadow 0.2s var(--transition);
+}
+
+.header-search input::placeholder { color: var(--text-muted); }
+
+.header-search input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-glow);
+}
+
+.header-search svg {
+  position: absolute;
+  left: 0.85rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
+  color: var(--text-muted);
+  pointer-events: none;
+}
+
+/* Progress bar */
+.progress-bar {
+  position: fixed;
+  top: 64px;
+  left: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent), var(--orange));
+  z-index: 99;
+  transition: width 0.1s linear;
+  border-radius: 0 1px 1px 0;
+}
+
+/* Layout */
+.layout {
+  display: flex;
+  min-height: calc(100vh - 64px);
+}
+
+/* Sidebar */
+.sidebar {
+  width: 240px;
+  flex-shrink: 0;
+  border-right: 1px solid var(--border-subtle);
+  padding: 1.5rem 0;
+  position: sticky;
+  top: 64px;
+  height: calc(100vh - 64px);
+  overflow-y: auto;
+}
+
+.sidebar-section {
+  padding: 0 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.sidebar-title {
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  margin-bottom: 0.75rem;
+  padding-left: 0.5rem;
+}
+
+.sidebar-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.sidebar-link {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: color 0.15s, background 0.15s;
+  border: none;
+  background: none;
+  width: 100%;
+  text-align: left;
+}
+
+.sidebar-link:hover { color: var(--text); background: var(--surface); }
+.sidebar-link.active { color: var(--accent); background: var(--accent-glow); }
+.sidebar-link .count {
+  margin-left: auto;
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  background: var(--surface-2);
+  padding: 0.1rem 0.4rem;
+  border-radius: 4px;
+  font-family: var(--font-mono);
+}
+
+.sidebar-link.active .count { background: rgba(25, 211, 197, 0.1); color: var(--accent); }
+
+/* Main content */
+.main {
+  flex: 1;
+  padding: 2rem 2.5rem 4rem;
+  max-width: 1400px;
+}
+
+.section-header {
+  margin-bottom: 2rem;
+}
+
+.section-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: var(--text);
+  margin-bottom: 0.25rem;
+}
+
+.section-subtitle {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+/* Command grid */
+.command-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 1rem;
+}
+
+/* Command card */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius);
+  padding: 1.25rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  transition: border-color 0.2s var(--transition), box-shadow 0.2s var(--transition), transform 0.2s var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.card:hover {
+  border-color: var(--border);
+  box-shadow: var(--shadow);
+  transform: translateY(-2px);
+}
+
+.card-thumb {
+  width: 88px;
+  height: 56px;
+  border-radius: var(--radius-sm);
+  flex-shrink: 0;
+  position: relative;
+  overflow: hidden;
+  background: var(--surface-2);
+  cursor: pointer;
+  transition: box-shadow 0.2s;
+}
+
+.card-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.85;
+  transition: opacity 0.2s, transform 0.3s;
+}
+
+.card:hover .card-thumb img { opacity: 1; transform: scale(1.05); }
+
+.card-thumb .play-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.card-thumb:hover .play-overlay { opacity: 1; }
+
+.card-thumb .play-overlay svg {
+  width: 22px;
+  height: 22px;
+  color: white;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+}
+
+.card-thumb .clip-time {
+  position: absolute;
+  bottom: 3px;
+  right: 3px;
+  background: rgba(0, 0, 0, 0.75);
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  padding: 1px 4px;
+  border-radius: 3px;
+  font-weight: 600;
+}
+
+/* No-clip state: honest placeholder instead of a mismatched video */
+.card-thumb.no-video {
+  cursor: pointer;
+  border: 1px dashed var(--border);
+  background: repeating-linear-gradient(45deg, var(--surface-2), var(--surface-2) 5px, var(--surface) 5px, var(--surface) 10px);
+}
+
+.card-thumb .no-clip {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  color: var(--text-muted);
+  font-size: 0.55rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  transition: color 0.2s;
+}
+
+.card-thumb.no-video:hover .no-clip { color: var(--accent); }
+
+.card-thumb .no-clip svg {
+  width: 15px;
+  height: 15px;
+  opacity: 0.75;
+}
+
+.card-body { flex: 1; min-width: 0; }
+
+.card-cmd {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--accent);
+  letter-spacing: 0.02em;
+  margin-bottom: 0.15rem;
+}
+
+.card-name {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 0.3rem;
+}
+
+.card-desc {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  line-height: 1.45;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.card-key {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  margin-top: 0.5rem;
+}
+
+.key-badge {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 600;
+  background: var(--surface-2);
+  color: var(--orange);
+  padding: 0.15rem 0.5rem;
+  border-radius: 4px;
+  border: 1px solid var(--border-subtle);
+  letter-spacing: 0.02em;
+}
+
+.card-copy {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--surface-2);
+  color: var(--text-muted);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.2s, color 0.2s, background 0.2s;
+}
+
+.card:hover .card-copy { opacity: 1; }
+.card-copy:hover { color: var(--accent); background: var(--accent-glow); border-color: var(--accent-dim); }
+.card-copy svg { width: 13px; height: 13px; }
+.card-copy.copied { color: var(--accent); border-color: var(--accent); }
+
+/* Modal */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s var(--transition);
+}
+
+.modal-overlay.open { opacity: 1; pointer-events: all; }
+
+.modal {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  width: 100%;
+  max-width: 800px;
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  transform: scale(0.95);
+  transition: transform 0.3s var(--transition);
+}
+
+.modal-overlay.open .modal { transform: scale(1); }
+
+.modal-video {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%;
+  background: #000;
+}
+
+.modal-video iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.modal-info {
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.modal-info-text { flex: 1; }
+.modal-info-cmd {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--accent);
+  margin-bottom: 0.15rem;
+}
+.modal-info-name { font-size: 1.1rem; font-weight: 700; color: var(--text); }
+.modal-info-time { font-size: 0.8rem; color: var(--text-secondary); margin-top: 0.25rem; font-family: var(--font-mono); }
+
+.modal-close {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--surface-2);
+  color: var(--text-secondary);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: color 0.2s, background 0.2s;
+}
+.modal-close:hover { color: var(--text); background: var(--border); }
+.modal-close svg { width: 16px; height: 16px; }
+
+/* Empty state */
+.empty-state {
+  text-align: center;
+  padding: 4rem 2rem;
+  color: var(--text-muted);
+}
+
+.empty-state svg { width: 48px; height: 48px; margin-bottom: 1rem; opacity: 0.4; }
+
+/* Toast */
+.toast {
+  position: fixed;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  color: var(--text);
+  padding: 0.6rem 1.25rem;
+  border-radius: var(--radius);
+  font-size: 0.85rem;
+  font-weight: 500;
+  box-shadow: var(--shadow);
+  z-index: 2000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s, transform 0.25s;
+  white-space: nowrap;
+}
+
+.toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+.toast .toast-accent { color: var(--accent); font-family: var(--font-mono); font-weight: 600; }
+
+/* Responsive */
+@media (max-width: 900px) {
+  .layout { flex-direction: column; }
+  .sidebar {
+    width: 100%;
+    position: static;
+    height: auto;
+    border-right: none;
+    border-bottom: 1px solid var(--border-subtle);
+    padding: 1rem;
+    display: flex;
+    gap: 0.5rem;
+    overflow-x: auto;
+    flex-wrap: wrap;
+  }
+  .sidebar-section { padding: 0; margin-bottom: 0; }
+  .sidebar-title { display: none; }
+  .sidebar-list { flex-direction: row; gap: 0.4rem; }
+  .sidebar-link { white-space: nowrap; padding: 0.4rem 0.7rem; }
+  .main { padding: 1.5rem 1rem 3rem; }
+  .command-grid { grid-template-columns: 1fr; }
+  .header { padding: 0 1rem; }
+  .header-brand span { display: none; }
+}
+
+@media (max-width: 600px) {
+  .header-search { max-width: 200px; }
+  .modal-overlay { padding: 0.5rem; }
+}
+
+/* ── Inventor additions ─────────────────────────────────────── */
+.header-brand .accent { color: var(--accent); }
+.hero {
+  padding: 2.5rem 2.5rem 1.5rem;
+  border-bottom: 1px solid var(--border-subtle);
+  background: radial-gradient(1200px 300px at 20% -40%, var(--accent-glow), transparent 70%);
+}
+.hero h1 { font-size: 2rem; font-weight: 700; letter-spacing: -0.03em; margin-bottom: .4rem; }
+.hero h1 .accent { color: var(--accent); }
+.hero p { color: var(--text-secondary); max-width: 760px; font-size: .95rem; }
+.hero-stats { display: flex; gap: 1.75rem; margin-top: 1.1rem; flex-wrap: wrap; }
+.hero-stat { display: flex; flex-direction: column; }
+.hero-stat b { font-size: 1.35rem; font-weight: 700; color: var(--text); font-family: var(--font-mono); }
+.hero-stat span { font-size: .72rem; text-transform: uppercase; letter-spacing: .07em; color: var(--text-muted); }
+
+.level-badge {
+  display: inline-block; font-size: .62rem; font-weight: 700; text-transform: uppercase;
+  letter-spacing: .05em; padding: .12rem .45rem; border-radius: 4px; margin-left: .5rem;
+  vertical-align: middle; font-family: var(--font-mono);
+}
+.level-Basic { background: rgba(25,211,197,.13); color: #19d3c5; }
+.level-Intermediate { background: rgba(255,138,61,.14); color: #ff8a3d; }
+.level-Advanced { background: rgba(255,71,110,.14); color: #ff476e; }
+
+.card-key { display: flex; flex-wrap: wrap; gap: .35rem; margin-top: .5rem; }
+.card-path { font-size: .68rem; color: var(--text-muted); font-family: var(--font-mono); margin-top: .35rem; }
+
+.level-filter { display: flex; gap: .35rem; padding: 0 1.25rem; margin-bottom: 1.25rem; flex-wrap: wrap; }
+.level-btn {
+  font-size: .72rem; font-weight: 600; padding: .28rem .6rem; border-radius: 6px;
+  border: 1px solid var(--border); background: var(--surface); color: var(--text-secondary);
+  cursor: pointer; font-family: var(--font-sans);
+}
+.level-btn:hover { color: var(--text); border-color: var(--text-muted); }
+.level-btn.active { background: var(--accent-glow); border-color: var(--accent); color: var(--accent); }
+
+.legend { display:flex; gap:1rem; align-items:center; padding: 0 2.5rem 1.25rem; flex-wrap: wrap; font-size:.75rem; color: var(--text-muted);}
+.legend .sw { width:10px; height:10px; border-radius:2px; display:inline-block; margin-right:.35rem; vertical-align:middle;}
+.legend .b{background:#19d3c5;} .legend .i{background:#ff8a3d;} .legend .a{background:#ff476e;}
+
+</style>
+</head>
+<body>
+
+<div class="progress-bar" id="progressBar"></div>
+
+<header class="header">
+  <a class="header-brand" href="#">
+    <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M16 3 29 10v12L16 29 3 22V10z"/>
+      <path d="M16 3v13l13 6M16 16 3 22"/>
+      <circle cx="16" cy="16" r="3.2"/>
+    </svg>
+    <span>Inventor <span class="accent">Guide</span></span>
+  </a>
+  <div class="header-search">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+    <input type="text" id="searchInput" placeholder="Search tools, shortcuts, or topics (e.g. loft, constrain, flange)...">
+  </div>
+</header>
+
+<section class="hero">
+  <h1>Autodesk Inventor <span class="accent">Complete Guide</span></h1>
+  <p>From your very first sketch to advanced assembly modelling, sheet metal, surfaces, iLogic and stress analysis — every topic explained, with its own curated tutorial clip. Pick a category, search a tool, or follow the Basic &rarr; Advanced path.</p>
+  <div class="hero-stats">
+    <div class="hero-stat"><b>225</b><span>Topics</span></div>
+    <div class="hero-stat"><b>224</b><span>With video</span></div>
+    <div class="hero-stat"><b>78</b><span>Basic</span></div>
+    <div class="hero-stat"><b>58</b><span>Intermediate</span></div>
+    <div class="hero-stat"><b>89</b><span>Advanced</span></div>
+  </div>
+</section>
+
+<div class="layout">
+  <nav class="sidebar">
+    <div class="sidebar-section">
+      <div class="sidebar-title">Level</div>
+      <div class="level-filter" id="levelFilter"></div>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-title">Categories</div>
+      <ul class="sidebar-list" id="categoryList"></ul>
+    </div>
+  </nav>
+
+  <main class="main">
+    <div class="section-header">
+      <h1 class="section-title" id="sectionTitle">All Topics</h1>
+      <p class="section-subtitle" id="sectionSubtitle"></p>
+    </div>
+    <div class="command-grid" id="commandGrid"></div>
+    <div class="empty-state" id="emptyState" style="display:none">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      <p>No topics found matching your search.</p>
+    </div>
+  </main>
+</div>
+
+<div class="legend">
+  <span><span class="sw b"></span>Basic — start here</span>
+  <span><span class="sw i"></span>Intermediate</span>
+  <span><span class="sw a"></span>Advanced</span>
+  <span style="margin-left:auto">Click any card's thumbnail to play its tutorial</span>
+</div>
+
+<!-- Video Modal -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal">
+    <div class="modal-video" id="modalVideo"></div>
+    <div class="modal-info">
+      <div class="modal-info-text">
+        <div class="modal-info-cmd" id="modalCmd"></div>
+        <div class="modal-info-name" id="modalName"></div>
+        <div class="modal-info-time" id="modalTime"></div>
+      </div>
+      <button class="modal-close" id="modalClose" aria-label="Close">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+// ─── Command / topic database ───────────────────────────────────
+const COMMANDS = [
+ {
+  "key": "LINE",
+  "name": "Line",
+  "cat": "Sketching",
+  "keys": "L",
+  "level": "Basic",
+  "desc": "Draw a single line segment or a chain of connected lines in a sketch.",
+  "v": {
+   "id": "0FtQid5qDxE",
+   "title": "Autodesk Inventor 2021 | How to use Line & Circle Tools | Tutorial",
+   "channel": "Design Forge",
+   "dur": 276
+  }
+ },
+ {
+  "key": "ARC",
+  "name": "Arc",
+  "cat": "Sketching",
+  "keys": "Sketch ▸ Create ▸ Arc",
+  "level": "Basic",
+  "desc": "Create an arc by center point, three points, or tangent continuation.",
+  "v": {
+   "id": "Pzfao3k4-bo",
+   "title": "Autodesk Inventor  Sketch part1- Line, Circle and Arc",
+   "channel": "Yantrak Dal",
+   "dur": 794
+  }
+ },
+ {
+  "key": "CIRCLE",
+  "name": "Circle",
+  "cat": "Sketching",
+  "keys": "Sketch ▸ Create ▸ Circle",
+  "level": "Basic",
+  "desc": "Create a circle from a center point plus radius or diameter.",
+  "v": {
+   "id": "CjTqq9GPHbg",
+   "title": "Inventor Tutorial: Howto use the Circle Tool | Video 10",
+   "channel": "Nathan Nagele",
+   "dur": 156
+  }
+ },
+ {
+  "key": "RECTANGLE",
+  "name": "Rectangle",
+  "cat": "Sketching",
+  "keys": "Sketch ▸ Create ▸ Rectangle",
+  "level": "Basic",
+  "desc": "Draw a rectangle using two corners, three points, or center points.",
+  "v": {
+   "id": "hffYmwkmxI0",
+   "title": "Tutorial Inventor - Rectangle",
+   "channel": "Andi CAD",
+   "dur": 144
+  }
+ },
+ {
+  "key": "ELLIPSE",
+  "name": "Ellipse",
+  "cat": "Sketching",
+  "keys": "Sketch ▸ Create ▸ Ellipse",
+  "level": "Basic",
+  "desc": "Create an ellipse from center, major axis and minor axis.",
+  "v": {
+   "id": "BeakAM5LMl0",
+   "title": "Generation of Conic Section || Ellipse || Autodesk Inventor Tutorial",
+   "channel": "3D Parametric Solid Model Drawing",
+   "dur": 1045
+  }
+ },
+ {
+  "key": "SPLINE",
+  "name": "Spline",
+  "cat": "Sketching",
+  "keys": "Sketch ▸ Create ▸ Spline",
+  "level": "Intermediate",
+  "desc": "Draw an interpolated or control-vertex spline curve through points.",
+  "v": {
+   "id": "qj6V2aJJ0FM",
+   "title": "Inventor 02-36 Drawing a Spline by Using the Spline Interpolation Tool",
+   "channel": "John Bordeau",
+   "dur": 162
+  }
+ },
+ {
+  "key": "POLYGON",
+  "name": "Polygon",
+  "cat": "Sketching",
+  "keys": "Sketch ▸ Create ▸ Polygon",
+  "level": "Basic",
+  "desc": "Create an inscribed or circumscribed polygon with a set number of sides.",
+  "v": {
+   "id": "yzvHBnLMYiI",
+   "title": "AUTODESK INVENTOR | #13 BASIC INTRODUCTION TO SKETCH POLYGON - USING THE FEATURE OF POLYGON",
+   "channel": "RikiYuni Family",
+   "dur": 311
+  }
+ },
+ {
+  "key": "FILLET2D",
+  "name": "Sketch Fillet",
+  "cat": "Sketching",
+  "keys": "Sketch ▸ Create ▸ Fillet",
+  "level": "Basic",
+  "desc": "Round the corner between two sketch lines or curves with an arc.",
+  "v": {
+   "id": "JLtq4uZ6QhM",
+   "title": "Inventor 02-34 Creating Fillets",
+   "channel": "John Bordeau",
+   "dur": 172
+  }
+ },
+ {
+  "key": "CHAMFER2D",
+  "name": "Sketch Chamfer",
+  "cat": "Sketching",
+  "keys": "Sketch ▸ Create ▸ Chamfer",
+  "level": "Basic",
+  "desc": "Bevel the corner between two sketch lines with an equal or unequal chamfer.",
+  "v": {
+   "id": "VgkDOUUKeTg",
+   "title": "Inventor - Sketch: Create Chamfer",
+   "channel": "Kjell Eivind Helgesen",
+   "dur": 66
+  }
+ },
+ {
+  "key": "TRIM",
+  "name": "Trim",
+  "cat": "Sketching",
+  "keys": "Sketch ▸ Modify ▸ Trim",
+  "level": "Basic",
+  "desc": "Trim sketch geometry back to the nearest intersection.",
+  "v": {
+   "id": "ODBUG6SKNSw",
+   "title": "Inventor 101: Sketch, Dimension, Trim and Extrude",
+   "channel": "Autodesk Inventor",
+   "dur": 148
+  }
+ },
+ {
+  "key": "EXTEND",
+  "name": "Extend",
+  "cat": "Sketching",
+  "keys": "Sketch ▸ Modify ▸ Extend",
+  "level": "Basic",
+  "desc": "Extend sketch geometry until it meets another entity.",
+  "v": {
+   "id": "qnldoGA_-5s",
+   "title": "Inventor 8 - Using the Trim and Extend Tool",
+   "channel": "MrLustyEDU",
+   "dur": 150
+  }
+ },
+ {
+  "key": "SKETCHPOINT",
+  "name": "Sketch Point",
+  "cat": "Sketching",
+  "keys": "Sketch ▸ Create ▸ Point",
+  "level": "Basic",
+  "desc": "Place sketch points used as geometry, hole centers, or pattern origins.",
+  "v": {
+   "id": "JnoCwPOacp8",
+   "title": "Why the Center Point is Important in a Sketch - Autodesk Inventor",
+   "channel": "Jeff Hung",
+   "dur": 186
+  }
+ },
+ {
+  "key": "SKETCHTEXT",
+  "name": "Sketch Text",
+  "cat": "Sketching",
+  "keys": "Sketch ▸ Create ▸ Text",
+  "level": "Intermediate",
+  "desc": "Place editable text as sketch geometry that can be extruded or embossed.",
+  "v": {
+   "id": "XirTfeNyrLo",
+   "title": "Inventor sketch text tool",
+   "channel": "Modena OneSolve – The Future of Digitalisation",
+   "dur": 162
+  }
+ },
+ {
+  "key": "PROJECTGEOM",
+  "name": "Project Geometry",
+  "cat": "Sketching",
+  "keys": "Sketch ▸ Create ▸ Project Geometry",
+  "level": "Intermediate",
+  "desc": "Project edges, vertices or work features onto the active sketch plane.",
+  "v": {
+   "id": "LOH5VylQOTI",
+   "title": "Inventor 101: Revolve, Project Geometry and Visual Style",
+   "channel": "Autodesk Inventor",
+   "dur": 168
+  }
+ },
+ {
+  "key": "INCLUDEGEOM",
+  "name": "Include Geometry",
+  "cat": "Sketching",
+  "keys": "Sketch ▸ Create ▸ Include Geometry",
+  "level": "Intermediate",
+  "desc": "Include the geometry of a selected edge into the sketch, adaptively linked.",
+  "v": {
+   "id": "2WKQMHv57lU",
+   "title": "Full Project Geometry Tutorial, all Options Explained and Demonstrated!",
+   "channel": "Neil Cross",
+   "dur": 816
+  }
+ },
+ {
+  "key": "CONSTRUCTION",
+  "name": "Construction Geometry",
+  "cat": "Sketching",
+  "keys": "Sketch ▸ Format",
+  "level": "Basic",
+  "desc": "Toggle a sketch entity to construction so it guides geometry without forming profiles.",
+  "v": {
+   "id": "Henuk4I-elE",
+   "title": "Using Construction Geometry in Autodesk Inventor",
+   "channel": "KETIV Technologies",
+   "dur": 164
+  }
+ },
+ {
+  "key": "3DSKETCH",
+  "name": "3D Sketch",
+  "cat": "Sketching",
+  "keys": "Sketch ▸ Start 3D Sketch",
+  "level": "Advanced",
+  "desc": "Create a sketch in 3D space for sweeps, lofts and routed paths.",
+  "v": {
+   "id": "TLWCfaV9EMw",
+   "title": "Quick Tip: 3D Sketching, Sweep and Mirror",
+   "channel": "Autodesk Inventor",
+   "dur": 147
+  }
+ },
+ {
+  "key": "DYNAMICINPUT",
+  "name": "Dynamic Input",
+  "cat": "Sketching",
+  "keys": "F12",
+  "level": "Basic",
+  "desc": "Type exact dimensions and coordinates directly at the cursor while sketching.",
+  "v": {
+   "id": "vWfZ5lw5uv8",
+   "title": "Inventor's Dynamic Input",
+   "channel": "Design & Motion.net",
+   "dur": 138
+  }
+ },
+ {
+  "key": "CONSTRAINT_COINCIDENT",
+  "name": "Coincident Constraint",
+  "cat": "Sketch Constraints",
+  "keys": "Sketch ▸ Constrain ▸ Coincident",
+  "level": "Basic",
+  "desc": "Force two points or a point and a curve to share the same location.",
+  "v": {
+   "id": "APAasiZK6mk",
+   "title": "The Coincident Constraint | Design Drafting with S.Henderson",
+   "channel": "Shelby Henderson",
+   "dur": 248
+  }
+ },
+ {
+  "key": "CONSTRAINT_COLLINEAR",
+  "name": "Collinear Constraint",
+  "cat": "Sketch Constraints",
+  "keys": "Sketch ▸ Constrain ▸ Collinear",
+  "level": "Basic",
+  "desc": "Make two lines lie on the same infinite line.",
+  "v": {
+   "id": "tQifHcMuKPg",
+   "title": "Collinear Sketch Constraint - Autodesk Inventor 2025",
+   "channel": "Fully Constrained",
+   "dur": 761
+  }
+ },
+ {
+  "key": "CONSTRAINT_PARALLEL",
+  "name": "Parallel Constraint",
+  "cat": "Sketch Constraints",
+  "keys": "Sketch ▸ Constrain ▸ Parallel",
+  "level": "Basic",
+  "desc": "Keep two lines parallel to each other.",
+  "v": {
+   "id": "XZqz8m93iJE",
+   "title": "The Parallel Constraint | Design Drafting with S.Henderson",
+   "channel": "Shelby Henderson",
+   "dur": 159
+  }
+ },
+ {
+  "key": "CONSTRAINT_PERPENDICULAR",
+  "name": "Perpendicular Constraint",
+  "cat": "Sketch Constraints",
+  "keys": "Sketch ▸ Constrain ▸ Perpendicular",
+  "level": "Basic",
+  "desc": "Keep two lines at a 90-degree angle to each other.",
+  "v": {
+   "id": "y698hdJj7ng",
+   "title": "The Perpendicular Constraint | Design Drafting with S.Henderson",
+   "channel": "Shelby Henderson",
+   "dur": 122
+  }
+ },
+ {
+  "key": "CONSTRAINT_TANGENT",
+  "name": "Tangent Constraint",
+  "cat": "Sketch Constraints",
+  "keys": "Sketch ▸ Constrain ▸ Tangent",
+  "level": "Intermediate",
+  "desc": "Make a curve tangent to another curve or line.",
+  "v": {
+   "id": "NpGaP55a9Z0",
+   "title": "Quick Tip - Tangent Constraint",
+   "channel": "Autodesk Inventor",
+   "dur": 127
+  }
+ },
+ {
+  "key": "CONSTRAINT_HORIZONTAL",
+  "name": "Horizontal Constraint",
+  "cat": "Sketch Constraints",
+  "keys": "Sketch ▸ Constrain ▸ Horizontal",
+  "level": "Basic",
+  "desc": "Constrain a line or two points to be horizontal.",
+  "v": {
+   "id": "D-7DrKDjfyM",
+   "title": "CAD Tutorial 02.8 Horizontal Vertical Constraint",
+   "channel": "Makers Bench",
+   "dur": 178
+  }
+ },
+ {
+  "key": "CONSTRAINT_VERTICAL",
+  "name": "Vertical Constraint",
+  "cat": "Sketch Constraints",
+  "keys": "Sketch ▸ Constrain ▸ Vertical",
+  "level": "Basic",
+  "desc": "Constrain a line or two points to be vertical.",
+  "v": {
+   "id": "D-7DrKDjfyM",
+   "title": "CAD Tutorial 02.8 Horizontal Vertical Constraint",
+   "channel": "Makers Bench",
+   "dur": 178
+  }
+ },
+ {
+  "key": "CONSTRAINT_EQUAL",
+  "name": "Equal Constraint",
+  "cat": "Sketch Constraints",
+  "keys": "=",
+  "level": "Basic",
+  "desc": "Constrain two curves to the same length or two arcs to the same radius.",
+  "v": {
+   "id": "xF-E4y22vEI",
+   "title": "Inventor Equal Constraint Tutorial",
+   "channel": "Mufasu CAD",
+   "dur": 230
+  }
+ },
+ {
+  "key": "CONSTRAINT_FIX",
+  "name": "Fix Constraint",
+  "cat": "Sketch Constraints",
+  "keys": "Sketch ▸ Constrain ▸ Fix",
+  "level": "Basic",
+  "desc": "Lock a point or curve in place so it cannot move when solved.",
+  "v": {
+   "id": "Oeh9Bua8pDo",
+   "title": "Inventor 03-10  Fix Constraint",
+   "channel": "John Bordeau",
+   "dur": 97
+  }
+ },
+ {
+  "key": "CONSTRAINT_SYMMETRIC",
+  "name": "Symmetric Constraint",
+  "cat": "Sketch Constraints",
+  "keys": "Sketch ▸ Constrain ▸ Symmetric",
+  "level": "Intermediate",
+  "desc": "Constrain two entities to be symmetric about a chosen line.",
+  "v": {
+   "id": "9yJfyXxm_5k",
+   "title": "Quick Tip - Symmetry Constraint",
+   "channel": "Autodesk Inventor",
+   "dur": 123
+  }
+ },
+ {
+  "key": "DIMENSION",
+  "name": "General Dimension",
+  "cat": "Sketch Constraints",
+  "keys": "D",
+  "level": "Basic",
+  "desc": "Add a driving dimension that controls sketch size and position.",
+  "v": {
+   "id": "Qy-2lEZsd4s",
+   "title": "Creating General Dimensions in Autodesk Inventor",
+   "channel": "Between CAD Classes",
+   "dur": 135
+  }
+ },
+ {
+  "key": "AUTODIMENSION",
+  "name": "Auto Dimension",
+  "cat": "Sketch Constraints",
+  "keys": "Sketch ▸ Constrain ▸ Auto Dimension",
+  "level": "Intermediate",
+  "desc": "Automatically add dimensions to fully constrain a sketch.",
+  "v": {
+   "id": "lIVUB5lfbA8",
+   "title": "Creating Fully Constrained Sketch || Dimension Tool || Autodesk Inventor Tutorial",
+   "channel": "3D Parametric Solid Model Drawing",
+   "dur": 197
+  }
+ },
+ {
+  "key": "SHOWCONSTRAINTS",
+  "name": "Show All Constraints",
+  "cat": "Sketch Constraints",
+  "keys": "F8",
+  "level": "Basic",
+  "desc": "Display every constraint glyph in the active sketch.",
+  "v": {
+   "id": "JaI0LI70sUw",
+   "title": "Autodesk Inventor - Viewing Constraints in the Sketch Environment",
+   "channel": "CAD Video Tutorials",
+   "dur": 66
+  }
+ },
+ {
+  "key": "HIDECONSTRAINTS",
+  "name": "Hide All Constraints",
+  "cat": "Sketch Constraints",
+  "keys": "F9",
+  "level": "Basic",
+  "desc": "Hide all constraint glyphs for a cleaner sketch view.",
+  "v": {
+   "id": "Cpq0JQ-4RbQ",
+   "title": "How to View, Hide or Delete Geometric Constraints | Design Drafting with S.Henderson",
+   "channel": "Shelby Henderson",
+   "dur": 325
+  }
+ },
+ {
+  "key": "CONSTRAINTS",
+  "name": "Constraint Visibility",
+  "cat": "Sketch Constraints",
+  "keys": "Sketch ▸ Constrain ▸ Show Constraints",
+  "level": "Intermediate",
+  "desc": "Control which individual constraints are shown or hidden per entity.",
+  "v": {
+   "id": "BbBmHQQlsJI",
+   "title": "How to Use Sketch Constraints - Autodesk Inventor",
+   "channel": "Fully Constrained",
+   "dur": 715
+  }
+ },
+ {
+  "key": "EXTRUDE",
+  "name": "Extrude",
+  "cat": "Part Features",
+  "keys": "E",
+  "level": "Basic",
+  "desc": "Add or cut material by pushing a profile along a straight direction.",
+  "v": {
+   "id": "UKsTL-268RM",
+   "title": "Inventor 101: Cut Extrude, Fillet and Hole Commands",
+   "channel": "Autodesk Inventor",
+   "dur": 115
+  }
+ },
+ {
+  "key": "REVOLVE",
+  "name": "Revolve",
+  "cat": "Part Features",
+  "keys": "R",
+  "level": "Basic",
+  "desc": "Create or cut material by revolving a profile about an axis.",
+  "v": {
+   "id": "LOH5VylQOTI",
+   "title": "Inventor 101: Revolve, Project Geometry and Visual Style",
+   "channel": "Autodesk Inventor",
+   "dur": 168
+  }
+ },
+ {
+  "key": "HOLE",
+  "name": "Hole",
+  "cat": "Part Features",
+  "keys": "H",
+  "level": "Basic",
+  "desc": "Create simple, counterbore, countersink or tapped holes on a part.",
+  "v": {
+   "id": "UKsTL-268RM",
+   "title": "Inventor 101: Cut Extrude, Fillet and Hole Commands",
+   "channel": "Autodesk Inventor",
+   "dur": 115
+  }
+ },
+ {
+  "key": "FILLET",
+  "name": "Fillet",
+  "cat": "Part Features",
+  "keys": "3D Model ▸ Modify ▸ Fillet",
+  "level": "Basic",
+  "desc": "Round or blend part edges with a constant or variable radius.",
+  "v": {
+   "id": "5kf9BtLsiqI",
+   "title": "Fillet Tool and Options - Autodesk Inventor Part Tutorial | Autodesk Inventor 2021 IN DEPTH",
+   "channel": "Engineering Applied",
+   "dur": 846
+  }
+ },
+ {
+  "key": "CHAMFER",
+  "name": "Chamfer",
+  "cat": "Part Features",
+  "keys": "3D Model ▸ Modify ▸ Chamfer",
+  "level": "Basic",
+  "desc": "Bevel part edges with equal, two-distance or distance-angle chamfers.",
+  "v": {
+   "id": "_P38nvfK3Vo",
+   "title": "How to use the Chamfer Tool in Autodesk Inventor",
+   "channel": "CAD with Jordan",
+   "dur": 237
+  }
+ },
+ {
+  "key": "SHELL",
+  "name": "Shell",
+  "cat": "Part Features",
+  "keys": "3D Model ▸ Modify ▸ Shell",
+  "level": "Intermediate",
+  "desc": "Hollow out a solid to a specified wall thickness, opening selected faces.",
+  "v": {
+   "id": "bLih99xFDyg",
+   "title": "Inventor 101: Shell Command and Model Tree Planes",
+   "channel": "Autodesk Inventor",
+   "dur": 129
+  }
+ },
+ {
+  "key": "DRAFT",
+  "name": "Draft",
+  "cat": "Part Features",
+  "keys": "3D Model ▸ Modify ▸ Draft",
+  "level": "Intermediate",
+  "desc": "Add a taper angle to faces so parts release from molds.",
+  "v": {
+   "id": "hVD4XPPN1IM",
+   "title": "Quick Tip - Mastering the 3 Types of Draft in Inventor",
+   "channel": "Autodesk Inventor",
+   "dur": 134
+  }
+ },
+ {
+  "key": "THREAD",
+  "name": "Thread",
+  "cat": "Part Features",
+  "keys": "3D Model ▸ Modify ▸ Thread",
+  "level": "Intermediate",
+  "desc": "Add cosmetic or modeled threads to cylindrical faces.",
+  "v": {
+   "id": "EgA0Lj4_3N8",
+   "title": "Modelling Threads in Autodesk Inventor",
+   "channel": "Amar Joseph",
+   "dur": 158
+  }
+ },
+ {
+  "key": "FACEOFFSET",
+  "name": "Face Offset",
+  "cat": "Part Features",
+  "keys": "3D Model ▸ Modify ▸ Move Face",
+  "level": "Intermediate",
+  "desc": "Move or offset faces of a solid to change wall thickness or height.",
+  "v": {
+   "id": "JAsDC1p2mB4",
+   "title": "Direct Edit, Split, Offset Face & Thread Tools - Inventor",
+   "channel": "EDUnextLeap",
+   "dur": 500
+  }
+ },
+ {
+  "key": "PATTERN_RECT",
+  "name": "Rectangular Pattern",
+  "cat": "Part Features",
+  "keys": "3D Model ▸ Pattern ▸ Rectangular",
+  "level": "Intermediate",
+  "desc": "Copy a feature or body in rows and columns along one or two directions.",
+  "v": {
+   "id": "uBrUl6-KOG4",
+   "title": "Inventor 101: Rectangular Pattern",
+   "channel": "Autodesk Inventor",
+   "dur": 104
+  }
+ },
+ {
+  "key": "PATTERN_CIRCULAR",
+  "name": "Circular Pattern",
+  "cat": "Part Features",
+  "keys": "3D Model ▸ Pattern ▸ Circular",
+  "level": "Intermediate",
+  "desc": "Copy a feature or body in a ring around a rotation axis.",
+  "v": {
+   "id": "ZbpiMBEPGU0",
+   "title": "Inventor 101: Circular Pattern",
+   "channel": "Autodesk Inventor",
+   "dur": 98
+  }
+ },
+ {
+  "key": "MIRROR",
+  "name": "Mirror",
+  "cat": "Part Features",
+  "keys": "3D Model ▸ Pattern ▸ Mirror",
+  "level": "Intermediate",
+  "desc": "Mirror features or solid bodies about a plane for symmetric parts.",
+  "v": {
+   "id": "KK57vFgPXWs",
+   "title": "Autodesk Inventor How To Mirror A Part Tutorial",
+   "channel": "Learning Autodesk Inventor",
+   "dur": 106
+  }
+ },
+ {
+  "key": "COMBINE",
+  "name": "Combine",
+  "cat": "Part Features",
+  "keys": "3D Model ▸ Modify ▸ Combine",
+  "level": "Advanced",
+  "desc": "Join, cut or intersect solid bodies within a multi-body part.",
+  "v": {
+   "id": "-iF2VD5Kuyk",
+   "title": "Inventor How To Combine Solid Bodies Tutorial",
+   "channel": "Learning Autodesk Inventor",
+   "dur": 113
+  }
+ },
+ {
+  "key": "SPLIT",
+  "name": "Split",
+  "cat": "Part Features",
+  "keys": "3D Model ▸ Modify ▸ Split",
+  "level": "Advanced",
+  "desc": "Split faces, bodies or a part along a plane or surface.",
+  "v": {
+   "id": "-aBmNXTHB38",
+   "title": "How To Use Split Command In Autodesk Inventor 2027",
+   "channel": "Learning Autodesk Inventor",
+   "dur": 104
+  }
+ },
+ {
+  "key": "REST",
+  "name": "Rest / Boss",
+  "cat": "Part Features",
+  "keys": "3D Model ▸ Create ▸ Boss",
+  "level": "Advanced",
+  "desc": "Add a rectangular or circular boss (rest) feature to a face.",
+  "v": {
+   "id": "LxvzhRnXM3Y",
+   "title": "Autodesk Inventor - Rest (Boss) Feature, Part 1",
+   "channel": "Francisco A de A",
+   "dur": 422
+  }
+ },
+ {
+  "key": "MOVEBODIES",
+  "name": "Move Bodies",
+  "cat": "Part Features",
+  "keys": "3D Model ▸ Modify ▸ Move Bodies",
+  "level": "Advanced",
+  "desc": "Translate or rotate solid bodies inside a multi-body part.",
+  "v": {
+   "id": "dAF8z7rH-8Q",
+   "title": "Autodesk Inventor - How to Reposition Solids with Move Bodies Command",
+   "channel": "Team D3",
+   "dur": 135
+  }
+ },
+ {
+  "key": "PARAMETERS_FEAT",
+  "name": "Parameters",
+  "cat": "Part Features",
+  "keys": "Manage ▸ Parameters",
+  "level": "Intermediate",
+  "desc": "Create and edit named parameters, equations and model dimensions.",
+  "v": {
+   "id": "kglPAJjVyq8",
+   "title": "Quick Tip - Using Parameters for Multiple Design Configurations",
+   "channel": "Autodesk Inventor",
+   "dur": 198
+  }
+ },
+ {
+  "key": "IPROPERTIES",
+  "name": "iProperties",
+  "cat": "Part Features",
+  "keys": "File ▸ iProperties",
+  "level": "Basic",
+  "desc": "Edit document metadata such as part number, material and description.",
+  "v": {
+   "id": "FgHwQFD0t6I",
+   "title": "Autodesk Inventor - Automatically update iProperties when model changes",
+   "channel": "Autodesk Inventor: Solutions and Tips",
+   "dur": 554
+  }
+ },
+ {
+  "key": "MEASURE",
+  "name": "Measure",
+  "cat": "Part Features",
+  "keys": "Inspect ▸ Measure",
+  "level": "Basic",
+  "desc": "Measure distance, angle, loop length, area and other model values.",
+  "v": {
+   "id": "CY0vkzpJWu8",
+   "title": "Inventor Tutorial - Measure tool",
+   "channel": "LinkedIn Learning",
+   "dur": 137
+  }
+ },
+ {
+  "key": "SWEEP",
+  "name": "Sweep",
+  "cat": "Advanced Part",
+  "keys": "3D Model ▸ Create ▸ Sweep",
+  "level": "Advanced",
+  "desc": "Sweep a profile along a path with optional guide rail and scaling.",
+  "v": {
+   "id": "J0OZx7k0LhM",
+   "title": "Inventor How To Use Sweep",
+   "channel": "Learning Autodesk Inventor",
+   "dur": 96
+  }
+ },
+ {
+  "key": "LOFT",
+  "name": "Loft",
+  "cat": "Advanced Part",
+  "keys": "3D Model ▸ Create ▸ Loft",
+  "level": "Advanced",
+  "desc": "Blend between multiple profiles along rails to form organic shapes.",
+  "v": {
+   "id": "7WZ4W-BjTwQ",
+   "title": "Inventor 101: Loft Command",
+   "channel": "Autodesk Inventor",
+   "dur": 92
+  }
+ },
+ {
+  "key": "COIL",
+  "name": "Coil",
+  "cat": "Advanced Part",
+  "keys": "3D Model ▸ Create ▸ Coil",
+  "level": "Advanced",
+  "desc": "Create helical coils, springs and threads from a profile and axis.",
+  "v": {
+   "id": "4Hs1UL8FHjo",
+   "title": "Inventor 101: Coil Command",
+   "channel": "Autodesk Inventor",
+   "dur": 88
+  }
+ },
+ {
+  "key": "RIB",
+  "name": "Rib",
+  "cat": "Advanced Part",
+  "keys": "3D Model ▸ Create ▸ Rib",
+  "level": "Advanced",
+  "desc": "Add thin supporting ribs to a part from an open profile.",
+  "v": {
+   "id": "W67LNE5eNGA",
+   "title": "Quick Tip: Rib Command",
+   "channel": "Autodesk Inventor",
+   "dur": 119
+  }
+ },
+ {
+  "key": "EMBOSS",
+  "name": "Emboss",
+  "cat": "Advanced Part",
+  "keys": "3D Model ▸ Create ▸ Emboss",
+  "level": "Advanced",
+  "desc": "Raise or engrave text and sketch profiles on a face.",
+  "v": {
+   "id": "bpE17vTJkLY",
+   "title": "Embossing Text on a Part",
+   "channel": "Autodesk Inventor",
+   "dur": 135
+  }
+ },
+ {
+  "key": "BOUNDARYPATCH",
+  "name": "Boundary Patch",
+  "cat": "Advanced Part",
+  "keys": "3D Model ▸ Surface ▸ Boundary Patch",
+  "level": "Advanced",
+  "desc": "Create a surface patch bounded by selected edges or curves.",
+  "v": {
+   "id": "YeSQTgsh9wk",
+   "title": "Inventor Surface Modelling 6: Create Sheet Surfaces Using the Boundary Patch Tool",
+   "channel": "EDUnextLeap",
+   "dur": 233
+  }
+ },
+ {
+  "key": "SCULPT",
+  "name": "Sculpt",
+  "cat": "Advanced Part",
+  "keys": "3D Model ▸ Surface ▸ Sculpt",
+  "level": "Advanced",
+  "desc": "Convert enclosed surfaces into a solid, or sculpt solids with surfaces.",
+  "v": {
+   "id": "LP4ArppuXno",
+   "title": "How to subtract solids, using sculpt | Autodesk Inventor",
+   "channel": "Neil Cross",
+   "dur": 466
+  }
+ },
+ {
+  "key": "THICKEN",
+  "name": "Thicken / Offset",
+  "cat": "Advanced Part",
+  "keys": "3D Model ▸ Surface ▸ Thicken",
+  "level": "Advanced",
+  "desc": "Offset a surface into a solid of given thickness.",
+  "v": {
+   "id": "xUf6C8lyq1A",
+   "title": "Inventor Basic: Thicken Offset",
+   "channel": "Autodesk Inventor Tips and Tutorials",
+   "dur": 100
+  }
+ },
+ {
+  "key": "COPYOBJECT",
+  "name": "Copy Object",
+  "cat": "Advanced Part",
+  "keys": "3D Model ▸ Create ▸ Copy Object",
+  "level": "Advanced",
+  "desc": "Copy surfaces, work features or bodies from one part into another.",
+  "v": {
+   "id": "vTcquPApc54",
+   "title": "61 AutoDesk Inventor Tutorial: Copy Object, surface",
+   "channel": "Tutorials Engineer ҂",
+   "dur": 148
+  }
+ },
+ {
+  "key": "DERIVED",
+  "name": "Derived Component",
+  "cat": "Advanced Part",
+  "keys": "Manage ▸ Derive",
+  "level": "Advanced",
+  "desc": "Derive a part or assembly into a new file, with control over what is included.",
+  "v": {
+   "id": "NIqrXXOudMQ",
+   "title": "Quick Tip - Component Derive",
+   "channel": "Autodesk Inventor",
+   "dur": 68
+  }
+ },
+ {
+  "key": "MULTISOLID",
+  "name": "Multi-Body Part",
+  "cat": "Advanced Part",
+  "keys": "3D Model ▸ Create ▸ Make Components",
+  "level": "Advanced",
+  "desc": "Model several bodies in one part and push them out into components.",
+  "v": {
+   "id": "_KHIM4MY6aw",
+   "title": "How to use Multi-Body Parts, Parts to Assemblies | Autodesk Inventor",
+   "channel": "Neil Cross",
+   "dur": 997
+  }
+ },
+ {
+  "key": "IPART",
+  "name": "iPart",
+  "cat": "Advanced Part",
+  "keys": "Manage ▸ Create iPart",
+  "level": "Advanced",
+  "desc": "Build a table-driven family of part variations from one model.",
+  "v": {
+   "id": "Lm0DYRpQzzQ",
+   "title": "Create an Inventor iPart",
+   "channel": "Micrographics",
+   "dur": 241
+  }
+ },
+ {
+  "key": "IFEATURE",
+  "name": "iFeature",
+  "cat": "Advanced Part",
+  "keys": "Manage ▸ Extract iFeature",
+  "level": "Advanced",
+  "desc": "Capture a feature or set of features for reuse across parts.",
+  "v": {
+   "id": "ji7GdbzigNA",
+   "title": "Tutorial Inventor - 144 iFeature",
+   "channel": "Constantin Stancescu",
+   "dur": 1620
+  }
+ },
+ {
+  "key": "FACEFILLETVAR",
+  "name": "Variable Radius Fillet",
+  "cat": "Advanced Part",
+  "keys": "3D Model ▸ Modify ▸ Fillet",
+  "level": "Advanced",
+  "desc": "Apply fillets whose radius changes along the selected edge.",
+  "v": {
+   "id": "0T0rg__dYgc",
+   "title": "Autodesk Inventor 2012 - Variable Radius Fillet",
+   "channel": "manufacturingarea",
+   "dur": 133
+  }
+ },
+ {
+  "key": "REPLACEFACE",
+  "name": "Replace Face",
+  "cat": "Advanced Part",
+  "keys": "3D Model ▸ Surface ▸ Replace Face",
+  "level": "Advanced",
+  "desc": "Replace a solid face with a selected surface for complex blends.",
+  "v": {
+   "id": "Ld9stL8A_1M",
+   "title": "Inventor - Replace Face",
+   "channel": "Sergio Schuartz",
+   "dur": 93
+  }
+ },
+ {
+  "key": "DIRECTEDIT",
+  "name": "Direct Edit",
+  "cat": "Advanced Part",
+  "keys": "3D Model ▸ Modify ▸ Direct Edit",
+  "level": "Advanced",
+  "desc": "Move, size, rotate or scale faces on imported or native geometry.",
+  "v": {
+   "id": "_Vz-OSEi29o",
+   "title": "Autodesk Inventor direct edit modeling",
+   "channel": "Autodesk Inventor",
+   "dur": 352
+  }
+ },
+ {
+  "key": "PLACE",
+  "name": "Place Component",
+  "cat": "Assembly",
+  "keys": "P",
+  "level": "Basic",
+  "desc": "Insert an existing part or subassembly into the current assembly.",
+  "v": {
+   "id": "MIS8yRL1qV4",
+   "title": "Inventor 101: Placing and Orienting Parts in an Assembly",
+   "channel": "Autodesk Inventor",
+   "dur": 116
+  }
+ },
+ {
+  "key": "CREATECOMPONENT",
+  "name": "Create Component",
+  "cat": "Assembly",
+  "keys": "Assembly ▸ Component ▸ Create",
+  "level": "Basic",
+  "desc": "Create a new part or subassembly in place inside the assembly.",
+  "v": {
+   "id": "gBTHodMz4xE",
+   "title": "Autodesk Inventor Tutorial 32: Assembly intro + Component Tools",
+   "channel": "Inventor Tutor",
+   "dur": 350
+  }
+ },
+ {
+  "key": "CONSTRAIN",
+  "name": "Constrain (Assembly)",
+  "cat": "Assembly",
+  "keys": "C",
+  "level": "Basic",
+  "desc": "Apply mate, flush, angle, tangent or insert constraints between components.",
+  "v": {
+   "id": "i0r7q0B2OSA",
+   "title": "Inventor 101: Applying Assembly Constraints",
+   "channel": "Autodesk Inventor",
+   "dur": 128
+  }
+ },
+ {
+  "key": "ASSEMBLE",
+  "name": "Joint",
+  "cat": "Assembly",
+  "keys": "Assembly ▸ Relationships ▸ Joint",
+  "level": "Basic",
+  "desc": "Define relative motion between components with joint types and limits.",
+  "v": {
+   "id": "zPti2GO44Oo",
+   "title": "Inventor: Joints 101",
+   "channel": "Cory Allen",
+   "dur": 999
+  }
+ },
+ {
+  "key": "MATE",
+  "name": "Mate Constraint",
+  "cat": "Assembly",
+  "keys": "Alt + drag",
+  "level": "Basic",
+  "desc": "Make two faces or planes coincident, opposing or aligned.",
+  "v": {
+   "id": "4EnZwE490JY",
+   "title": "Autodesk Inventor Assembly Constraints: Mate and Flush",
+   "channel": "Between CAD Classes",
+   "dur": 620
+  }
+ },
+ {
+  "key": "FLUSH",
+  "name": "Flush Constraint",
+  "cat": "Assembly",
+  "keys": "Assembly ▸ Constrain ▸ Flush",
+  "level": "Basic",
+  "desc": "Align two faces or planes to face the same direction.",
+  "v": {
+   "id": "UY4mEV3Lihs",
+   "title": "43 - Mate and Flush Constraint | Assembly Mode | Autodesk Inventor Tutorial",
+   "channel": "Starry Industries",
+   "dur": 1218
+  }
+ },
+ {
+  "key": "ANGLE",
+  "name": "Angle Constraint",
+  "cat": "Assembly",
+  "keys": "Assembly ▸ Constrain ▸ Angle",
+  "level": "Intermediate",
+  "desc": "Set a fixed or directed angle between two components.",
+  "v": {
+   "id": "CscwF7X--xQ",
+   "title": "Angle Constraint Resting Position & Limits | Autodesk Inventor",
+   "channel": "Neil Cross",
+   "dur": 306
+  }
+ },
+ {
+  "key": "TANGENT_ASSY",
+  "name": "Tangent Constraint",
+  "cat": "Assembly",
+  "keys": "Assembly ▸ Constrain ▸ Tangent",
+  "level": "Intermediate",
+  "desc": "Make a cylinder or sphere tangent to a face or plane.",
+  "v": {
+   "id": "NpGaP55a9Z0",
+   "title": "Quick Tip - Tangent Constraint",
+   "channel": "Autodesk Inventor",
+   "dur": 127
+  }
+ },
+ {
+  "key": "INSERT",
+  "name": "Insert Constraint",
+  "cat": "Assembly",
+  "keys": "Assembly ▸ Constrain ▸ Insert",
+  "level": "Basic",
+  "desc": "Align two circular edges and their axes, as with bolts and holes.",
+  "v": {
+   "id": "Zr-XBflSr2I",
+   "title": "Insert Constraint|| Autodesk Inventor CAD Tutorial #12",
+   "channel": "Cache Money 8096",
+   "dur": 272
+  }
+ },
+ {
+  "key": "ROTATIONAL",
+  "name": "Rotational Joint",
+  "cat": "Assembly",
+  "keys": "Assembly ▸ Joint ▸ Rotational",
+  "level": "Basic",
+  "desc": "Allow two components to rotate about a common axis with optional limits.",
+  "v": {
+   "id": "DauAkuUCm60",
+   "title": "Quick Tip - Rotational Joint",
+   "channel": "Autodesk Inventor",
+   "dur": 263
+  }
+ },
+ {
+  "key": "SLIDER",
+  "name": "Slider Joint",
+  "cat": "Assembly",
+  "keys": "Assembly ▸ Joint ▸ Slider",
+  "level": "Intermediate",
+  "desc": "Allow a component to translate along a single axis.",
+  "v": {
+   "id": "xTnLR2SJInY",
+   "title": "Quick Tip - Slider Joint",
+   "channel": "Autodesk Inventor",
+   "dur": 211
+  }
+ },
+ {
+  "key": "CYLINDRICAL",
+  "name": "Cylindrical Joint",
+  "cat": "Assembly",
+  "keys": "Assembly ▸ Joint ▸ Cylindrical",
+  "level": "Intermediate",
+  "desc": "Combine rotation and sliding along one common axis.",
+  "v": {
+   "id": "J7ykV88v6PM",
+   "title": "Quick Tip - Cylindrical Joint",
+   "channel": "Autodesk Inventor",
+   "dur": 196
+  }
+ },
+ {
+  "key": "PLANARJOINT",
+  "name": "Planar Joint",
+  "cat": "Assembly",
+  "keys": "Assembly ▸ Joint ▸ Planar",
+  "level": "Intermediate",
+  "desc": "Allow free translation on a plane and rotation about its normal.",
+  "v": {
+   "id": "2xv7EjmgOpk",
+   "title": "Planar Joint",
+   "channel": "Autodesk Inventor",
+   "dur": 138
+  }
+ },
+ {
+  "key": "BALLJOINT",
+  "name": "Ball Joint",
+  "cat": "Assembly",
+  "keys": "Assembly ▸ Joint ▸ Ball",
+  "level": "Intermediate",
+  "desc": "Allow spherical rotation about a point between two components.",
+  "v": {
+   "id": "CKb92-YaDzI",
+   "title": "Quick Tip - Ball Joint",
+   "channel": "Autodesk Inventor",
+   "dur": 132
+  }
+ },
+ {
+  "key": "RIGIDJOINT",
+  "name": "Rigid Joint",
+  "cat": "Assembly",
+  "keys": "Assembly ▸ Joint ▸ Rigid",
+  "level": "Basic",
+  "desc": "Lock two components together with no relative movement.",
+  "v": {
+   "id": "nBTm7TukMRw",
+   "title": "Quick Tip - Rigid Joint",
+   "channel": "Autodesk Inventor",
+   "dur": 165
+  }
+ },
+ {
+  "key": "GROUND",
+  "name": "Ground",
+  "cat": "Assembly",
+  "keys": "Assembly ▸ Component ▸ Grounded",
+  "level": "Basic",
+  "desc": "Fix a component so it cannot move, anchoring the assembly.",
+  "v": {
+   "id": "TlgS1NpgJ9w",
+   "title": "6. Grounding Parts - Autodesk Inventor",
+   "channel": "AutoDesk Inventor with Demch",
+   "dur": 96
+  }
+ },
+ {
+  "key": "FREEMOVE",
+  "name": "Free Move / Drag",
+  "cat": "Assembly",
+  "keys": "Drag component",
+  "level": "Basic",
+  "desc": "Drag a component to move it and preview joint or constraint behaviour.",
+  "v": {
+   "id": "kuwLA-AH_sY",
+   "title": "Inventor How To Move Part In Assembly",
+   "channel": "Learning Autodesk Inventor",
+   "dur": 92
+  }
+ },
+ {
+  "key": "PATTERN_COMP",
+  "name": "Pattern Components",
+  "cat": "Assembly",
+  "keys": "Assembly ▸ Pattern ▸ Component",
+  "level": "Intermediate",
+  "desc": "Array assembly components in rectangular or circular patterns.",
+  "v": {
+   "id": "ix6hUK_vP6U",
+   "title": "Pattern Component in Autodesk Inventor Assembly 2023",
+   "channel": "CAD CAM TUTORIAL BY MAHTAB",
+   "dur": 247
+  }
+ },
+ {
+  "key": "MIRROR_COMP",
+  "name": "Mirror Components",
+  "cat": "Assembly",
+  "keys": "Assembly ▸ Pattern ▸ Mirror",
+  "level": "Intermediate",
+  "desc": "Mirror selected assembly components about a plane.",
+  "v": {
+   "id": "qOHYF84dNk8",
+   "title": "Mirroring Components in an Assembly - A Better Way",
+   "channel": "John Hackney",
+   "dur": 289
+  }
+ },
+ {
+  "key": "COPY_COMP",
+  "name": "Copy / Reuse",
+  "cat": "Assembly",
+  "keys": "Assembly ▸ Component ▸ Copy",
+  "level": "Basic",
+  "desc": "Reuse the same component multiple times within an assembly.",
+  "v": {
+   "id": "WO4k-g9zjlo",
+   "title": "Using Copy Component to Create a Similar Component in Autodesk Inventor",
+   "channel": "KETIV Technologies",
+   "dur": 146
+  }
+ },
+ {
+  "key": "BOM",
+  "name": "Bill of Materials",
+  "cat": "Assembly",
+  "keys": "Assembly ▸ Manage ▸ Bill of Materials",
+  "level": "Intermediate",
+  "desc": "View and edit structured, parts-only or purchased BOM data.",
+  "v": {
+   "id": "VBSRMcjZI68",
+   "title": "Autodesk Inventor Bill of Materials",
+   "channel": "Graitec UK",
+   "dur": 124
+  }
+ },
+ {
+  "key": "IMATE",
+  "name": "iMate",
+  "cat": "Assembly",
+  "keys": "Assembly ▸ Productivity ▸ iMate",
+  "level": "Advanced",
+  "desc": "Define reusable mating relationships for one-click component placement.",
+  "v": {
+   "id": "YkwmmnncZmE",
+   "title": "Inventor iMate (Basic iMate for the Furniture Industry)",
+   "channel": "Dan Hiney",
+   "dur": 546
+  }
+ },
+ {
+  "key": "BOLTEDCONN",
+  "name": "Bolted Connection",
+  "cat": "Assembly",
+  "keys": "Design ▸ Bolted Connection",
+  "level": "Advanced",
+  "desc": "Automatically insert and constrain bolted connections with hardware.",
+  "v": {
+   "id": "g7W0PiXSmUA",
+   "title": "Autodesk Inventor - Bolted Connection",
+   "channel": "Inventor Tutorials",
+   "dur": 320
+  }
+ },
+ {
+  "key": "INTERFERENCE",
+  "name": "Interference Check",
+  "cat": "Assembly",
+  "keys": "Inspect ▸ Interference",
+  "level": "Intermediate",
+  "desc": "Detect overlapping geometry between components in an assembly.",
+  "v": {
+   "id": "G6encKlJICo",
+   "title": "Analyzing Interference between Autodesk Inventor Assembly Components",
+   "channel": "Between CAD Classes",
+   "dur": 194
+  }
+ },
+ {
+  "key": "DRIVECONSTRAINT",
+  "name": "Drive Constraint",
+  "cat": "Assembly",
+  "keys": "Assembly ▸ Constrain ▸ Drive",
+  "level": "Advanced",
+  "desc": "Animate a constraint or joint through a range of values.",
+  "v": {
+   "id": "HGKdGQNtVVY",
+   "title": "Inventor 101: Driving Motion with Assembly Constraints",
+   "channel": "Autodesk Inventor",
+   "dur": 142
+  }
+ },
+ {
+  "key": "CONSTRAINTLIMIT",
+  "name": "Constraint Limits",
+  "cat": "Assembly",
+  "keys": "Assembly ▸ Constrain ▸ Limits",
+  "level": "Advanced",
+  "desc": "Set minimum and maximum values for a constraint or joint.",
+  "v": {
+   "id": "sO-Iw9Gl1oU",
+   "title": "New for Autodesk Inventor 2011 - Constraint Limits",
+   "channel": "KETIV Technologies",
+   "dur": 152
+  }
+ },
+ {
+  "key": "CONTACTSET",
+  "name": "Contact Set",
+  "cat": "Assembly",
+  "keys": "Inspect ▸ Contact Set",
+  "level": "Advanced",
+  "desc": "Group components that touch so curves and motions stay realistic.",
+  "v": {
+   "id": "2WWW6iOHSX4",
+   "title": "How to Use Contact Sets in Autodesk Inventor Professional",
+   "channel": "Redcage",
+   "dur": 187
+  }
+ },
+ {
+  "key": "SELECTOTHER",
+  "name": "Select Other",
+  "cat": "Assembly",
+  "keys": "Ctrl + A",
+  "level": "Intermediate",
+  "desc": "Cycle through overlapping faces or edges to pick the one you want.",
+  "v": {
+   "id": "hDSLZzpQLpQ",
+   "title": "Inventor - Options for Controlling the Select Other Cycling",
+   "channel": "Team D3",
+   "dur": 300
+  }
+ },
+ {
+  "key": "LOD",
+  "name": "Level of Detail",
+  "cat": "Advanced Assembly",
+  "keys": "Assembly ▸ Representations ▸ Level of Detail",
+  "level": "Advanced",
+  "desc": "Create simplified or full-detail representations of large assemblies.",
+  "v": {
+   "id": "knnqxVH55tM",
+   "title": "Assembly representations (Level of detail & View Reps) | Autodesk Inventor",
+   "channel": "Neil Cross",
+   "dur": 1393
+  }
+ },
+ {
+  "key": "POSREP",
+  "name": "Positional Representation",
+  "cat": "Advanced Assembly",
+  "keys": "Assembly ▸ Representations ▸ Position",
+  "level": "Advanced",
+  "desc": "Save named positional states such as open, closed or folded.",
+  "v": {
+   "id": "7sk8gY3JiKI",
+   "title": "Assembly Positional Representation Tutorial | Autodesk Inventor",
+   "channel": "Neil Cross",
+   "dur": 1257
+  }
+ },
+ {
+  "key": "VIEWREP",
+  "name": "View Representation",
+  "cat": "Advanced Assembly",
+  "keys": "Assembly ▸ Representations ▸ View",
+  "level": "Advanced",
+  "desc": "Save visibility and appearance states for components.",
+  "v": {
+   "id": "8tM7CEt_RW4",
+   "title": "Inventor 2017 | View Representation Feature",
+   "channel": "Daniel Severino",
+   "dur": 836
+  }
+ },
+ {
+  "key": "SUBSTITUTE",
+  "name": "Substitute Level of Detail",
+  "cat": "Advanced Assembly",
+  "keys": "Assembly ▸ Representations ▸ Substitute",
+  "level": "Advanced",
+  "desc": "Replace a complex subassembly with a single simplified part.",
+  "v": {
+   "id": "VwYR20ICgKE",
+   "title": "Autodesk Inventor Substitute Shrinkwrap Level Of Detail",
+   "channel": "InventorMasters",
+   "dur": 131
+  }
+ },
+ {
+  "key": "ADAPTIVE",
+  "name": "Adaptive Part",
+  "cat": "Advanced Assembly",
+  "keys": "Assembly ▸ Component ▸ Adaptive",
+  "level": "Advanced",
+  "desc": "Let a part resize automatically to fit the components it is constrained to.",
+  "v": {
+   "id": "rAHKdsjGdNA",
+   "title": "Adaptivity as fast and as simple as possible | Autodesk Inventor",
+   "channel": "Neil Cross",
+   "dur": 538
+  }
+ },
+ {
+  "key": "WELDMENT",
+  "name": "Weldment",
+  "cat": "Advanced Assembly",
+  "keys": "Environments ▸ Weldment",
+  "level": "Advanced",
+  "desc": "Add weld beads and machining operations to a welded assembly.",
+  "v": {
+   "id": "luGYZzCWHn4",
+   "title": "Autodesk Inventor Weldment Tutorial | Welding Tools",
+   "channel": "vvk tutorials",
+   "dur": 350
+  }
+ },
+ {
+  "key": "FRAMEGEN",
+  "name": "Frame Generator",
+  "cat": "Advanced Assembly",
+  "keys": "Design ▸ Frame Generator",
+  "level": "Advanced",
+  "desc": "Build structural frames by inserting members along skeleton edges.",
+  "v": {
+   "id": "89PX745HTfU",
+   "title": "Frame Generator Tutorial (Beginner) | Autodesk Inventor",
+   "channel": "Neil Cross",
+   "dur": 718
+  }
+ },
+ {
+  "key": "SKELETON",
+  "name": "Skeleton Modeling",
+  "cat": "Advanced Assembly",
+  "keys": "Assembly ▸ Create ▸ Skeleton",
+  "level": "Advanced",
+  "desc": "Drive a top-down assembly from a master skeleton sketch.",
+  "v": {
+   "id": "JaiVSNIDMSM",
+   "title": "Using Autodesk Inventor for Skeletal Modeling",
+   "channel": "IMAGINiT Technologies",
+   "dur": 2578
+  }
+ },
+ {
+  "key": "TOPDOWN",
+  "name": "Top-Down Design",
+  "cat": "Advanced Assembly",
+  "keys": "Assembly ▸ Component ▸ Create",
+  "level": "Advanced",
+  "desc": "Design parts in the context of the assembly, referencing other components.",
+  "v": {
+   "id": "I5szU_6h2FY",
+   "title": "08 Top Down Assembly Design   02 In Place Editing",
+   "channel": "Learning Autodesk Inventor Advance",
+   "dur": 294
+  }
+ },
+ {
+  "key": "PROMOTE",
+  "name": "Promote",
+  "cat": "Advanced Assembly",
+  "keys": "Shift + Tab",
+  "level": "Intermediate",
+  "desc": "Move a part out of a subassembly up into the parent assembly.",
+  "v": {
+   "id": "d315wJDVjUU",
+   "title": "[Inventor 2013 Tips] Promote và demote",
+   "channel": "InventorTipsVN",
+   "dur": 145
+  }
+ },
+ {
+  "key": "DEMOTE",
+  "name": "Demote",
+  "cat": "Advanced Assembly",
+  "keys": "Tab",
+  "level": "Intermediate",
+  "desc": "Move selected components down into a new or existing subassembly.",
+  "v": {
+   "id": "lhvpWMHgxeU",
+   "title": "How to Demote Components to Create an Assembly",
+   "channel": "KETIV Technologies",
+   "dur": 133
+  }
+ },
+ {
+  "key": "REPLACE",
+  "name": "Replace Component",
+  "cat": "Advanced Assembly",
+  "keys": "Ctrl + H",
+  "level": "Intermediate",
+  "desc": "Swap one component for another while keeping existing constraints.",
+  "v": {
+   "id": "nzhZl-gScPs",
+   "title": "Replacing a component or subassembly in an assembly - Autodesk Inventor 2011",
+   "channel": "CADLearning (Now Eagle Point Software)",
+   "dur": 121
+  }
+ },
+ {
+  "key": "SIMPLIFY",
+  "name": "Simplify",
+  "cat": "Advanced Assembly",
+  "keys": "Environments ▸ Simplify",
+  "level": "Advanced",
+  "desc": "Create a simplified part or assembly by removing or reducing detail.",
+  "v": {
+   "id": "CVNK1WzALhE",
+   "title": "Autodesk Inventor 2022: Simplify Command",
+   "channel": "Autodesk Inventor",
+   "dur": 374
+  }
+ },
+ {
+  "key": "PARAMETRIC_ASSY",
+  "name": "Assembly Parameters",
+  "cat": "Advanced Assembly",
+  "keys": "Manage ▸ Parameters",
+  "level": "Advanced",
+  "desc": "Drive assembly constraints and component placement with parameters.",
+  "v": {
+   "id": "SkVav0ZhOXU",
+   "title": "Basics of Assembly Configuration in Autodesk Inventor - Copying Assets and Pushing Parameters",
+   "channel": "KETIV Technologies",
+   "dur": 1699
+  }
+ },
+ {
+  "key": "CLASH",
+  "name": "Analyze Interference",
+  "cat": "Advanced Assembly",
+  "keys": "Inspect ▸ Analyze Interference",
+  "level": "Advanced",
+  "desc": "Run a full interference analysis and review every clash found.",
+  "v": {
+   "id": "G6encKlJICo",
+   "title": "Analyzing Interference between Autodesk Inventor Assembly Components",
+   "channel": "Between CAD Classes: AutoCAD",
+   "dur": 194
+  }
+ },
+ {
+  "key": "SM_FACE",
+  "name": "Face (Base)",
+  "cat": "Sheet Metal",
+  "keys": "Sheet Metal ▸ Create ▸ Face",
+  "level": "Basic",
+  "desc": "Create the first sheet metal face from an open or closed profile.",
+  "v": {
+   "id": "utwExHHTcg8",
+   "title": "Face in Inventor 2015 (Base Flange)",
+   "channel": "SolidProfessor",
+   "dur": 385
+  }
+ },
+ {
+  "key": "SM_FLANGE",
+  "name": "Flange",
+  "cat": "Sheet Metal",
+  "keys": "Sheet Metal ▸ Create ▸ Flange",
+  "level": "Basic",
+  "desc": "Add a straight flange to a sheet metal edge with bend and height rules.",
+  "v": {
+   "id": "GFWEnBM5efc",
+   "title": "03 Autodesk Inventor 2020 Sheet Metal - Flange Tool",
+   "channel": "MakCham Cad",
+   "dur": 1204
+  }
+ },
+ {
+  "key": "SM_CONTOUR",
+  "name": "Contour Flange",
+  "cat": "Sheet Metal",
+  "keys": "Sheet Metal ▸ Create ▸ Contour Flange",
+  "level": "Intermediate",
+  "desc": "Sweep a profile along an edge to create a shaped flange.",
+  "v": {
+   "id": "y1C6oFxSaGM",
+   "title": "Autodesk Inventor | Lesson 35 | Contour Flange",
+   "channel": "DAWUD ALFAJRI",
+   "dur": 242
+  }
+ },
+ {
+  "key": "SM_HEM",
+  "name": "Hem",
+  "cat": "Sheet Metal",
+  "keys": "Sheet Metal ▸ Create ▸ Hem",
+  "level": "Intermediate",
+  "desc": "Fold an edge back on itself for a safe or reinforced edge.",
+  "v": {
+   "id": "nnXnRdU7-kE",
+   "title": "Autodesk Inventor 2023 Sheet metal Hem Types",
+   "channel": "CAD CAM TUTORIAL BY MAHTABALAM",
+   "dur": 510
+  }
+ },
+ {
+  "key": "SM_FOLD",
+  "name": "Fold",
+  "cat": "Sheet Metal",
+  "keys": "Sheet Metal ▸ Create ▸ Fold",
+  "level": "Intermediate",
+  "desc": "Bend an existing sheet metal face along a sketch line.",
+  "v": {
+   "id": "24ETHgdcf5Y",
+   "title": "07 Autodesk Inventor 2020 Sheet Metal - Fold Tool",
+   "channel": "MakCham Cad",
+   "dur": 278
+  }
+ },
+ {
+  "key": "SM_BEND",
+  "name": "Bend",
+  "cat": "Sheet Metal",
+  "keys": "Sheet Metal ▸ Create ▸ Bend",
+  "level": "Intermediate",
+  "desc": "Create a bend between two unconnected sheet metal faces.",
+  "v": {
+   "id": "osNimiH2ZCI",
+   "title": "Inventor How To Bend Sheet Metal",
+   "channel": "Learning Autodesk Inventor",
+   "dur": 138
+  }
+ },
+ {
+  "key": "SM_PUNCH",
+  "name": "Punch Tool",
+  "cat": "Sheet Metal",
+  "keys": "Sheet Metal ▸ Create ▸ Punch Tool",
+  "level": "Advanced",
+  "desc": "Place an iFeature punch such as louvers, extruded holes or lance.",
+  "v": {
+   "id": "sWZs2iiV4b4",
+   "title": "Punch Tool Sheet Metal",
+   "channel": "Autodesk Inventor",
+   "dur": 183
+  }
+ },
+ {
+  "key": "SM_CUT",
+  "name": "Cut",
+  "cat": "Sheet Metal",
+  "keys": "Sheet Metal ▸ Create ▸ Cut",
+  "level": "Basic",
+  "desc": "Cut through a sheet metal part perpendicular to the face.",
+  "v": {
+   "id": "Vwt8yJvd-1E",
+   "title": "09 Autodesk Inventor 2020 Sheet Metal - Cut Tool",
+   "channel": "MakCham Cad",
+   "dur": 771
+  }
+ },
+ {
+  "key": "SM_CORNERSEAM",
+  "name": "Corner Seam",
+  "cat": "Sheet Metal",
+  "keys": "Sheet Metal ▸ Modify ▸ Corner Seam",
+  "level": "Advanced",
+  "desc": "Close and control the seam where two sheet metal faces meet.",
+  "v": {
+   "id": "DsefUWxGafM",
+   "title": "Sheet Metal Corner Seam",
+   "channel": "Autodesk Inventor Tips and Tutorials",
+   "dur": 162
+  }
+ },
+ {
+  "key": "SM_CORNROUND",
+  "name": "Corner Round",
+  "cat": "Sheet Metal",
+  "keys": "Sheet Metal ▸ Modify ▸ Corner Round",
+  "level": "Advanced",
+  "desc": "Round a sharp sheet metal corner with a controlled radius.",
+  "v": {
+   "id": "9DJdoQ-2lbY",
+   "title": "Autodesk Inventor sheet metal 2023 Exercise 21,Contour flange, Cut, Corner round",
+   "channel": "CAD CAM TUTORIAL BY MAHTABALAM",
+   "dur": 597
+  }
+ },
+ {
+  "key": "SM_UNFOLD",
+  "name": "Create Flat Pattern",
+  "cat": "Sheet Metal",
+  "keys": "Sheet Metal ▸ Create ▸ Create Flat Pattern",
+  "level": "Intermediate",
+  "desc": "Generate the flat pattern of a sheet metal part for manufacturing.",
+  "v": {
+   "id": "7UO2gixSkgU",
+   "title": "Inventor - Create Flat Pattern",
+   "channel": "ARKANCE UK",
+   "dur": 73
+  }
+ },
+ {
+  "key": "SM_DEFAULTS",
+  "name": "Sheet Metal Defaults",
+  "cat": "Sheet Metal",
+  "keys": "Sheet Metal ▸ Setup ▸ Defaults",
+  "level": "Basic",
+  "desc": "Set thickness, bend radius, relief and unfold rules for the part.",
+  "v": {
+   "id": "ciR3gHVbh6s",
+   "title": "Sheet Metal Defaults in Inventor 2015",
+   "channel": "SolidProfessor",
+   "dur": 443
+  }
+ },
+ {
+  "key": "SM_BENDTABLE",
+  "name": "Bend Table",
+  "cat": "Sheet Metal",
+  "keys": "Sheet Metal ▸ Setup ▸ Bend Table",
+  "level": "Advanced",
+  "desc": "Define bend allowance and deduction values for accurate flat patterns.",
+  "v": {
+   "id": "HSzEJi386Ik",
+   "title": "Autodesk Inventor Bend table",
+   "channel": "Autodesk Inventor Professional",
+   "dur": 898
+  }
+ },
+ {
+  "key": "BASEVIEW",
+  "name": "Base View",
+  "cat": "Drawing",
+  "keys": "Place Views ▸ Base",
+  "level": "Basic",
+  "desc": "Place the first drawing view of a part or assembly.",
+  "v": {
+   "id": "fTLEv1inzvk",
+   "title": "Base View Command - Autodesk Inventor Drawing Tutorial | Autodesk Inventor 2021 IN DEPTH",
+   "channel": "Engineering Applied",
+   "dur": 2255
+  }
+ },
+ {
+  "key": "PROJVIEW",
+  "name": "Projected View",
+  "cat": "Drawing",
+  "keys": "Place Views ▸ Projected",
+  "level": "Basic",
+  "desc": "Project top, side and isometric views from an existing base view.",
+  "v": {
+   "id": "07tOrk2UZ0U",
+   "title": "Projected View Command - Autodesk Inventor Drawing Tutorial | Autodesk Inventor 2021 IN DEPTH",
+   "channel": "Engineering Applied",
+   "dur": 564
+  }
+ },
+ {
+  "key": "SECTIONVIEW",
+  "name": "Section View",
+  "cat": "Drawing",
+  "keys": "Place Views ▸ Section",
+  "level": "Intermediate",
+  "desc": "Cut through a view to show internal features with hatching.",
+  "v": {
+   "id": "aBzpVeI641c",
+   "title": "Inventor 101: Auxiliary & Section View, Drawing Dimensions & Annotations",
+   "channel": "Autodesk Inventor",
+   "dur": 151
+  }
+ },
+ {
+  "key": "DETAILVIEW",
+  "name": "Detail View",
+  "cat": "Drawing",
+  "keys": "Place Views ▸ Detail",
+  "level": "Intermediate",
+  "desc": "Zoom into and enlarge a portion of a view at a larger scale.",
+  "v": {
+   "id": "KEYb1iCVXvY",
+   "title": "How to create a Detail View on your drawing in Autodesk Inventor",
+   "channel": "CAD with Jordan",
+   "dur": 296
+  }
+ },
+ {
+  "key": "AUXVIEW",
+  "name": "Auxiliary View",
+  "cat": "Drawing",
+  "keys": "Place Views ▸ Auxiliary",
+  "level": "Advanced",
+  "desc": "Create a view projected at an angle along an edge.",
+  "v": {
+   "id": "aBzpVeI641c",
+   "title": "Inventor 101: Auxiliary & Section View, Drawing Dimensions & Annotations",
+   "channel": "Autodesk Inventor",
+   "dur": 151
+  }
+ },
+ {
+  "key": "OVERLAYVIEW",
+  "name": "Overlay View",
+  "cat": "Drawing",
+  "keys": "Place Views ▸ Overlay",
+  "level": "Advanced",
+  "desc": "Overlay positional or design view representations on one view.",
+  "v": {
+   "id": "eAMUFdONo8g",
+   "title": "Activate Contact Solver & Overlay View Drawing [AutoDesk Inventor 2026]",
+   "channel": "Ts. ARIFIN BIN ABDUL RAUF",
+   "dur": 428
+  }
+ },
+ {
+  "key": "BREAKVIEW",
+  "name": "Break View",
+  "cat": "Drawing",
+  "keys": "Place Views ▸ Break",
+  "level": "Advanced",
+  "desc": "Remove a section of a long view to shorten it while keeping detail.",
+  "v": {
+   "id": "_CzC5aGujrE",
+   "title": "Membuat Break View Autodesk Inventor 2023 Drawing Tutorial",
+   "channel": "Febrianto Amri Ristadi",
+   "dur": 145
+  }
+ },
+ {
+  "key": "BROKENOUT",
+  "name": "Broken-Out Section",
+  "cat": "Drawing",
+  "keys": "Place Views ▸ Broken-Out",
+  "level": "Advanced",
+  "desc": "Cut away a region of a view to expose internal detail locally.",
+  "v": {
+   "id": "ZwXVFbKR2ko",
+   "title": "Create a Breakout Section view.",
+   "channel": "Mr. Licharowicz",
+   "dur": 140
+  }
+ },
+ {
+  "key": "DIM_GENERAL",
+  "name": "General Dimension",
+  "cat": "Drawing",
+  "keys": "D",
+  "level": "Basic",
+  "desc": "Add linear, radius, diameter and angle dimensions to drawing views.",
+  "v": {
+   "id": "OWKb6cvbCwM",
+   "title": "Dimension and Draw Inventor Drawing Sheet",
+   "channel": "Seth Ponder",
+   "dur": 373
+  }
+ },
+ {
+  "key": "DIM_BASELINE",
+  "name": "Baseline Dimension",
+  "cat": "Drawing",
+  "keys": "Annotate ▸ Baseline",
+  "level": "Intermediate",
+  "desc": "Dimension several features from a single common baseline.",
+  "v": {
+   "id": "bW4eXOHK0F8",
+   "title": "Autodesk Inventor Indonesia | Baseline Dimension",
+   "channel": "DAWUD ALFAJRI",
+   "dur": 234
+  }
+ },
+ {
+  "key": "DIM_CHAIN",
+  "name": "Chain Dimension",
+  "cat": "Drawing",
+  "keys": "Annotate ▸ Chain",
+  "level": "Intermediate",
+  "desc": "Place a series of end-to-end dimensions in one step.",
+  "v": {
+   "id": "BpcpdPPrPx8",
+   "title": "Creating Baseline and Chain Dimensions in Autodesk Inventor",
+   "channel": "Between CAD Classes",
+   "dur": 138
+  }
+ },
+ {
+  "key": "DIM_ORDINATE",
+  "name": "Ordinate Dimension",
+  "cat": "Drawing",
+  "keys": "ODS",
+  "level": "Advanced",
+  "desc": "Dimension features by coordinate from a single origin datum.",
+  "v": {
+   "id": "hn9FwnygQW0",
+   "title": "Ordinate Set Dimension - Autodesk Inventor",
+   "channel": "Nine Murti",
+   "dur": 156
+  }
+ },
+ {
+  "key": "BALLOON",
+  "name": "Balloon",
+  "cat": "Drawing",
+  "keys": "B",
+  "level": "Basic",
+  "desc": "Add item balloons that reference parts list entries.",
+  "v": {
+   "id": "3VcW2lzC1Ws",
+   "title": "Inventor How To Create Balloon Tutorial",
+   "channel": "Learning Autodesk Inventor",
+   "dur": 129
+  }
+ },
+ {
+  "key": "PARTSLIST",
+  "name": "Parts List",
+  "cat": "Drawing",
+  "keys": "Annotate ▸ Parts List",
+  "level": "Intermediate",
+  "desc": "Insert and edit a parts list table driven by the assembly BOM.",
+  "v": {
+   "id": "aJzAv70e3EA",
+   "title": "Autodesk Inventor Frame Generator | Creating a Part List (BOM) and Detailed Drawing - PART 1",
+   "channel": " CAD BY NANA",
+   "dur": 1211
+  }
+ },
+ {
+  "key": "HOLETABLE",
+  "name": "Hole Table",
+  "cat": "Drawing",
+  "keys": "Annotate ▸ Hole Table",
+  "level": "Advanced",
+  "desc": "Create a table listing hole positions, sizes and quantities.",
+  "v": {
+   "id": "oFXbA9yqXAM",
+   "title": "Autodesk Inventor - hole table in 30sec",
+   "channel": "สอน Autodesk Inventor",
+   "dur": 148
+  }
+ },
+ {
+  "key": "REVISIONTABLE",
+  "name": "Revision Table",
+  "cat": "Drawing",
+  "keys": "Annotate ▸ Revision Table",
+  "level": "Intermediate",
+  "desc": "Track revision letters, dates, descriptions and approvals.",
+  "v": {
+   "id": "J7Fnnctmvz8",
+   "title": "Revision Table Style - Inventor",
+   "channel": "Chris Benner",
+   "dur": 368
+  }
+ },
+ {
+  "key": "REVCLOUD",
+  "name": "Revision Cloud",
+  "cat": "Drawing",
+  "keys": "Annotate ▸ Revision Cloud",
+  "level": "Basic",
+  "desc": "Draw a cloud around changed areas to mark revisions.",
+  "v": {
+   "id": "SN7GmWRDoa8",
+   "title": "How to add Revision Cloud in Autodesk Inventor2020",
+   "channel": "Doing the things I love",
+   "dur": 121
+  }
+ },
+ {
+  "key": "LEADERTEXT",
+  "name": "Leader Text",
+  "cat": "Drawing",
+  "keys": "Ctrl + Shift + T",
+  "level": "Basic",
+  "desc": "Add notes with leader lines pointing to drawing features.",
+  "v": {
+   "id": "b53qzODefeY",
+   "title": "Inventor - Default Center Justified Leader Text in Drawings",
+   "channel": "Team D3",
+   "dur": 356
+  }
+ },
+ {
+  "key": "CENTERLINE",
+  "name": "Centerline / Center Mark",
+  "cat": "Drawing",
+  "keys": "Annotate ▸ Centerline",
+  "level": "Basic",
+  "desc": "Add centerlines, center marks and bolt circle patterns to views.",
+  "v": {
+   "id": "tEUUqZCBtYU",
+   "title": "Autodesk Inventor | IDW | Automated centerlines | Centered pattern | Center mark",
+   "channel": "DAWUD ALFAJRI",
+   "dur": 271
+  }
+ },
+ {
+  "key": "HATCH",
+  "name": "Hatch / Sketch",
+  "cat": "Drawing",
+  "keys": "Sketch ▸ Hatch",
+  "level": "Intermediate",
+  "desc": "Add sketch geometry and hatching to annotate drawing views.",
+  "v": {
+   "id": "xu7IxMkF39U",
+   "title": "Inventor - Part - Hatch in Sketch",
+   "channel": "Sergio Schuartz",
+   "dur": 117
+  }
+ },
+ {
+  "key": "SYMBOLS",
+  "name": "Symbols",
+  "cat": "Drawing",
+  "keys": "Annotate ▸ Symbols",
+  "level": "Advanced",
+  "desc": "Place surface finish, weld, datum and feature control frame symbols.",
+  "v": {
+   "id": "g9PS7ee8uZo",
+   "title": "Surface Texture Symbols in Inventor",
+   "channel": "Chatt-Tech Drafting",
+   "dur": 202
+  }
+ },
+ {
+  "key": "DRAWINGSTYLES",
+  "name": "Drawing Styles",
+  "cat": "Drawing",
+  "keys": "Manage ▸ Styles Editor",
+  "level": "Advanced",
+  "desc": "Control dimension styles, layers, title blocks and drawing standards.",
+  "v": {
+   "id": "ZNUEyzpCSqI",
+   "title": "Drawing styles & standards editor explained | Autodesk Inventor",
+   "channel": "Neil Cross",
+   "dur": 1368
+  }
+ },
+ {
+  "key": "PRES_VIEW",
+  "name": "Presentation View",
+  "cat": "Presentation & Studio",
+  "keys": "Presentation ▸ Create View",
+  "level": "Intermediate",
+  "desc": "Explode an assembly into a presentation (exploded) view.",
+  "v": {
+   "id": "Bx_Jkr9zoQ0",
+   "title": "Inventor How To Create Exploded View Tutorial",
+   "channel": "Mufasu CAD",
+   "dur": 131
+  }
+ },
+ {
+  "key": "TWEAK",
+  "name": "Tweak Components",
+  "cat": "Presentation & Studio",
+  "keys": "T",
+  "level": "Intermediate",
+  "desc": "Move or rotate components in a presentation to build an explosion.",
+  "v": {
+   "id": "I8tBgpRRWpc",
+   "title": "TUTORIAL Tweak components |  Membuat Presentasi | inventor 2017",
+   "channel": "Predi Hartono",
+   "dur": 383
+  }
+ },
+ {
+  "key": "ANIMATE",
+  "name": "Animate",
+  "cat": "Presentation & Studio",
+  "keys": "Presentation ▸ Animate",
+  "level": "Advanced",
+  "desc": "Animate tweaks and assembly sequences into a storyboard.",
+  "v": {
+   "id": "jpl5S5RKnvs",
+   "title": "Animate assembly or service instruction in Autodesk Inventor",
+   "channel": "Autodesk Inventor",
+   "dur": 905
+  }
+ },
+ {
+  "key": "STUDIO",
+  "name": "Inventor Studio",
+  "cat": "Presentation & Studio",
+  "keys": "Environments ▸ Inventor Studio",
+  "level": "Advanced",
+  "desc": "Open the rendering and animation environment for photoreal results.",
+  "v": {
+   "id": "CtXZNDr1jos",
+   "title": "Quick Tip: Creating Animations with Inventor Studio",
+   "channel": "Autodesk Inventor",
+   "dur": 212
+  }
+ },
+ {
+  "key": "RENDERIMAGE",
+  "name": "Render Image",
+  "cat": "Presentation & Studio",
+  "keys": "Studio ▸ Render Image",
+  "level": "Advanced",
+  "desc": "Produce photorealistic still images with lighting and materials.",
+  "v": {
+   "id": "im2WRVfWlXQ",
+   "title": "Product visualization in Autodesk Inventor: image rendering",
+   "channel": "Autodesk Inventor",
+   "dur": 452
+  }
+ },
+ {
+  "key": "RENDERANIM",
+  "name": "Render Animation",
+  "cat": "Presentation & Studio",
+  "keys": "Studio ▸ Render Animation",
+  "level": "Advanced",
+  "desc": "Render an animation to a video file using the timeline.",
+  "v": {
+   "id": "aukeu2Ahcpw",
+   "title": "3A. Autodesk Inventor Tutorial : Render Animation",
+   "channel": "Mech Lab",
+   "dur": 324
+  }
+ },
+ {
+  "key": "LIGHTING",
+  "name": "Lighting Style",
+  "cat": "Presentation & Studio",
+  "keys": "Studio ▸ Lighting Style",
+  "level": "Advanced",
+  "desc": "Set up and control lights and lighting styles for rendering.",
+  "v": {
+   "id": "5lu7aUB1K5s",
+   "title": "Autodesk INVENTOR Studio 15 ( Apply Lighting Style )",
+   "channel": "Video-Tutorials.Net",
+   "dur": 151
+  }
+ },
+ {
+  "key": "CAMERA",
+  "name": "Camera",
+  "cat": "Presentation & Studio",
+  "keys": "Studio ▸ Camera",
+  "level": "Advanced",
+  "desc": "Create camera viewpoints for rendering and animation.",
+  "v": {
+   "id": "snIEsbLO9yg",
+   "title": "Autodesk Inventor Tips & Tricks - Animate Camera In Inventor Studio",
+   "channel": "Symetri UK",
+   "dur": 150
+  }
+ },
+ {
+  "key": "ENVIRONMENT",
+  "name": "Environment / Scene",
+  "cat": "Presentation & Studio",
+  "keys": "Studio ▸ Scene Style",
+  "level": "Advanced",
+  "desc": "Apply background environments and scene styles to renders.",
+  "v": {
+   "id": "xcp_7flmNPs",
+   "title": "3dsMaxDesign- Rendering an Indoor scene with daylight source",
+   "channel": "Marion Landry",
+   "dur": 391
+  }
+ },
+ {
+  "key": "LOCALLIGHT",
+  "name": "Local Lights",
+  "cat": "Presentation & Studio",
+  "keys": "Studio ▸ Local Lights",
+  "level": "Advanced",
+  "desc": "Add point, spot and directional lights for precise lighting.",
+  "v": {
+   "id": "z0yQyBB10_8",
+   "title": "4  Adding Lights in Inventor Studio",
+   "channel": "Mr D Downie",
+   "dur": 355
+  }
+ },
+ {
+  "key": "SURF_EXTRUDE",
+  "name": "Extrude Surface",
+  "cat": "Surfaces",
+  "keys": "3D Model ▸ Surface ▸ Extrude",
+  "level": "Advanced",
+  "desc": "Extrude an open profile into a surface rather than a solid.",
+  "v": {
+   "id": "x5J6prnbgZc",
+   "title": "Inventor How To Extrude Surface",
+   "channel": "Learning Autodesk Inventor",
+   "dur": 86
+  }
+ },
+ {
+  "key": "SURF_REVOLVE",
+  "name": "Revolve Surface",
+  "cat": "Surfaces",
+  "keys": "3D Model ▸ Surface ▸ Revolve",
+  "level": "Advanced",
+  "desc": "Revolve an open profile about an axis to create a surface.",
+  "v": {
+   "id": "PFryaexeuEc",
+   "title": "74 AutoDesk Inventor Surface Tutorial: Revolve Surface",
+   "channel": "Tutorials Engineer ҂",
+   "dur": 120
+  }
+ },
+ {
+  "key": "SURF_SWEEP",
+  "name": "Sweep Surface",
+  "cat": "Surfaces",
+  "keys": "3D Model ▸ Surface ▸ Sweep",
+  "level": "Advanced",
+  "desc": "Sweep an open profile along a path to form a surface.",
+  "v": {
+   "id": "Z5lf4sGAQfc",
+   "title": "Inventor Sweep (On a Guide Rail and on a Guide Surface)",
+   "channel": "MrDustinClark",
+   "dur": 71
+  }
+ },
+ {
+  "key": "SURF_LOFT",
+  "name": "Loft Surface",
+  "cat": "Surfaces",
+  "keys": "3D Model ▸ Surface ▸ Loft",
+  "level": "Advanced",
+  "desc": "Loft between open profiles to build complex freeform surfaces.",
+  "v": {
+   "id": "c32Al_FRUek",
+   "title": "75 AutoDesk Inventor Surface Tutorial: Loft Surface",
+   "channel": "Tutorials Engineer ҂",
+   "dur": 168
+  }
+ },
+ {
+  "key": "SURF_TRIM",
+  "name": "Trim Surface",
+  "cat": "Surfaces",
+  "keys": "3D Model ▸ Surface ▸ Trim",
+  "level": "Advanced",
+  "desc": "Trim a surface with a curve, plane or another surface.",
+  "v": {
+   "id": "fVrXJsL-Vrg",
+   "title": "79 AutoDesk Inventor Surface Tutorial: Trim Surface",
+   "channel": "Tutorials Engineer ҂",
+   "dur": 176
+  }
+ },
+ {
+  "key": "SURF_EXTEND",
+  "name": "Extend Surface",
+  "cat": "Surfaces",
+  "keys": "3D Model ▸ Surface ▸ Extend",
+  "level": "Advanced",
+  "desc": "Extend the edges of a surface to meet other geometry.",
+  "v": {
+   "id": "QDAYYrNGGww",
+   "title": "82 AutoDesk Inventor Surface Tutorial: Extend Surface",
+   "channel": "Tutorials Engineer ҂",
+   "dur": 186
+  }
+ },
+ {
+  "key": "SURF_STITCH",
+  "name": "Stitch Surface",
+  "cat": "Surfaces",
+  "keys": "3D Model ▸ Surface ▸ Stitch",
+  "level": "Advanced",
+  "desc": "Join surfaces into a single quilt that can become a solid.",
+  "v": {
+   "id": "sk-ubIiON_0",
+   "title": "Inventor Surface: Stitch",
+   "channel": "Autodesk Inventor Tips and Tutorials",
+   "dur": 126
+  }
+ },
+ {
+  "key": "SURF_RULED",
+  "name": "Ruled Surface",
+  "cat": "Surfaces",
+  "keys": "3D Model ▸ Surface ▸ Ruled Surface",
+  "level": "Advanced",
+  "desc": "Create a surface from an edge at a given angle or direction.",
+  "v": {
+   "id": "770lMHtWJJA",
+   "title": "QUICK TIP: Ruled Surface",
+   "channel": "Autodesk Fusion",
+   "dur": 52
+  }
+ },
+ {
+  "key": "STRESS",
+  "name": "Stress Analysis",
+  "cat": "Analysis",
+  "keys": "Environments ▸ Stress Analysis",
+  "level": "Advanced",
+  "desc": "Run finite element stress, strain and displacement analysis on parts.",
+  "v": {
+   "id": "jqSjF-WqMTA",
+   "title": "Inventor 101: Linear Stress Analysis",
+   "channel": "Autodesk Inventor",
+   "dur": 111
+  }
+ },
+ {
+  "key": "DYNSIM",
+  "name": "Dynamic Simulation",
+  "cat": "Analysis",
+  "keys": "Environments ▸ Dynamic Simulation",
+  "level": "Advanced",
+  "desc": "Simulate motion, forces and joints of a mechanism over time.",
+  "v": {
+   "id": "gu4hfJ2Lan8",
+   "title": "Autodesk Inventor dynamic simulation",
+   "channel": "Autodesk Inventor",
+   "dur": 521
+  }
+ },
+ {
+  "key": "FRAMEANALYSIS",
+  "name": "Frame Analysis",
+  "cat": "Analysis",
+  "keys": "Environments ▸ Frame Analysis",
+  "level": "Advanced",
+  "desc": "Analyze structural frames for stress, deflection and modes.",
+  "v": {
+   "id": "GCde_1yJQgM",
+   "title": "Frame Analysis",
+   "channel": "Autodesk Inventor",
+   "dur": 502
+  }
+ },
+ {
+  "key": "MODELSTATES",
+  "name": "Model States",
+  "cat": "Analysis",
+  "keys": "Manage ▸ Model States",
+  "level": "Advanced",
+  "desc": "Manage multiple configurations of a part or assembly in one file.",
+  "v": {
+   "id": "FSQ-KX4P9IA",
+   "title": "Autodesk Inventor 2022 What’s New: Model States for Parts",
+   "channel": "Autodesk Inventor",
+   "dur": 135
+  }
+ },
+ {
+  "key": "PARAMETERS",
+  "name": "Parameters",
+  "cat": "Automation",
+  "keys": "Manage ▸ Parameters",
+  "level": "Intermediate",
+  "desc": "Create user parameters and equations that drive model dimensions.",
+  "v": {
+   "id": "kglPAJjVyq8",
+   "title": "Quick Tip - Using Parameters for Multiple Design Configurations",
+   "channel": "Autodesk Inventor",
+   "dur": 198
+  }
+ },
+ {
+  "key": "ILOGIC",
+  "name": "iLogic Rule",
+  "cat": "Automation",
+  "keys": "Manage ▸ iLogic ▸ Add Rule",
+  "level": "Advanced",
+  "desc": "Automate design with rules that control parameters, features and components.",
+  "v": {
+   "id": "0ZR4QNxEkBo",
+   "title": "Inventor iLogic Basic Course - Part 01: Your First iLogic Rule.",
+   "channel": "Lance Skelly",
+   "dur": 284
+  }
+ },
+ {
+  "key": "ILOGICFORM",
+  "name": "iLogic Form",
+  "cat": "Automation",
+  "keys": "Manage ▸ iLogic ▸ Forms",
+  "level": "Advanced",
+  "desc": "Build custom dialog forms to drive iLogic rules and parameters.",
+  "v": {
+   "id": "9GWq-MQWPcc",
+   "title": "Inventor iLogic Video Tutorial (48) - How to create a user form",
+   "channel": "SolidWorksTutoriels",
+   "dur": 672
+  }
+ },
+ {
+  "key": "VBA",
+  "name": "VBA Macro",
+  "cat": "Automation",
+  "keys": "Alt + F11",
+  "level": "Advanced",
+  "desc": "Write Visual Basic macros to automate Inventor tasks.",
+  "v": {
+   "id": "SYkMXr5jv3Y",
+   "title": "Autodesk Inventor VBA Macro – Update Descriptions in All Open Part Files Automatically",
+   "channel": "CAD_Automation_by_Ashish",
+   "dur": 107
+  }
+ },
+ {
+  "key": "MACROS",
+  "name": "Run Macro",
+  "cat": "Automation",
+  "keys": "Alt + F8",
+  "level": "Advanced",
+  "desc": "Run saved VBA macros from the Macros dialog.",
+  "v": {
+   "id": "g2qhRMyI9gs",
+   "title": "Autodesk Inventor training Macro",
+   "channel": "solidcad10",
+   "dur": 251
+  }
+ },
+ {
+  "key": "IASSEMBLY",
+  "name": "iAssembly",
+  "cat": "Automation",
+  "keys": "Manage ▸ Create iAssembly",
+  "level": "Advanced",
+  "desc": "Create a table-driven family of assembly configurations.",
+  "v": {
+   "id": "P2OgZwyA0vY",
+   "title": "Create an Inventor iAssembly",
+   "channel": "Micrographics",
+   "dur": 298
+  }
+ },
+ {
+  "key": "CONTENTCENTER",
+  "name": "Content Center",
+  "cat": "Content Center",
+  "keys": "Place ▸ Content Center",
+  "level": "Basic",
+  "desc": "Insert standard parts such as fasteners, bearings and profiles.",
+  "v": {
+   "id": "dQFGoNGG2Hk",
+   "title": "Content center enhancement",
+   "channel": "Autodesk Inventor",
+   "dur": 130
+  }
+ },
+ {
+  "key": "CC_PLACE",
+  "name": "Place from Content Center",
+  "cat": "Content Center",
+  "keys": "Assembly ▸ Place ▸ Content Center",
+  "level": "Basic",
+  "desc": "Search and place standard library components into an assembly.",
+  "v": {
+   "id": "84YQUBzeltM",
+   "title": "Inventor - Tips to More Efficiently Place Components from the Content Center",
+   "channel": "Team D3",
+   "dur": 163
+  }
+ },
+ {
+  "key": "CC_PUBLISH",
+  "name": "Publish Part",
+  "cat": "Content Center",
+  "keys": "Manage ▸ Authoring ▸ Publish Part",
+  "level": "Advanced",
+  "desc": "Publish custom parts into a Content Center library for reuse.",
+  "v": {
+   "id": "VZSEnc1uMbU",
+   "title": "How to Publish a Valve to Autodesk Inventor's Content Center",
+   "channel": "KETIV Technologies",
+   "dur": 198
+  }
+ },
+ {
+  "key": "GEAR_GEN",
+  "name": "Gear Generator",
+  "cat": "Content Center",
+  "keys": "Design ▸ Spur Gear",
+  "level": "Advanced",
+  "desc": "Generate spur gears with accurate involute tooth geometry.",
+  "v": {
+   "id": "yxgfghYZci4",
+   "title": "How to Design a Planetary Gear System in Autodesk Inventor Using Spur Gear Generator",
+   "channel": " CAD BY NANA",
+   "dur": 1385
+  }
+ },
+ {
+  "key": "BEARING_GEN",
+  "name": "Bearing Generator",
+  "cat": "Content Center",
+  "keys": "Design ▸ Bearing",
+  "level": "Advanced",
+  "desc": "Insert standard bearings with correct dimensions and constraints.",
+  "v": {
+   "id": "Kx7aFO599fw",
+   "title": "Autodesk Inventor Bearing Generator Tutorial | Master Standard Bearing Selection & Placement",
+   "channel": " CAD BY NANA",
+   "dur": 992
+  }
+ },
+ {
+  "key": "SPRING_GEN",
+  "name": "Spring Generator",
+  "cat": "Content Center",
+  "keys": "Design ▸ Compression Spring",
+  "level": "Advanced",
+  "desc": "Create compression, extension and torsion springs from parameters.",
+  "v": {
+   "id": "xAEDd6eDt4s",
+   "title": "Spring with Compression Spring Component Generator - Autodesk Inventor",
+   "channel": "Indar Luh Sepdyanuri",
+   "dur": 156
+  }
+ },
+ {
+  "key": "SHAFT_GEN",
+  "name": "Shaft Generator",
+  "cat": "Content Center",
+  "keys": "Design ▸ Shaft",
+  "level": "Advanced",
+  "desc": "Design stepped shafts with features, bearings and supports.",
+  "v": {
+   "id": "bBrGdL7iN24",
+   "title": "Shaft Generator",
+   "channel": "Павел Пишняк",
+   "dur": 432
+  }
+ },
+ {
+  "key": "WORKPLANE",
+  "name": "Work Plane",
+  "cat": "Work Features",
+  "keys": "]",
+  "level": "Intermediate",
+  "desc": "Create a construction plane used to sketch or terminate features.",
+  "v": {
+   "id": "pq_RiVw0Fbc",
+   "title": "Inventor 101: Creating a Work Plane between 3 Points",
+   "channel": "Autodesk Inventor",
+   "dur": 130
+  }
+ },
+ {
+  "key": "WORKAXIS",
+  "name": "Work Axis",
+  "cat": "Work Features",
+  "keys": "/",
+  "level": "Intermediate",
+  "desc": "Create a construction axis used for revolves, patterns and constraints.",
+  "v": {
+   "id": "NYeRTlav1fE",
+   "title": "How and why to create a work axis for an Inventor CAD part",
+   "channel": "Chris Hinkley",
+   "dur": 221
+  }
+ },
+ {
+  "key": "WORKPOINT",
+  "name": "Work Point",
+  "cat": "Work Features",
+  "keys": ".",
+  "level": "Intermediate",
+  "desc": "Create a construction point used as a reference for geometry.",
+  "v": {
+   "id": "f5bJ0i7QS9Q",
+   "title": "22 - Work Plane - Work Axis - Work Point | Work Features | Autodesk Inventor Professional Tutorial",
+   "channel": "Starry Industries",
+   "dur": 675
+  }
+ },
+ {
+  "key": "GROUNDEDWORKPOINT",
+  "name": "Grounded Work Point",
+  "cat": "Work Features",
+  "keys": ";",
+  "level": "Advanced",
+  "desc": "Create a work point fixed in space and activate 3D Move/Rotate.",
+  "v": {
+   "id": "Y0dY-GUs_Qw",
+   "title": "Inventor 05-34 Creating a Grounded Point",
+   "channel": "John Bordeau",
+   "dur": 120
+  }
+ },
+ {
+  "key": "UCS",
+  "name": "User Coordinate System",
+  "cat": "Work Features",
+  "keys": "3D Model ▸ Work Features ▸ UCS",
+  "level": "Advanced",
+  "desc": "Define a custom coordinate system for assembly and export workflows.",
+  "v": {
+   "id": "vGtalruaF1c",
+   "title": "GTM_UCS (User Coordinate System) Autodesk Inventor",
+   "channel": "KHOIRUL ANWAR_CAD",
+   "dur": 573
+  }
+ },
+ {
+  "key": "PAN",
+  "name": "Pan",
+  "cat": "Navigation & View",
+  "keys": "F2 (hold)",
+  "level": "Basic",
+  "desc": "Slide the view across the screen without changing zoom.",
+  "v": {
+   "id": "V_0np0uwuAE",
+   "title": "Autodesk Inventor 2027 How To Pan",
+   "channel": "Learning Autodesk Inventor",
+   "dur": 95
+  }
+ },
+ {
+  "key": "ZOOM",
+  "name": "Zoom",
+  "cat": "Navigation & View",
+  "keys": "F3 (hold)",
+  "level": "Basic",
+  "desc": "Zoom the graphics window in and out interactively.",
+  "v": {
+   "id": "1vo3i02QJM8",
+   "title": "Cara Mengatur Zoom In/Zoom Out Pada Autodesk Inventor",
+   "channel": "My Design",
+   "dur": 122
+  }
+ },
+ {
+  "key": "ZOOMWINDOW",
+  "name": "Zoom Window",
+  "cat": "Navigation & View",
+  "keys": "Shift + F3",
+  "level": "Basic",
+  "desc": "Zoom to an area you define with a window.",
+  "v": {
+   "id": "4DSwa3letmQ",
+   "title": "Inventor 02-45 Zoom Window",
+   "channel": "John Bordeau",
+   "dur": 55
+  }
+ },
+ {
+  "key": "ZOOMALL",
+  "name": "Zoom All",
+  "cat": "Navigation & View",
+  "keys": "Home",
+  "level": "Basic",
+  "desc": "Zoom to the extents of all objects in the graphics window.",
+  "v": {
+   "id": "L0woWcqus4o",
+   "title": "Inventor 02-43 Zoom All",
+   "channel": "John Bordeau",
+   "dur": 69
+  }
+ },
+ {
+  "key": "ZOOMSELECT",
+  "name": "Zoom Selected",
+  "cat": "Navigation & View",
+  "keys": "End",
+  "level": "Basic",
+  "desc": "Zoom in tightly on a specifically selected item.",
+  "v": {
+   "id": "qETm2v4PgyE",
+   "title": "Inventor 02-46 Zoom Selected",
+   "channel": "John Bordeau",
+   "dur": 45
+  }
+ },
+ {
+  "key": "ROTATE",
+  "name": "Rotate",
+  "cat": "Navigation & View",
+  "keys": "F4",
+  "level": "Basic",
+  "desc": "Rotate objects in the graphics window to view from any angle.",
+  "v": {
+   "id": "3d6UKYJb8F4",
+   "title": "Inventor How To Rotate Section View",
+   "channel": "Learning Autodesk Inventor",
+   "dur": 92
+  }
+ },
+ {
+  "key": "ORBIT",
+  "name": "Free Orbit",
+  "cat": "Navigation & View",
+  "keys": "View ▸ Navigate ▸ Orbit",
+  "level": "Basic",
+  "desc": "Rotate the model about the screen center or model axes.",
+  "v": {
+   "id": "vUX8-AqZJKc",
+   "title": "Free Orbit 3D in AutoCAD",
+   "channel": "SbrindastiProd",
+   "dur": 61
+  }
+ },
+ {
+  "key": "PREVVIEW",
+  "name": "Previous View",
+  "cat": "Navigation & View",
+  "keys": "F5",
+  "level": "Basic",
+  "desc": "Return to the previous view orientation.",
+  "v": {
+   "id": "aBzpVeI641c",
+   "title": "Inventor 101: Auxiliary & Section View, Drawing Dimensions & Annotations",
+   "channel": "Autodesk Inventor",
+   "dur": 151
+  }
+ },
+ {
+  "key": "NEXTVIEW",
+  "name": "Next View",
+  "cat": "Navigation & View",
+  "keys": "Shift + F5",
+  "level": "Basic",
+  "desc": "Advance to the next view in the view history.",
+  "v": {
+   "id": "2_E4byvyLlE",
+   "title": "Inventor Function Key Navigation Shortcuts",
+   "channel": "Symetri Ireland",
+   "dur": 79
+  }
+ },
+ {
+  "key": "HOMEVIEW",
+  "name": "Home / Isometric View",
+  "cat": "Navigation & View",
+  "keys": "F6",
+  "level": "Basic",
+  "desc": "Return to the home isometric view of the model.",
+  "v": {
+   "id": "YhhA6Wi1YY0",
+   "title": "10. Adding an Isometric View",
+   "channel": "AutoDesk Inventor with Demetrius Rice",
+   "dur": 184
+  }
+ },
+ {
+  "key": "LOOKAT",
+  "name": "Look At",
+  "cat": "Navigation & View",
+  "keys": "Page Up",
+  "level": "Basic",
+  "desc": "Rotate the view to look straight at a selected entity.",
+  "v": {
+   "id": "kqYGj-kdMWw",
+   "title": "Autodesk Inventor 2021 | Navigation Tools & Shortcuts | Tutorial",
+   "channel": "Design Forge",
+   "dur": 201
+  }
+ },
+ {
+  "key": "VIEWCUBE",
+  "name": "ViewCube",
+  "cat": "Navigation & View",
+  "keys": "VC",
+  "level": "Basic",
+  "desc": "Use the ViewCube to switch faces, corners and named views.",
+  "v": {
+   "id": "UlUssM353Rw",
+   "title": "ViewCube: A 3D Orientation Indicator and Controller",
+   "channel": "Autodesk Research",
+   "dur": 197
+  }
+ },
+ {
+  "key": "STEERINGWHEELS",
+  "name": "SteeringWheels",
+  "cat": "Navigation & View",
+  "keys": "Shift + W",
+  "level": "Intermediate",
+  "desc": "Use the wheel control for pan, zoom, orbit and walk tools.",
+  "v": {
+   "id": "DMF1sJw0W88",
+   "title": "Understanding the Steering Wheels - Autodesk Inventor",
+   "channel": "Ekramy Abdelghany",
+   "dur": 402
+  }
+ },
+ {
+  "key": "SECTIONVIEW_NAV",
+  "name": "Section View",
+  "cat": "Navigation & View",
+  "keys": "View ▸ Section View",
+  "level": "Intermediate",
+  "desc": "Cut a live section through the model to inspect internals.",
+  "v": {
+   "id": "jRuY3fwUdBc",
+   "title": "7.2 Drill Block: Create Section View on IDW",
+   "channel": "Megan Messina",
+   "dur": 874
+  }
+ },
+ {
+  "key": "HALFSECTION",
+  "name": "Half Section View",
+  "cat": "Navigation & View",
+  "keys": "View ▸ Half Section View",
+  "level": "Advanced",
+  "desc": "Cut a quarter section to view both inside and outside at once.",
+  "v": {
+   "id": "buKrBdxjR6s",
+   "title": "Half Section View Feature in Autodesk Inventor",
+   "channel": "DAWUD ALFAJRI",
+   "dur": 271
+  }
+ },
+ {
+  "key": "VISUALSTYLE",
+  "name": "Visual Style",
+  "cat": "Navigation & View",
+  "keys": "View ▸ Visual Style",
+  "level": "Basic",
+  "desc": "Switch between shaded, wireframe, realistic and other display styles.",
+  "v": {
+   "id": "1Y7yiHpAQgE",
+   "title": "Inventor How To Change Default Visual Style",
+   "channel": "Learning Autodesk Inventor",
+   "dur": 111
+  }
+ },
+ {
+  "key": "SLICEGRAPHICS",
+  "name": "Slice Graphics",
+  "cat": "Navigation & View",
+  "keys": "F7",
+  "level": "Intermediate",
+  "desc": "Slice away part of the model to reveal the sketch plane.",
+  "v": {
+   "id": "aSv16cWJJRU",
+   "title": "Using Slice Graphics & Project Geometry in Autodesk Inventor",
+   "channel": "KETIV Technologies",
+   "dur": 142
+  }
+ },
+ {
+  "key": "SKETCHVIS",
+  "name": "Sketch Visibility",
+  "cat": "Navigation & View",
+  "keys": "F10",
+  "level": "Basic",
+  "desc": "Toggle the visibility of sketches in the graphics window.",
+  "v": {
+   "id": "OG4J2t3RIH8",
+   "title": "Autodesk Inventor 2018 - iLogic - Make Drawing Sketch Visibility Match Model Sketches",
+   "channel": "Symetri UK",
+   "dur": 642
+  }
+ },
+ {
+  "key": "SHORTCUTEDITOR",
+  "name": "Customize Shortcuts",
+  "cat": "Navigation & View",
+  "keys": "Tools ▸ Customize ▸ Keyboard",
+  "level": "Intermediate",
+  "desc": "View and edit command aliases and keyboard shortcuts.",
+  "v": {
+   "id": "P7iIrqMIfDk",
+   "title": "Autodesk Inventor Keyboard Shortcuts",
+   "channel": "Between CAD Classes: AutoCAD",
+   "dur": 355
+  }
+ },
+ {
+  "key": "NEW",
+  "name": "New File",
+  "cat": "File & Project",
+  "keys": "Ctrl + N",
+  "level": "Basic",
+  "desc": "Create a new part, assembly, drawing or presentation file.",
+  "v": {
+   "id": "NeZ5aNLpBbg",
+   "title": "Setting Application Options and Creating a Template File (Autodesk Inventor)",
+   "channel": "3D Solid Modelling Videos",
+   "dur": 243
+  }
+ },
+ {
+  "key": "OPEN",
+  "name": "Open File",
+  "cat": "File & Project",
+  "keys": "Ctrl + O",
+  "level": "Basic",
+  "desc": "Open an existing Inventor document or imported file.",
+  "v": {
+   "id": "qGDJx76JCZw",
+   "title": "Open step file and make components in Inventor 2021",
+   "channel": "Cadpoint UK",
+   "dur": 148
+  }
+ },
+ {
+  "key": "SAVE",
+  "name": "Save",
+  "cat": "File & Project",
+  "keys": "Ctrl + S",
+  "level": "Basic",
+  "desc": "Save the active document and its referenced components.",
+  "v": {
+   "id": "rqSLrgTUV_o",
+   "title": "Autodesk Inventor 2027 How To Save Assembly As Part",
+   "channel": "Learning Autodesk Inventor",
+   "dur": 113
+  }
+ },
+ {
+  "key": "PROJECTS",
+  "name": "Projects",
+  "cat": "File & Project",
+  "keys": "Get Started ▸ Projects",
+  "level": "Intermediate",
+  "desc": "Manage project files, workspace paths and library locations.",
+  "v": {
+   "id": "844Q61hs9iU",
+   "title": "Working with Autodesk Inventor Project Files",
+   "channel": "Between CAD Classes",
+   "dur": 282
+  }
+ },
+ {
+  "key": "PACKANDGO",
+  "name": "Pack and Go",
+  "cat": "File & Project",
+  "keys": "File ▸ Save As ▸ Pack and Go",
+  "level": "Intermediate",
+  "desc": "Collect a model and all referenced files into one folder or zip.",
+  "v": {
+   "id": "1pdKz2PG6Hc",
+   "title": "Inventor: How To Pack & Go",
+   "channel": "Cory Allen",
+   "dur": 438
+  }
+ },
+ {
+  "key": "IMPORT",
+  "name": "Import / Open CAD",
+  "cat": "File & Project",
+  "keys": "File ▸ Open",
+  "level": "Intermediate",
+  "desc": "Open or import STEP, IGES, DWG, DXF and other CAD formats.",
+  "v": {
+   "id": "TUpHQLRgoyA",
+   "title": "How to import and work with STEP files | Autodesk Inventor Tutorial",
+   "channel": "Tick Cad ApS",
+   "dur": 283
+  }
+ },
+ {
+  "key": "EXPORT",
+  "name": "Export",
+  "cat": "File & Project",
+  "keys": "File ▸ Export",
+  "level": "Intermediate",
+  "desc": "Export models to STEP, IGES, STL, DWF and other formats.",
+  "v": {
+   "id": "iwyx993R250",
+   "title": "Autodesk Inventor Export: Save as STEP, STL, PDF, and More",
+   "channel": "Tc G",
+   "dur": 91
+  }
+ },
+ {
+  "key": "UNDO",
+  "name": "Undo",
+  "cat": "File & Project",
+  "keys": "Ctrl + Z",
+  "level": "Basic",
+  "desc": "Reverse the last action or command.",
+  "v": {
+   "id": "f_qWPZqLTIo",
+   "title": "5  Inventor Command, customizing short cuts and Undo and Redo tool",
+   "channel": "Vân Long",
+   "dur": 500
+  }
+ },
+ {
+  "key": "REDO",
+  "name": "Redo",
+  "cat": "File & Project",
+  "keys": "Ctrl + Y",
+  "level": "Basic",
+  "desc": "Reapply the action most recently undone.",
+  "v": {
+   "id": "f_qWPZqLTIo",
+   "title": "5  Inventor Command, customizing short cuts and Undo and Redo tool",
+   "channel": "Vân Long",
+   "dur": 500
+  }
+ },
+ {
+  "key": "DELETE",
+  "name": "Delete",
+  "cat": "File & Project",
+  "keys": "Delete",
+  "level": "Basic",
+  "desc": "Remove the selected geometry, feature or component.",
+  "v": {
+   "id": "_vfbGR7-ljM",
+   "title": "Autodesk Inventor - Delete face Command",
+   "channel": "Inventor Tutorials",
+   "dur": 408
+  }
+ },
+ {
+  "key": "ESC",
+  "name": "Cancel",
+  "cat": "File & Project",
+  "keys": "Esc",
+  "level": "Basic",
+  "desc": "Quit the active command or tool and return to the selection state."
+ },
+ {
+  "key": "SUPPRESS",
+  "name": "Suppress Feature",
+  "cat": "File & Project",
+  "keys": "Right-click ▸ Suppress",
+  "level": "Intermediate",
+  "desc": "Temporarily turn a feature off without deleting it.",
+  "v": {
+   "id": "vha4pg-_bcg",
+   "title": "Intelligent 3D Part Feature Suppression | Autodesk Inventor",
+   "channel": "Neil Cross",
+   "dur": 208
+  }
+ },
+ {
+  "key": "REORDER",
+  "name": "Reorder Features",
+  "cat": "File & Project",
+  "keys": "Drag browser node",
+  "level": "Advanced",
+  "desc": "Drag features in the browser to change the order they are built.",
+  "v": {
+   "id": "-xfJYkZqgtc",
+   "title": "Reordering and Suppressing Features in Autodesk Inventor",
+   "channel": "Between CAD Classes: AutoCAD",
+   "dur": 294
+  }
+ },
+ {
+  "key": "BROWSER",
+  "name": "Model Browser",
+  "cat": "File & Project",
+  "keys": "View ▸ Browser",
+  "level": "Basic",
+  "desc": "Navigate, edit, rename and reorder features from the model browser.",
+  "v": {
+   "id": "LFIkKWXiv6I",
+   "title": "Using the Model Browser and Work Features in Autodesk Inventor 2012",
+   "channel": "iDESIGNsol",
+   "dur": 446
+  }
+ },
+ {
+  "key": "MOLD",
+  "name": "Mold Design",
+  "cat": "Specialized",
+  "keys": "Environments ▸ Mold Layout",
+  "level": "Advanced",
+  "desc": "Design mold cores, cavities, runners and cooling for plastic parts.",
+  "v": {
+   "id": "o698-zZLho8",
+   "title": "Autodesk Inventor Mold Design Tutorial: Core & Cavity Using Copy Object and Sculpt",
+   "channel": " CAD BY NANA",
+   "dur": 1296
+  }
+ },
+ {
+  "key": "TUBEPIPE",
+  "name": "Tube & Pipe",
+  "cat": "Specialized",
+  "keys": "Environments ▸ Tube & Pipe",
+  "level": "Advanced",
+  "desc": "Route rigid tubing and piping runs with fittings and runs.",
+  "v": {
+   "id": "C0ueLl6HHNs",
+   "title": "Autodesk inventor 2022 tutorial l Piping l Tube & Pipe Design l Content center",
+   "channel": "Machine Design",
+   "dur": 728
+  }
+ },
+ {
+  "key": "CABLEHARNESS",
+  "name": "Cable & Harness",
+  "cat": "Specialized",
+  "keys": "Environments ▸ Cable & Harness",
+  "level": "Advanced",
+  "desc": "Route wires and cables and generate harness reports.",
+  "v": {
+   "id": "fNhOV98b008",
+   "title": "Autodesk Inventor Cable & Harness - Save Time Wiring an Assembly by Only Using Segments",
+   "channel": "Team D3",
+   "dur": 227
+  }
+ },
+ {
+  "key": "FRAMEGEN2",
+  "name": "Frame Generator Members",
+  "cat": "Specialized",
+  "keys": "Design ▸ Insert Frame",
+  "level": "Advanced",
+  "desc": "Insert structural members along selected skeleton edges.",
+  "v": {
+   "id": "IJfqP7u_XcU",
+   "title": "Inventor Tutorial - Placing frame members",
+   "channel": "LinkedIn Learning",
+   "dur": 363
+  }
+ },
+ {
+  "key": "WELDBEAD",
+  "name": "Weld Bead",
+  "cat": "Specialized",
+  "keys": "Weldment ▸ Weld ▸ Fillet",
+  "level": "Advanced",
+  "desc": "Add fillet, groove and cosmetic weld beads to a weldment.",
+  "v": {
+   "id": "XU3tlz6sJB4",
+   "title": "Solidworks Weldments tutorial Exercise 147 Weld Symbol | Weld Bead",
+   "channel": "CAD CAM TUTORIAL BY MAHTABALAM",
+   "dur": 1599
+  }
+ },
+ {
+  "key": "IASSEMBLY2",
+  "name": "Subassembly",
+  "cat": "Specialized",
+  "keys": "Assembly ▸ Component ▸ Create",
+  "level": "Intermediate",
+  "desc": "Build subassemblies to organise large assemblies into units.",
+  "v": {
+   "id": "F6bv_fcT-dI",
+   "title": "Creating a Sub Assembly - Autodesk Inventor",
+   "channel": "Jimmy Yurko",
+   "dur": 219
+  }
+ }
+];
+
+const CATEGORIES = [
+ {
+  "id": "all",
+  "name": "All Topics",
+  "icon": "◫"
+ },
+ {
+  "id": "Sketching",
+  "name": "Sketching",
+  "icon": "✎"
+ },
+ {
+  "id": "Sketch Constraints",
+  "name": "Sketch Constraints",
+  "icon": "⌗"
+ },
+ {
+  "id": "Part Features",
+  "name": "Part Features",
+  "icon": "◧"
+ },
+ {
+  "id": "Advanced Part",
+  "name": "Advanced Part",
+  "icon": "◨"
+ },
+ {
+  "id": "Assembly",
+  "name": "Assembly",
+  "icon": "▣"
+ },
+ {
+  "id": "Advanced Assembly",
+  "name": "Advanced Assembly",
+  "icon": "▤"
+ },
+ {
+  "id": "Sheet Metal",
+  "name": "Sheet Metal",
+  "icon": "▬"
+ },
+ {
+  "id": "Drawing",
+  "name": "Drawing",
+  "icon": "☰"
+ },
+ {
+  "id": "Presentation & Studio",
+  "name": "Presentation & Studio",
+  "icon": "▶"
+ },
+ {
+  "id": "Surfaces",
+  "name": "Surfaces",
+  "icon": "◠"
+ },
+ {
+  "id": "Analysis",
+  "name": "Analysis",
+  "icon": "◈"
+ },
+ {
+  "id": "Automation",
+  "name": "Automation",
+  "icon": "⚙"
+ },
+ {
+  "id": "Content Center",
+  "name": "Content Center",
+  "icon": "▥"
+ },
+ {
+  "id": "Work Features",
+  "name": "Work Features",
+  "icon": "⊹"
+ },
+ {
+  "id": "Navigation & View",
+  "name": "Navigation & View",
+  "icon": "⧉"
+ },
+ {
+  "id": "File & Project",
+  "name": "File & Project",
+  "icon": "🗀"
+ },
+ {
+  "id": "Specialized",
+  "name": "Specialized",
+  "icon": "✧"
+ }
+];
+
+const LEVELS = [
+  { id:'all', name:'All levels' },
+  { id:'Basic', name:'Basic' },
+  { id:'Intermediate', name:'Intermediate' },
+  { id:'Advanced', name:'Advanced' }
+];
+
+// ─── State ───────────────────────────────────────────────────────
+let currentCategory = 'all';
+let currentLevel = 'all';
+let currentSearch = '';
+
+// ─── DOM refs ────────────────────────────────────────────────────
+const $grid = document.getElementById('commandGrid');
+const $empty = document.getElementById('emptyState');
+const $search = document.getElementById('searchInput');
+const $catList = document.getElementById('categoryList');
+const $levelFilter = document.getElementById('levelFilter');
+const $modalOverlay = document.getElementById('modalOverlay');
+const $modalVideo = document.getElementById('modalVideo');
+const $modalCmd = document.getElementById('modalCmd');
+const $modalName = document.getElementById('modalName');
+const $modalTime = document.getElementById('modalTime');
+const $modalClose = document.getElementById('modalClose');
+const $progressBar = document.getElementById('progressBar');
+const $toast = document.getElementById('toast');
+const $sectionTitle = document.getElementById('sectionTitle');
+const $sectionSubtitle = document.getElementById('sectionSubtitle');
+
+// ─── Helpers ────────────────────────────────────────────────────
+function fmtTime(s) {
+  s = Math.max(0, Math.round(s || 0));
+  const m = Math.floor(s / 60);
+  const sec = s % 60;
+  return m + ':' + String(sec).padStart(2, '0');
+}
+
+function thumbUrl(videoId) {
+  return 'https://img.youtube.com/vi/' + videoId + '/mqdefault.jpg';
+}
+
+function toast(msg) {
+  $toast.innerHTML = msg;
+  $toast.classList.add('show');
+  setTimeout(() => $toast.classList.remove('show'), 2000);
+}
+
+function copyText(text) {
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(text).catch(() => {});
+  } else {
+    const ta = document.createElement('textarea');
+    ta.value = text;
+    ta.style.position = 'fixed';
+    ta.style.opacity = '0';
+    document.body.appendChild(ta);
+    ta.select();
+    document.execCommand('copy');
+    document.body.removeChild(ta);
+  }
+}
+
+function escapeHtml(s) {
+  return String(s == null ? '' : s)
+    .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+}
+
+// ─── Render ─────────────────────────────────────────────────────
+function renderLevelFilter() {
+  $levelFilter.innerHTML = '';
+  LEVELS.forEach(lv => {
+    const b = document.createElement('button');
+    b.className = 'level-btn' + (currentLevel === lv.id ? ' active' : '');
+    b.textContent = lv.name;
+    b.onclick = () => { currentLevel = lv.id; render(); };
+    $levelFilter.appendChild(b);
+  });
+}
+
+function renderSidebar() {
+  $catList.innerHTML = '';
+  CATEGORIES.forEach(cat => {
+    const li = document.createElement('li');
+    const btn = document.createElement('button');
+    btn.className = 'sidebar-link' + (currentCategory === cat.id ? ' active' : '');
+    const count = cat.id === 'all' ? COMMANDS.length : COMMANDS.filter(c => c.cat === cat.id).length;
+    btn.innerHTML = `<span>${cat.icon}</span> ${escapeHtml(cat.name)}<span class="count">${count}</span>`;
+    btn.onclick = () => { currentCategory = cat.id; render(); };
+    li.appendChild(btn);
+    $catList.appendChild(li);
+  });
+}
+
+function matches(c) {
+  if (currentCategory !== 'all' && c.cat !== currentCategory) return false;
+  if (currentLevel !== 'all' && c.level !== currentLevel) return false;
+  if (currentSearch) {
+    const q = currentSearch.toLowerCase();
+    return (c.key || '').toLowerCase().includes(q) ||
+           (c.name || '').toLowerCase().includes(q) ||
+           (c.keys || '').toLowerCase().includes(q) ||
+           (c.desc || '').toLowerCase().includes(q) ||
+           (c.cat || '').toLowerCase().includes(q) ||
+           (c.level || '').toLowerCase().includes(q);
+  }
+  return true;
+}
+
+function renderGrid() {
+  const items = COMMANDS.filter(matches);
+
+  const catName = currentCategory === 'all' ? 'All Topics'
+    : (CATEGORIES.find(c => c.id === currentCategory) || {}).name || '';
+  $sectionTitle.textContent = catName + (currentLevel !== 'all' ? ' · ' + currentLevel : '');
+  const vid = items.filter(i => i.v).length;
+  $sectionSubtitle.textContent = items.length + ' topic' + (items.length !== 1 ? 's' : '') +
+    (currentSearch ? ' matching search' : '') + ' · ' + vid + ' with video';
+
+  if (items.length === 0) {
+    $grid.style.display = 'none';
+    $empty.style.display = 'block';
+    return;
+  }
+  $grid.style.display = 'grid';
+  $empty.style.display = 'none';
+  $grid.innerHTML = '';
+
+  items.forEach((cmd, i) => {
+    const v = cmd.v;
+    const card = document.createElement('div');
+    card.className = 'card';
+    card.style.animationDelay = (Math.min(i, 30) * 0.02) + 's';
+
+    const thumb = v
+      ? `<div class="card-thumb" data-video="${v.id}" data-end="${v.dur}" data-cmd="${escapeHtml(cmd.key)}" data-title="${escapeHtml(v.title)}">
+          <img src="${thumbUrl(v.id)}" alt="" loading="lazy" onerror="this.style.display='none'">
+          <div class="play-overlay"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg></div>
+          <div class="clip-time">${fmtTime(v.dur)}</div>
+        </div>`
+      : `<div class="card-thumb no-video" data-cmd="${escapeHtml(cmd.key)}" data-title="${escapeHtml(cmd.name)}" title="No clip yet — click to search YouTube">
+          <div class="no-clip">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9.5 9.5h.01M14.5 9.5h.01M9 15c1-1 2-1.5 3-1.5s2 .5 3 1.5"/></svg>
+            <span>No clip</span>
+          </div>
+        </div>`;
+
+    card.innerHTML = `
+      ${thumb}
+      <div class="card-body">
+        <div class="card-cmd">${escapeHtml(cmd.key)}<span class="level-badge level-${cmd.level}">${cmd.level}</span></div>
+        <div class="card-name">${escapeHtml(cmd.name)}</div>
+        <div class="card-desc">${escapeHtml(cmd.desc)}</div>
+        <div class="card-path">${escapeHtml(cmd.keys)}</div>
+        <div class="card-key"><span class="key-badge">${escapeHtml(cmd.cat)}</span></div>
+      </div>
+      <button class="card-copy" data-cmd="${escapeHtml(cmd.key)}" title="Copy tool name">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+      </button>
+    `;
+    $grid.appendChild(card);
+  });
+
+  $grid.querySelectorAll('.card-thumb[data-video]').forEach(el => {
+    el.addEventListener('click', () => {
+      openModal({
+        videoId: el.dataset.video,
+        end: parseInt(el.dataset.end) || 0,
+        title: el.dataset.title,
+        cmdKey: el.dataset.cmd
+      });
+    });
+  });
+
+  $grid.querySelectorAll('.card-thumb.no-video').forEach(el => {
+    el.addEventListener('click', () => {
+      const q = encodeURIComponent(el.dataset.cmd + ' Autodesk Inventor tutorial');
+      window.open('https://www.youtube.com/results?search_query=' + q, '_blank', 'noopener');
+    });
+  });
+
+  $grid.querySelectorAll('.card-copy').forEach(el => {
+    el.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const cmdKey = el.dataset.cmd;
+      copyText(cmdKey);
+      el.classList.add('copied');
+      toast(`Copied <span class="toast-accent">${escapeHtml(cmdKey)}</span> to clipboard`);
+      setTimeout(() => el.classList.remove('copied'), 1500);
+    });
+  });
+}
+
+function render() {
+  renderLevelFilter();
+  renderSidebar();
+  renderGrid();
+  updateProgress();
+}
+
+// ─── Modal / YouTube Player ─────────────────────────────────────
+function openModal(video) {
+  $modalCmd.textContent = (video.cmdKey || '') + ' — tutorial';
+  $modalName.textContent = video.title || 'Tutorial';
+  $modalTime.textContent = video.end ? 'Length ' + fmtTime(video.end) : '';
+  $modalOverlay.classList.add('open');
+  document.body.style.overflow = 'hidden';
+
+  let vidUrl = 'https://www.youtube.com/embed/' + video.videoId +
+    '?autoplay=1&rel=0&modestbranding=1&enablejsapi=1';
+  if (video.end) vidUrl += '&end=' + video.end;
+  $modalVideo.innerHTML = '<iframe src="' + vidUrl + '" allow="autoplay; encrypted-media" allowfullscreen></iframe>';
+}
+
+function closeModal() {
+  $modalOverlay.classList.remove('open');
+  document.body.style.overflow = '';
+  $modalVideo.innerHTML = '';
+}
+
+$modalClose.addEventListener('click', closeModal);
+$modalOverlay.addEventListener('click', (e) => { if (e.target === $modalOverlay) closeModal(); });
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && $modalOverlay.classList.contains('open')) closeModal();
+});
+
+// ─── Progress bar ───────────────────────────────────────────────
+function updateProgress() {
+  const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+  const progress = maxScroll > 0 ? (window.scrollY / maxScroll) * 100 : 0;
+  $progressBar.style.width = progress + '%';
+}
+
+// ─── Search ─────────────────────────────────────────────────────
+let searchTimeout;
+$search.addEventListener('input', () => {
+  clearTimeout(searchTimeout);
+  searchTimeout = setTimeout(() => {
+    currentSearch = $search.value.trim();
+    render();
+  }, 150);
+});
+
+window.addEventListener('scroll', updateProgress, { passive: true });
+
+// ─── Init ───────────────────────────────────────────────────────
+render();
+</script>
+</body>
+</html>
