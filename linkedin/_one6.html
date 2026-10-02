@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600;700&display=swap');
+  *{margin:0;padding:0;box-sizing:border-box}
+  :root{
+    --bg:#0a0c10; --surface:#12151a; --surface-2:#181d24; --border:#1f2730;
+    --text:#e8ecf1; --text-2:#8892a0; --text-3:#5a6470;
+    --accent:#19d3c5; --orange:#ff8a3d; --red:#ff476e;
+  }
+  body{background:#000;font-family:'Inter',sans-serif}
+  .slide{
+    width:1080px;height:1080px;position:relative;overflow:hidden;
+    background:var(--bg);color:var(--text);display:flex;flex-direction:column;
+    padding:76px 72px;
+  }
+  .slide::before{
+    content:'';position:absolute;inset:0;
+    background-image:linear-gradient(rgba(25,211,197,.03) 1px,transparent 1px),
+                     linear-gradient(90deg,rgba(25,211,197,.03) 1px,transparent 1px);
+    background-size:64px 64px;pointer-events:none;
+  }
+  .inner{position:relative;z-index:2;display:flex;flex-direction:column;height:100%}
+  .foot{
+    margin-top:auto;display:flex;justify-content:space-between;align-items:center;
+    font-family:'JetBrains Mono',monospace;font-size:18px;color:var(--text-3);
+    border-top:1px solid var(--border);padding-top:22px;
+  }
+  .foot .n{color:var(--accent);font-weight:700}
+  h1{font-size:78px;font-weight:900;line-height:1.06;letter-spacing:-.035em}
+  h2{font-size:58px;font-weight:800;line-height:1.13;letter-spacing:-.03em}
+  .hl{color:var(--accent)}
+  p{font-size:28px;color:var(--text-2);line-height:1.55;font-weight:400}
+  .tag{
+    font-family:'JetBrains Mono',monospace;font-size:19px;font-weight:700;
+    letter-spacing:.16em;text-transform:uppercase;color:var(--accent);
+    display:flex;align-items:center;gap:11px;margin-bottom:26px;
+  }
+  .tag i{width:9px;height:9px;border-radius:50%;background:var(--accent);box-shadow:0 0 12px var(--accent);font-style:normal}
+
+  /* browser chrome frame around a real screenshot */
+  .frame{
+    border:1px solid var(--border);border-radius:16px;overflow:hidden;
+    background:var(--surface);box-shadow:0 24px 60px rgba(0,0,0,.55);
+  }
+  .bar{
+    height:42px;background:var(--surface-2);display:flex;align-items:center;gap:8px;
+    padding:0 18px;border-bottom:1px solid var(--border);
+  }
+  .bar span{width:11px;height:11px;border-radius:50%;background:#2b333d}
+  .bar .url{
+    margin-left:14px;font-family:'JetBrains Mono',monospace;font-size:15px;color:var(--text-3);
+    background:var(--bg);border:1px solid var(--border);border-radius:7px;padding:4px 14px;
+  }
+  .frame img{display:block;width:100%}
+
+  /* big statement */
+  .big{font-size:62px;font-weight:800;line-height:1.15;letter-spacing:-.03em;margin-top:auto;margin-bottom:auto}
+
+  /* level columns */
+  .levels{margin-top:40px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:18px}
+  .lv{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:30px 26px;display:flex;flex-direction:column;gap:14px}
+  .lv .lv-h{display:flex;align-items:center;gap:10px;font-family:'JetBrains Mono',monospace;
+            font-size:17px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--text-2)}
+  .lv .lv-h .dot{width:11px;height:11px;border-radius:50%}
+  .lv.b .lv-h .dot{background:var(--accent);box-shadow:0 0 10px var(--accent)}
+  .lv.i .lv-h .dot{background:var(--orange);box-shadow:0 0 10px var(--orange)}
+  .lv.a .lv-h .dot{background:var(--red);box-shadow:0 0 10px var(--red)}
+  .lv .lv-n{font-size:56px;font-weight:800;line-height:1;font-family:'JetBrains Mono',monospace}
+  .lv.b .lv-n{color:var(--accent)} .lv.i .lv-n{color:var(--orange)} .lv.a .lv-n{color:var(--red)}
+  .lv p{font-size:20px;line-height:1.45;color:var(--text-3)}
+
+  /* topic chips */
+  .chips{display:flex;flex-wrap:wrap;gap:12px;margin-top:36px;max-width:900px}
+  .chip{font-family:'JetBrains Mono',monospace;font-size:22px;font-weight:600;color:var(--text);
+        background:var(--surface);border:1px solid var(--border);border-radius:11px;padding:12px 20px}
+  .chip.hi{color:var(--bg);background:var(--accent);border-color:var(--accent)}
+
+  .cta{
+    margin-top:auto;border:1px solid #12b3a8;border-radius:20px;padding:40px 42px;
+    background:linear-gradient(135deg,rgba(25,211,197,.12),rgba(255,138,61,.07));
+  }
+  .cta h3{font-size:38px;font-weight:800;letter-spacing:-.02em}
+  .cta p{font-size:24px;margin-top:12px}
+  .cta .u{font-family:'JetBrains Mono',monospace;font-size:26px;color:var(--accent);
+          font-weight:700;margin-top:18px}
+</style>
+<style>body{margin:0}.slide{display:none!important}.slide#s6{display:flex!important}</style></head>
+<body>
+
+<!-- 1 — HOOK (real screenshot) -->
+<div class="slide" id="s1">
+  <div class="inner">
+    <div class="tag"><i></i>The whole reason</div>
+    <h1>Inventor is huge.<br>Finding the right tool<br><span class="hl">shouldn't be.</span></h1>
+    <p style="margin-top:28px;max-width:800px">225 topics on one page, from your first sketch to advanced assembly. Each one with the clip that actually explains it.</p>
+    <div class="frame" style="margin-top:auto">
+      <div class="bar"><span></span><span></span><span></span><div class="url">darthsandd.github.io/inventor-guide</div></div>
+      <img src="shots/crop-desktop.png" alt="The guide">
+    </div>
+    <div class="foot"><span>Autodesk Inventor Complete Guide</span><span class="n">1 / 8</span></div>
+  </div>
+</div>
+
+<!-- 2 — THE PROBLEM -->
+<div class="slide" id="s2">
+  <div class="inner">
+    <div class="tag"><i></i>Sound familiar?</div>
+    <div class="big" style="font-size:54px">
+      You need one tool.<br>
+      You open YouTube.<br>
+      You sit through <span class="hl">30 seconds of intro</span><br>
+      to find the <span class="hl">20 seconds</span> you needed.
+    </div>
+    <p>Then you do it again next week, because you forgot to bookmark it.</p>
+    <div class="foot"><span>Autodesk Inventor Complete Guide</span><span class="n">2 / 8</span></div>
+  </div>
+</div>
+
+<!-- 3 — THE SITE (real desktop screenshot) -->
+<div class="slide" id="s3">
+  <div class="inner">
+    <div class="tag"><i></i>So this exists</div>
+    <h2>225 topics.<br>18 categories. <span class="hl">One page.</span></h2>
+    <div class="frame" style="margin-top:34px">
+      <div class="bar"><span></span><span></span><span></span><div class="url">darthsandd.github.io/inventor-guide</div></div>
+      <img src="shots/crop-desktop2.png" alt="Desktop view">
+    </div>
+    <div class="foot"><span>Autodesk Inventor Complete Guide</span><span class="n">3 / 8</span></div>
+  </div>
+</div>
+
+<!-- 4 — LEVEL PATH -->
+<div class="slide" id="s4">
+  <div class="inner">
+    <div class="tag"><i></i>A real learning path</div>
+    <h2>Basic to Advanced,<br>tagged on <span class="hl">every card.</span></h2>
+    <div class="levels">
+      <div class="lv b"><div class="lv-h"><span class="dot"></span>Basic</div><div class="lv-n">78</div><p>Sketching, extrude, revolve, hole, fillet, constraints.</p></div>
+      <div class="lv i"><div class="lv-h"><span class="dot"></span>Intermediate</div><div class="lv-n">58</div><p>Patterns, sheet metal, drawings, parameters, BOM.</p></div>
+      <div class="lv a"><div class="lv-h"><span class="dot"></span>Advanced</div><div class="lv-n">89</div><p>Loft, surfaces, iLogic, dynamic simulation, assemblies.</p></div>
+    </div>
+    <p style="margin-top:34px;max-width:860px">Filter by level and work up in order. No guessing what to learn next.</p>
+    <div class="foot"><span>Autodesk Inventor Complete Guide</span><span class="n">4 / 8</span></div>
+  </div>
+</div>
+
+<!-- 5 — ASSEMBLY FOCUS -->
+<div class="slide" id="s5">
+  <div class="inner">
+    <div class="tag"><i></i>Where it gets hard</div>
+    <h2>Assembly is the part<br>most people <span class="hl">never fully learn.</span></h2>
+    <div class="chips">
+      <span class="chip hi">Constrain</span><span class="chip hi">Joints</span><span class="chip hi">iMates</span>
+      <span class="chip">Mate / Flush</span><span class="chip">Insert</span><span class="chip">Component Pattern</span>
+      <span class="chip">Bill of Materials</span><span class="chip">Drive Constraint</span><span class="chip">Positional Reps</span>
+      <span class="chip">Adaptive Parts</span><span class="chip">Skeleton &amp; Top-Down</span><span class="chip">Frame Generator</span>
+      <span class="chip">Weldments</span><span class="chip">Interference</span>
+    </div>
+    <p style="margin-top:auto;max-width:900px">28 assembly topics, plus 15 more advanced ones. Every joint type, every constraint, each with a clip that shows it working.</p>
+    <div class="foot"><span>Autodesk Inventor Complete Guide</span><span class="n">5 / 8</span></div>
+  </div>
+</div>
+
+<!-- 6 — MOBILE (real mobile screenshot) -->
+<div class="slide" id="s6">
+  <div class="inner">
+    <div class="tag"><i></i>And on your phone</div>
+    <h2>Because that's where<br>you <span class="hl">actually</span> look things up.</h2>
+    <div style="display:flex;gap:36px;margin-top:36px;align-items:flex-start">
+      <div class="frame" style="width:392px;flex:0 0 auto">
+        <div class="bar"><span></span><span></span><span></span></div>
+        <img src="shots/mobile-true.png" alt="Mobile view">
+      </div>
+      <div style="padding-top:24px">
+        <p style="font-size:26px">Search, filter by level, copy the tool name, hit play.</p>
+        <p style="font-size:26px;margin-top:20px">No app. No signup. No email.</p>
+        <p style="font-size:26px;margin-top:20px">It's a web page. It just works.</p>
+      </div>
+    </div>
+    <div class="foot"><span>Autodesk Inventor Complete Guide</span><span class="n">6 / 8</span></div>
+  </div>
+</div>
+
+<!-- 7 — THE HONEST BIT -->
+<div class="slide" id="s7">
+  <div class="inner">
+    <div class="tag"><i></i>The boring part nobody sees</div>
+    <div class="big">
+      Every video was<br>checked <span class="hl">by hand.</span>
+    </div>
+    <p style="max-width:860px">224 of 225 topics have a clip matched to that exact tool, then verified live against YouTube. A clip is never borrowed from a similarly-named tool.</p>
+    <p style="max-width:860px;margin-top:18px">For the one topic with no decent clip, the card just says <span class="hl">"no clip"</span> rather than quietly playing the wrong thing.</p>
+    <div class="foot"><span>Autodesk Inventor Complete Guide</span><span class="n">7 / 8</span></div>
+  </div>
+</div>
+
+<!-- 8 — CTA -->
+<div class="slide" id="s8">
+  <div class="inner">
+    <div class="tag"><i></i>Free, if you want it</div>
+    <h2>Bookmark it.<br>Save yourself the <span class="hl">next search.</span></h2>
+    <div class="cta">
+      <h3>Autodesk Inventor Complete Guide</h3>
+      <p>225 topics · 18 categories · 224 clips, matched to the exact tool.</p>
+      <div class="u">darthsandd.github.io/inventor-guide</div>
+    </div>
+    <p style="margin-top:28px;font-size:25px">What's the Inventor tool you still look up every time?</p>
+    <div class="foot"><span>Built by Darren Lieu</span><span class="n">8 / 8</span></div>
+  </div>
+</div>
+
+</body>
+</html>

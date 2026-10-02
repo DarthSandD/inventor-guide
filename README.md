@@ -39,6 +39,11 @@ and Shortcut Reference* and the *Inventor Keyboard Shortcuts Guide*.
 - Fully self-contained: one `index.html`, no build step, no backend, no dependencies.
 - Video is embedded from YouTube. No local video files.
 
+## LinkedIn assets
+
+`linkedin/` holds an 8-slide carousel (1080×1080 PNGs) and the post copy — see
+`linkedin/README.md`.
+
 ## Rebuild
 
 ```
