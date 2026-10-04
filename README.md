@@ -9,7 +9,7 @@ its own curated tutorial clip.
 
 ## What's inside
 
-- **223 topics across 18 categories**, each tagged **Basic / Intermediate / Advanced**.
+- **225 topics across 18 categories**, each tagged **Basic / Intermediate / Advanced** (78 / 58 / 89).
 - Category browser + level filter + full-text search (tool name, shortcut, path, description).
 - One curated YouTube tutorial per topic — click a card's thumbnail to play it in a modal.
 - Copy-to-clipboard per topic, sidebar navigation, scroll progress bar, toast notifications.
