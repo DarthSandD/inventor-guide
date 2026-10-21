@@ -1,12 +1,12 @@
 #!/usr/bin/env python
 """Build the single-file Autodesk Inventor Guide (index.html).
 
-Reads data/commands.py + data/video_db.json, reuses the CSS from the AutoCAD
-guide for visual parity, and emits a self-contained index.html.
+Reads data/commands.py + data/video_db.json, uses the vendored shared guide
+theme (theme.css) for visual parity with the AutoCAD guide, and emits a
+self-contained index.html.
 """
 import json
 import os
-import re
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys_path = HERE
@@ -14,22 +14,16 @@ import sys
 sys.path.insert(0, os.path.join(HERE, "data"))
 from commands import COMMANDS, CATEGORIES  # noqa: E402
 
-AUTOCAD = os.path.join(os.path.dirname(HERE), "autocad-guide", "index.html")
+THEME = os.path.join(HERE, "theme.css")
 OUT = os.path.join(HERE, "index.html")
 
 
 def get_css():
-    with open(AUTOCAD, "r", encoding="utf-8") as f:
-        html = f.read()
-    m = re.search(r"<style>(.*?)</style>", html, re.S)
-    css = m.group(1)
-    # Recolour to the Inventor teal identity.
-    css = css.replace("#00e5ff", "#19d3c5")
-    css = css.replace("#00b8cc", "#12b3a8")
-    css = css.replace("rgba(0, 229, 255, 0.15)", "rgba(25, 211, 197, 0.15)")
-    css = css.replace("rgba(0, 229, 255, 0.1)", "rgba(25, 211, 197, 0.1)")
-    css = css.replace("--orange: #ff9f1c", "--orange: #ff8a3d")
-    return css
+    # The shared guide theme is vendored in this repo so the build stays
+    # self-contained. Since the 2026-10-21 refinement it carries the Darren
+    # Labs kit chrome (paper / ink / amber) that both command guides follow.
+    with open(THEME, "r", encoding="utf-8") as f:
+        return f.read()
 
 
 EXTRA_CSS = """
@@ -53,9 +47,9 @@ EXTRA_CSS = """
   letter-spacing: .05em; padding: .12rem .45rem; border-radius: 4px; margin-left: .5rem;
   vertical-align: middle; font-family: var(--font-mono);
 }
-.level-Basic { background: rgba(25,211,197,.13); color: #19d3c5; }
-.level-Intermediate { background: rgba(255,138,61,.14); color: #ff8a3d; }
-.level-Advanced { background: rgba(255,71,110,.14); color: #ff476e; }
+.level-Basic { background: rgba(34,114,76,.12); color: #22724C; }
+.level-Intermediate { background: rgba(255,178,36,.25); color: #7C4D03; }
+.level-Advanced { background: rgba(179,38,30,.10); color: #B3261E; }
 
 .card-key { display: flex; flex-wrap: wrap; gap: .35rem; margin-top: .5rem; }
 .card-path { font-size: .68rem; color: var(--text-muted); font-family: var(--font-mono); margin-top: .35rem; }
@@ -71,7 +65,14 @@ EXTRA_CSS = """
 
 .legend { display:flex; gap:1rem; align-items:center; padding: 0 2.5rem 1.25rem; flex-wrap: wrap; font-size:.75rem; color: var(--text-muted);}
 .legend .sw { width:10px; height:10px; border-radius:2px; display:inline-block; margin-right:.35rem; vertical-align:middle;}
-.legend .b{background:#19d3c5;} .legend .i{background:#ff8a3d;} .legend .a{background:#ff476e;}
+.legend .b{background:#22724C;} .legend .i{background:#FFB224;} .legend .a{background:#B3261E;}
+
+.header-by {
+  font-size: .8rem; font-weight: 500; color: var(--text-muted);
+  white-space: nowrap; border-left: 1px solid var(--border); padding-left: 1.25rem;
+}
+.header-by strong { color: var(--text); font-weight: 600; }
+@media (max-width: 900px) { .header-by { display: none; } }
 """
 
 
@@ -135,8 +136,13 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Autodesk Inventor Guide — Complete Tutorial &amp; Command Reference</title>
-<meta name="description" content="A complete Autodesk Inventor guide: sketching, part modelling, advanced features, assembly, sheet metal, drawings, surfaces, iLogic and more — every topic with its own curated tutorial video.">
+<title>Autodesk Inventor Guide: Complete Tutorial &amp; Command Reference</title>
+<meta name="description" content="A complete Autodesk Inventor guide by Darren Labs: sketching, part modelling, advanced features, assembly, sheet metal, drawings, surfaces, iLogic and more, every topic with its own curated tutorial video.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Darren Labs">
+<meta property="og:title" content="Autodesk Inventor Guide: Complete Tutorial &amp; Command Reference">
+<meta property="og:description" content="A complete Autodesk Inventor guide by Darren Labs: sketching, part modelling, advanced features, assembly, sheet metal, drawings, surfaces, iLogic and more, every topic with its own curated tutorial video.">
+<meta property="og:url" content="https://darthsandd.github.io/inventor-guide/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -157,6 +163,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     </svg>
     <span>Inventor <span class="accent">Guide</span></span>
   </a>
+  <span class="header-by">by <strong>Darren Labs</strong></span>
   <div class="header-search">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
     <input type="text" id="searchInput" placeholder="Search tools, shortcuts, or topics (e.g. loft, constrain, flange)...">
@@ -165,7 +172,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
 
 <section class="hero">
   <h1>Autodesk Inventor <span class="accent">Complete Guide</span></h1>
-  <p>From your very first sketch to advanced assembly modelling, sheet metal, surfaces, iLogic and stress analysis — every topic explained, with its own curated tutorial clip. Pick a category, search a tool, or follow the Basic &rarr; Advanced path.</p>
+  <p>A complete reference for Autodesk Inventor, made by Darren Labs. From your first sketch to advanced assembly modelling, sheet metal, surfaces, iLogic and stress analysis, every topic is explained with its own curated tutorial clip. Pick a category, search a tool, or follow the Basic &rarr; Advanced path.</p>
   <div class="hero-stats">
     <div class="hero-stat"><b>__TOTAL__</b><span>Topics</span></div>
     <div class="hero-stat"><b>__WITHVID__</b><span>With video</span></div>
@@ -201,11 +208,23 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
 </div>
 
 <div class="legend">
-  <span><span class="sw b"></span>Basic — start here</span>
+  <span><span class="sw b"></span>Basic: start here</span>
   <span><span class="sw i"></span>Intermediate</span>
   <span><span class="sw a"></span>Advanced</span>
   <span style="margin-left:auto">Click any card's thumbnail to play its tutorial</span>
 </div>
+
+<footer class="site-credit">
+  <div>
+    <p class="sc-made">Made by <strong>Darren Labs</strong> · Built by <strong>Darren Lieu</strong> · <a href="https://saweria.co/darren111" target="_blank" rel="noopener">Support on Saweria</a></p>
+    <p class="sc-links">
+      <a href="https://darthsandd.github.io/darren-labs-site/">Darren Labs</a><span>·</span>
+      <a href="https://github.com/DarthSandD">GitHub</a><span>·</span>
+      <a href="https://www.linkedin.com/in/tri-adi-setiawan-41b9131b5/">LinkedIn</a><span>·</span>
+      <a href="https://darthsandd.github.io/autocad-guide/">AutoCAD Guide</a>
+    </p>
+  </div>
+</footer>
 
 <!-- Video Modal -->
 <div class="modal-overlay" id="modalOverlay">
@@ -372,7 +391,7 @@ function renderGrid() {
           <div class="play-overlay"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg></div>
           <div class="clip-time">${fmtTime(v.dur)}</div>
         </div>`
-      : `<div class="card-thumb no-video" data-cmd="${escapeHtml(cmd.key)}" data-title="${escapeHtml(cmd.name)}" title="No clip yet — click to search YouTube">
+      : `<div class="card-thumb no-video" data-cmd="${escapeHtml(cmd.key)}" data-title="${escapeHtml(cmd.name)}" title="No clip yet: click to search YouTube">
           <div class="no-clip">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9.5 9.5h.01M14.5 9.5h.01M9 15c1-1 2-1.5 3-1.5s2 .5 3 1.5"/></svg>
             <span>No clip</span>
@@ -434,7 +453,7 @@ function render() {
 
 // ─── Modal / YouTube Player ─────────────────────────────────────
 function openModal(video) {
-  $modalCmd.textContent = (video.cmdKey || '') + ' — tutorial';
+  $modalCmd.textContent = (video.cmdKey || '') + ': tutorial';
   $modalName.textContent = video.title || 'Tutorial';
   $modalTime.textContent = video.end ? 'Length ' + fmtTime(video.end) : '';
   $modalOverlay.classList.add('open');
