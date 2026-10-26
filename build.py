@@ -142,7 +142,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
 <meta property="og:site_name" content="Darren Labs">
 <meta property="og:title" content="Autodesk Inventor Guide: Complete Tutorial &amp; Command Reference">
 <meta property="og:description" content="A complete Autodesk Inventor guide by Darren Labs: sketching, part modelling, advanced features, assembly, sheet metal, drawings, surfaces, iLogic and more, every topic with its own curated tutorial video.">
-<meta property="og:url" content="https://darthsandd.github.io/inventor-guide/">
+<meta property="og:url" content="https://inventor-guide.pages.dev/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -218,10 +218,10 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   <div>
     <p class="sc-made">Made by <strong>Darren Labs</strong> · Built by <strong>Darren Lieu</strong> · <a href="https://saweria.co/darren111" target="_blank" rel="noopener">Support on Saweria</a></p>
     <p class="sc-links">
-      <a href="https://darthsandd.github.io/darren-labs-site/">Darren Labs</a><span>·</span>
+      <a href="https://darrenlabs.pages.dev/">Darren Labs</a><span>·</span>
       <a href="https://github.com/DarthSandD">GitHub</a><span>·</span>
       <a href="https://www.linkedin.com/in/tri-adi-setiawan-41b9131b5/">LinkedIn</a><span>·</span>
-      <a href="https://darthsandd.github.io/autocad-guide/">AutoCAD Guide</a>
+      <a href="https://autocad-guide.pages.dev/">AutoCAD Guide</a>
     </p>
   </div>
 </footer>

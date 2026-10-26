@@ -1,6 +1,6 @@
 # Autodesk Inventor Complete Guide
 
-Live site: https://darthsandd.github.io/inventor-guide/ (GitHub Pages, serves `index.html`).
+Live site: https://inventor-guide.pages.dev/ (GitHub Pages, serves `index.html`).
 
 A single-file, zero-dependency reference and learning path for Autodesk Inventor —
 from your very first sketch through advanced assembly modelling, sheet metal,

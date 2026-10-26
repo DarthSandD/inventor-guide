@@ -49,7 +49,7 @@ Each drops straight into the caption body above.
 
 **First comment** (put the link here, not in the post — LinkedIn throttles reach on body links):
 
-> Link: darthsandd.github.io/inventor-guide
+> Link: inventor-guide.pages.dev
 
 ---
 
@@ -75,7 +75,7 @@ And every video link was checked by hand and verified live. That matters more th
 
 Free, no signup.
 
-darthsandd.github.io/inventor-guide
+inventor-guide.pages.dev
 
 Which Inventor tool do you still look up every time?
 
@@ -91,7 +91,7 @@ Each card is tagged Basic, Intermediate or Advanced. Assembly gets the deepest c
 
 One HTML file. No signup, no popup, works on your phone.
 
-darthsandd.github.io/inventor-guide
+inventor-guide.pages.dev
 
 What's the tool you use most?
 
@@ -131,4 +131,4 @@ The caption opens on a plain observation rather than a claim, uses sentences of 
 5. "Assembly is the part most people never fully learn." with chips for constrain, joints, iMates, component patterns, bill of materials, adaptive parts, skeleton and top-down, frame generator, weldments and interference.
 6. "Because that's where you actually look things up" beside a phone-width screenshot of the guide.
 7. "Every video was checked by hand." 224 of 225 topics have a clip matched to that exact tool; the one without says "no clip".
-8. "Bookmark it. Save yourself the next search." with darthsandd.github.io/inventor-guide.
+8. "Bookmark it. Save yourself the next search." with inventor-guide.pages.dev.
